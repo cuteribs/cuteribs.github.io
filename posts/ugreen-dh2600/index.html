@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme='https://volantis.js.org/#2.6.6'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+    <title>高颜值NAS还能玩, 绿联私有云DH2600实现中文域名导航页 - 排骨博客</title>
+  
+    <meta name="keywords" content="NAS,UGREEN/绿联">
+  
+  
+    <meta name="description" content="
+
+大家好, 我是可爱的排骨 :)
+
+一. 前言好久没折腾 NAS 了. 最近绿联新推出了一款双盘位家用 NAS: 绿联私有云 DH2600, 采用 x86 架构的 64位低功率赛扬四核 N5105 处理器 (对应 11 代酷睿), 双 DDR4 内存槽可扩充至 16G, 随机附送三星 4G 内存条, 2 个 3...">
+  
+
+  <!-- feed -->
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+  <link rel="shortcut icon" type='image/x-icon' href="/favicon.ico">
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  
+
+  <!-- import link -->
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script>
+	setTimeout(function() {
+	  let script = document.createElement('script');
+	  script.src = "https://www.googletagmanager.com/gtag/js?id=UA-166002383-1";
+	  script.defer=true;
+	  document.body.appendChild(script);
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-166002383-1');
+	}, 5000);
+    </script>
+  
+  
+    <!-- ba -->
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+	  setTimeout(function() { 
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?8b8d1636c58b1fc0c3cca66c0402c41c";
+		hm.defer=true;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+	  }, 5000);
+    })();
+    </script>
+  
+</head>
+
+<body>
+  
+  <div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+<header class="l_header shadow blur">
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h'>
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+            <i class='fas fa-blog'></i>
+          
+          
+            排骨博客
+          
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="搜索..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+<script>setLoadingBarProgress(40);</script>
+
+
+
+  <div class="l_body nocover">
+    <div class='body-wrapper'>
+      
+
+<div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box reveal shadow blur article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/posts/ugreen-dh2600/">
+      高颜值NAS还能玩, 绿联私有云DH2600实现中文域名导航页
+    </a>
+  </h1>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="" rel="nofollow">
+    <img src="https://cdn.jsdelivr.net/gh/cuteribs/cdn-assets/domo_kun2.jpg">
+    <p>可爱的排骨</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/%E8%AF%84%E6%B5%8B/%E5%8D%95%E5%93%81/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>评测/单品</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2022年9月18日</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <p><img src="/posts/ugreen-dh2600/logo.jpg"></p>
+<blockquote>
+<p>大家好, 我是可爱的排骨 :)</p>
+</blockquote>
+<h1 id="一-前言"><a href="#一-前言" class="headerlink" title="一. 前言"></a>一. 前言</h1><p>好久没折腾 NAS 了. 最近绿联新推出了一款双盘位家用 NAS: 绿联私有云 DH2600, 采用 x86 架构的 64位低功率赛扬四核 N5105 处理器 (对应 11 代酷睿), 双 DDR4 内存槽可扩充至 16G, 随机附送三星 4G 内存条, 2 个 3.5 寸 SATA 硬盘笼, 2 个 NVMe 硬盘槽, 1 个 2.5G 多千兆网口以及 3 个 USB3 接口 (2 个USB-A 和 1 个 USB-C).</p>
+<p><img src="/posts/ugreen-dh2600/DSCF6610.jpg"></p>
+<p><a target="_blank" rel="noopener" href="https://item.jd.com/100023664155.html">https://item.jd.com/100023664155.html</a></p>
+<p>从配置上看 DH2600 属于进阶型中端私有云产品, 满足普通家庭与小型团队工作室的存储需求是不成问题的. 圆润的外壳加上亚光银与香槟金的配色凸显着不凡的质感与格调 (还挺好看 😆). 它到底是一款怎么样的产品, 能不能够满足我们的日常存储应用需求呢?</p>
+<span id="more"></span>
+
+<h1 id="二-开箱"><a href="#二-开箱" class="headerlink" title="二. 开箱"></a>二. 开箱</h1><p>绿联私有云 DH2600 目前除了单 NAS 外, 还有 2x4TB 和 2x8TB 两种酷狼硬盘捆绑套装. </p>
+<p><img src="/posts/ugreen-dh2600/DSCF6643.jpg" alt="DSCF6643"></p>
+<p>DH2600 外壳为边角圆润的长方体, 主体周身为哑光银配色, 加上香槟金色点缀. 复古风十足. 正面银色的这一片是硬盘仓盖板, 磁吸贴附在正面. 机身尺寸大约为 226x202x111 毫米, 还是比较小巧可爱的.<img src="/posts/ugreen-dh2600/DSCF6598.jpg"></p>
+<p><img src="/posts/ugreen-dh2600/DSCF6605.jpg" alt="DSCF6605"></p>
+<p>正面下边位置有 3 个 LED 指示灯, 分别显示电源和两个硬盘槽的工作状态.</p>
+<p><img src="/posts/ugreen-dh2600/DSCF6612.jpg"></p>
+<p>背面上方是一个 9 厘米的散热风扇, 下方有 3 个 USB3 接口, 1 个 2.5G 多千兆以太网接口和 1 个 5.5 毫米 DC 电源接口.</p>
+<p><img src="/posts/ugreen-dh2600/DSCF6607.jpg"></p>
+<p><img src="/posts/ugreen-dh2600/DSCF6626.jpg"></p>
+<p>拉开磁吸的硬盘仓盖, 里面是一对印有 <strong>DESIGNED BY UGREEN</strong> 的硬盘抽屉, 抽拉式出仓设计, 顺滑又省力. 硬盘仓盖背面还有个绿联云 app 的<code>场所码</code>. 🤣</p>
+<p><img src="/posts/ugreen-dh2600/DSCF6615.jpg" alt="DSCF6615"></p>
+<p>抽出硬盘抽屉, 可以看到一对 SATA 接口和后面 90x90x25 毫米的无刷风扇.</p>
+<p><img src="/posts/ugreen-dh2600/DSCF6619.jpg"></p>
+<p>侧面还有一对 M.2 接口的 NVMe 硬盘槽, 可将双盘位的 DH2600 扩充成四盘位. 卡扣式设计, 安装硬盘无需螺丝. 撕掉蓝色的塑料片, 下面是浅蓝色的散热胶绵. (注: 不是胶带, 撕不下来)</p>
+<p><img src="/posts/ugreen-dh2600/DSCF6622.jpg"></p>
+<p>DH2600 底部还藏着一对 DDR4 内存插槽, 便于用户扩充内存. 出厂已预装了 1 条三星 DDR4 3200 内存.</p>
+<p><img src="/posts/ugreen-dh2600/DSCF6625.jpg"></p>
+<p><img src="/posts/ugreen-dh2600/DSCF6623.jpg"></p>
+<p>DH2600 的硬盘抽屉采用抽拉式卡扣, 免螺丝轻松拆装 3.5 寸硬盘, 设计非常的银杏. 但若是安装 2.5 寸硬盘, 还是得使用螺丝哦.&#96;&#96;</p>
+<p><img src="/posts/ugreen-dh2600/DSCF6629.jpg"></p>
+<p><img src="/posts/ugreen-dh2600/DSCF6635.jpg"></p>
+<p><img src="/posts/ugreen-dh2600/DSCF6639.jpg"></p>
+<p>相比其它家的双盘 NAS 产品, 绿联的 DH2600 的扩展性可以说是非常不错的了.</p>
+<p><img src="/posts/ugreen-dh2600/plugins.jpg"></p>
+<h1 id="三-功能体验"><a href="#三-功能体验" class="headerlink" title="三. 功能体验"></a>三. 功能体验</h1><p>绿联私有云 DH2600 的安装配置比较简易便捷, 排骨就不拿一堆截图来刷屏了, 总之就是打开<code>绿联云 app</code>一路点下去就搞定了. 排骨接合自己日常使用和实际体验, 给大家分享几个绿联云 DH2600 超好用的几个功能.</p>
+<h2 id="1-文件同步"><a href="#1-文件同步" class="headerlink" title="1. 文件同步"></a>1. 文件同步</h2><p>云存储 (网盘) 最主要的服务之一就是文件同步. 用过 <strong>OneDrive&#x2F;百度云&#x2F;天翼云</strong> 等公有云服务器的同学应该多少使用过同步功能, 其实现原理无外乎通过云存储客户端工具监控用户指定的文件夹, 当客户端或云端有文件新增修改或删除时就立即触发同步. </p>
+<p><img src="/posts/ugreen-dh2600/image-20220916183524690.png"></p>
+<p>绿联云 app 提供的<strong>同步空间</strong>功能, 可以让你的多台电脑在任何网络可及的地方同步办公与创作, 告别 <strong>U盘&#x2F;移动硬盘</strong>.</p>
+<p><img src="/posts/ugreen-dh2600/20220916115939.png"></p>
+<p>启用绿联云的<strong>同步空间</strong>前必须在当前电脑上指定一个同步文件夹, <strong>只有</strong>此文件夹中的会被同步到其它电脑中. 注意不要将整个 C盘或用户主文件夹设置为同步文件夹, 那样将会把巨量的临时文件与程序文件都同步起来, 不但文件数量尺寸过大, 而且还会产出各种系统占用冲突.</p>
+<p><img src="/posts/ugreen-dh2600/20220916121939.png"></p>
+<p>对同步文件夹中的文件进行修改, 就是对所有配置了同步空间的电脑进行修改, 所以尽量不要随时删除同步文件夹的内容, 以免造成数据丢失. (当然还是可以从回收站还原回来)</p>
+<p><img src="/posts/ugreen-dh2600/20220916122054.png"></p>
+<p>从外部网络同步文件时, 同步速度受外部网速影响, 务必在文件同步完成后再断网或休眠关机.</p>
+<h2 id="2-文件分享"><a href="#2-文件分享" class="headerlink" title="2. 文件分享"></a>2. 文件分享</h2><p>文件分享是云盘的重要功能之一, 没有分享的百度云盘想必早就淹没在 N 年前的网盘大军之中了吧.</p>
+<p><img src="/posts/ugreen-dh2600/image-20220916231410727.png"></p>
+<p>绿联云提供了与百度云盘同样方便的文件分享服务, 只要在任意一个云盘中的文件或文件夹上点右键选择分享即可. (挂载的外部存储不支持分享)</p>
+<p><img src="/posts/ugreen-dh2600/image-20220916231449880.png"></p>
+<p>通过绿联云分享给同事好友的文件, 可以直接使用浏览器下载, 大尺寸文件也可以直接下载, 无需安装客户端, 这一点足够秒杀百度云等网盘了.</p>
+<p><img src="/posts/ugreen-dh2600/image-20220916231802583.png"></p>
+<h2 id="3-迅雷远程下载"><a href="#3-迅雷远程下载" class="headerlink" title="3. 迅雷远程下载"></a>3. 迅雷远程下载</h2><p>资源下载已成为家用 NAS 的特色之一. 绿联云内置集成了迅雷下载模块, 用户不用打开电脑就能将电影电视音乐等各种资源拉回家, 然后通过网络共享 (SMB&#x2F;AFP&#x2F;DLNA) 在家播放或使用, 在外也可以通过绿联云 app 享用免费高速的转发功能直接播放.</p>
+<p><img src="/posts/ugreen-dh2600/image-20220917133148204.png"></p>
+<p>绿联云的迅雷模块还集成了迅雷云盘取回功能, 可以将他人分享的迅雷云盘资源转存后下载到绿联云中.</p>
+<p><img src="/posts/ugreen-dh2600/image-20220917134713378.png"></p>
+<p>绿联云集成的迅雷下载没提供单独的入口, 只能从绿联云 app 进入感觉有点麻烦的话, 排骨抓包后发现迅雷云盘网站还有个隐藏入口: <code>https://pan.xunlei.com/yc</code>. 使用手机或电脑的浏览器就能进入并添加下载, 非常的银杏~</p>
+<p><img src="/posts/ugreen-dh2600/image-20220917133425317.png"></p>
+<h2 id="3-Docker-应用"><a href="#3-Docker-应用" class="headerlink" title="3. Docker 应用"></a>3. Docker 应用</h2><p>没有 Docker 的 NAS 对现在 “懂” 一点的玩家来说太 “入门级” 了. Docker 可以弥补 NAS 内置功能的欠缺, 给其带来无限的可能性, 让 NAS 从纯粹的存储服务器升格为综合性服务器. 绿联云 DH2600 作为一款 x86 NAS, 同样也内置了 Docker 支持.</p>
+<p><img src="/posts/ugreen-dh2600/image-20220917153015447.png"></p>
+<p>排骨从 2015 年开始学习和使用 Docker, 这次在绿联云 DH2600 上给大家分享一下中文动态域名的实现和自制 NAS 导航页面.</p>
+<p><img src="/posts/ugreen-dh2600/image-20220918152915683.png"></p>
+<p>首页你需要一个域名, 再选择一个域名解析服务. 排骨在 freenom 注册了一个免费一年的 <strong><code>排骨云.ga</code></strong> 域名, 并将解析服务器设置为阿里云. (freenom 目前注册域名需要一定的<strong>技术手段</strong>, 本文不作介绍. 去买一个中文域名也没几个钱.)</p>
+<p>域名系统只支持英文字母, 阿拉伯数字和减号一共 37 个字符, 超出这 37 个字符范围的域名被称为<strong>国际化域名 (IDN)</strong>, 需要转换成<code>punycode</code>才能使用. <strong>排骨云</strong> 3 个字的 <code>punycode</code> 是 <strong>xn–9kqw52c0i4b</strong>. 主流浏览器会自动识别 <code>IDN</code> 和 <code>punycode</code>, 用户可以在浏览器直接需要中文域名或者<code>punycode</code>转换后的域名访问网站, 无需手工转换. 网上也有很多免费转换服务, 如 <code>https://punycoder.com/</code>.</p>
+<p><img src="/posts/ugreen-dh2600/image-20220918154410463.png"></p>
+<p>登录阿里云进入域名解析服务: <code>https://dns.console.aliyun.com</code>, 添加域名<code>排骨云.ga</code>. 阿里云支持中文域名直接添加, 不需要提前转换成<code>punycode</code>.</p>
+<p><img src="/posts/ugreen-dh2600/image-20220918154742138.png"></p>
+<p>域名添加完成后再从页面右上角主账号菜单打开<code>AccessKey 管理</code>. 我们需要从这里获取 Id 密码给 DDNS 脚本更新域名 IP.</p>
+<p><img src="/posts/ugreen-dh2600/image-20220918155132151.png"></p>
+<p>点击<code>创建 AccessKey</code>后, 将生成的 <code>ID</code> 和 <code>Secret</code> 复制并保存好.</p>
+<p><img src="/posts/ugreen-dh2600/image-20220918155328252.png"></p>
+<p>然后打开绿联云里的 Docker 界面, 从<code>镜像管理</code>和<code>镜像仓库</code>中搜索排骨自制的 DDNS 镜像 <code> cuteribs/ddns</code> 并下载下来.</p>
+<p><img src="/posts/ugreen-dh2600/image-20220918155539913.png"></p>
+<p>镜像下载完成后, 先中 <code>cuteribs/ddns</code> 镜像开始<code>创建容器</code>.</p>
+<p><img src="/posts/ugreen-dh2600/image-20220918160933366.png"></p>
+<p>容器配置只有<strong>环境</strong>需要设置. 一共有 6 项设置需要修改.</p>
+<ul>
+<li>Time: DDNS 更新频率设置. 这里采用的 linux crontab 格式. 一共 5 个数字空格分开, 代表 <code>分 时 日 月 周</code>. 上图 <code>* 6 * * *</code>是个<strong>错误示范</strong>, 它让会脚本在每天早上 6 点重复执行到 7 点! 应该改成每天 6 点整执行一次 <code>0 6 * * *</code>, 或者每天上午下午 6 点各执行一次 <code>0 6,18 * * *</code>.</li>
+<li>Script: 这里填 aliyun 就行了.</li>
+<li>ApiId: 这里填之前在阿里云创建的 <code>AccessKey Id</code>.</li>
+<li>ApiKey: 同上, 填入 <code>AccessKey Secret</code>.</li>
+<li>Domain: 顶级域名, 排骨填的是转码后的<code>排骨云.ga</code>. 转码可以去 <code>https://www.urlenc.com/</code> 操作, 见下图.</li>
+<li>SubDomain: 子域名, 排骨在此填的 <code>绿联</code>, 同样需要转码.</li>
+</ul>
+<p><img src="/posts/ugreen-dh2600/image-20220918160848488.png"></p>
+<p><img src="/posts/ugreen-dh2600/image-20220918163314164.png"></p>
+<p>容器创建完成后, 点<strong>启动</strong>, 然后打开容器的<strong>详情</strong>, 看到日志里被识别出来的公网 IP 已经添加到阿里云域名解析记录里了.</p>
+<p><img src="/posts/ugreen-dh2600/image-20220918163554316.png"></p>
+<p><img src="/posts/ugreen-dh2600/image-20220918164918481.png"></p>
+<p>域名添加到阿里云解析记录后, 可以在阿里云后台看到新的 A 记录. 然后我们可以利用 <code>nslookup</code> 命令来确认域名是否成功解析和分发.</p>
+<p><code>nslookup</code>命令并不支持中文域名查询, 我们需要将域名转换成<code>punycode</code>后才能正确查到域名指向的 IP.</p>
+<p>动态域名搞定. 然后来做导航页. 导航页需要挂在一个 Web 服务器上才能用, 排骨推荐身材小巧配置简易的 <code>lighttpd</code>.</p>
+<p><img src="/posts/ugreen-dh2600/image-20220918170110308.png"></p>
+<p>排骨有个 6MB 不到的 <code>lighttpd</code> 镜像, 支持静态网页和 SSL 证书.</p>
+<p><img src="/posts/ugreen-dh2600/image-20220918173025212.png"></p>
+<p><img src="/posts/ugreen-dh2600/image-20220918173101059.png"></p>
+<p>创建 <code>lighttpd</code> 容器时需要准备好 2 个文件夹用到绑定容器的存储映射, 一个用于存放网页图片和 SSL 证书, 另一个存放 <code>lighttpd</code> 的配置文件. 不要忘记配置一下容器的外部端口, 否则 Docker 分随机分配你不认识的高位端口.</p>
+<p><img src="/posts/ugreen-dh2600/image-20220918174228945.png"></p>
+<p>创建一个 <code>lighttpd.conf</code> 文件并上传到上一步配置的 <code>web/config</code>文件夹中. 内容如下.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"># lighttpd.conf</span><br><span class="line"></span><br><span class="line">var.basedir  = &quot;/data/www&quot;</span><br><span class="line">var.logdir   = &quot;/var/log/lighttpd&quot;</span><br><span class="line">var.statedir = &quot;/var/lib/lighttpd&quot;</span><br><span class="line"></span><br><span class="line">server.modules = (</span><br><span class="line">	&quot;mod_alias&quot;,</span><br><span class="line">	&quot;mod_access&quot;,</span><br><span class="line">	&quot;mod_accesslog&quot;,</span><br><span class="line">	&quot;mod_redirect&quot;,</span><br><span class="line">	&quot;mod_openssl&quot;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">server.document-root = var.basedir</span><br><span class="line">server.indexfiles    = (&quot;index.html&quot;, &quot;index.htm&quot;)</span><br><span class="line"></span><br><span class="line">server.username      = &quot;lighttpd&quot;</span><br><span class="line">server.groupname     = &quot;lighttpd&quot;</span><br><span class="line">server.pid-file      = &quot;/run/lighttpd.pid&quot;</span><br><span class="line">accesslog.filename   = var.logdir + &quot;/access.log&quot;</span><br><span class="line">server.errorlog      = var.logdir  + &quot;/error.log&quot;</span><br><span class="line"></span><br><span class="line"># mime types</span><br><span class="line">mimetype.assign             = (</span><br><span class="line">  &quot;.svg&quot;          =&gt;      &quot;image/svg+xml&quot;,</span><br><span class="line">  &quot;.gif&quot;          =&gt;      &quot;image/gif&quot;,</span><br><span class="line">  &quot;.jpg&quot;          =&gt;      &quot;image/jpeg&quot;,</span><br><span class="line">  &quot;.png&quot;          =&gt;      &quot;image/png&quot;,</span><br><span class="line">  &quot;.css&quot;          =&gt;      &quot;text/css&quot;,</span><br><span class="line">  &quot;.html&quot;         =&gt;      &quot;text/html&quot;,</span><br><span class="line">  &quot;.htm&quot;          =&gt;      &quot;text/html&quot;,</span><br><span class="line">  &quot;.js&quot;           =&gt;      &quot;text/javascript&quot;,</span><br><span class="line">  &quot;.ico&quot;          =&gt;      &quot;image/x-icon&quot;,</span><br><span class="line">  &quot;&quot;              =&gt;      &quot;application/octet-stream&quot;,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/posts/ugreen-dh2600/image-20220918174620528.png"></p>
+<p>排骨用的导航页面是从 gayhub 上随手搜来的, 下载地址是 <code>https://github.com/chenrrrrr/dashboard/releases/download/1.2/dist.zip</code>. 下载后解压到 <code>web/data/www</code> 文件夹中. 参考上图.</p>
+<p><img src="/posts/ugreen-dh2600/image-20220918175106034.png"></p>
+<p>在解压的文件中找到<code>conf.yml</code>, 这个文件用于控制导航页的内容显示, 可以删掉多余的图标, 加上自己喜欢的连接.</p>
+<p><img src="/posts/ugreen-dh2600/image-20220918175450022.png"></p>
+<p>使用域名从外网访问 NAS 导航页前不要忘了在路由器上设置好端口映射, 否则无法用前面设置的动态域名访问导航页.</p>
+<p><img src="/posts/ugreen-dh2600/image-20220918175717020.jpg"></p>
+<p>最终成品效果如上图, 是不是很裤? 😆 这个 NAS 导航页还可以附加其它连接, 比如自己的微博知乎值得买主页地址, 常用的在线视频漫画网站等.</p>
+<h1 id="四-总结"><a href="#四-总结" class="headerlink" title="四. 总结"></a>四. 总结</h1><p>绿联私有云 DH2600 是绿联推出的第三款 NAS 产品, 排骨体验一个月下来觉得 DH2600 大概有以下卖点:</p>
+<ul>
+<li>外观精美, 小巧. 安装方便.</li>
+<li>app 简单易用, 覆盖全平台, 电脑&#x2F;手机&#x2F;平板&#x2F;电视全都支持.</li>
+<li>文件同步操作方便, 文件分享非常易用.</li>
+<li>内置高速 P2P 穿透功能, 让用户随时随地都能通过 app 快速访问绿联云.</li>
+<li>支持 Docker, 可无限扩展绿联云的功能.</li>
+<li>支持双 NVMe 硬盘作为存储或缓存硬盘使用.</li>
+<li>支持 2.5G 多千兆, 可满足未来几年的数据传输需求.</li>
+</ul>
+<p>硬件方面并不输群晖威联通那些老牌 NAS 厂商的同档产品, 软件方面目前还不及老厂们那么丰富完善, 毕竟还是新进 NAS 市场的自研产品, 固件和 app 也平均每个月都在保持迭代更新, 还有无限的成长空间.</p>
+<p>刚刚得到的消息: 目前绿联四盘新品 DX4600 已经出来了，配置更强价格也差不多，有需要的也可以看看绿联DX4600, 另外绿联现在双盘四盘NAS都已经有了, 产品线越来完整了.</p>
+
+          
+            <div class='article_footer'>
+              
+                
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class='content'>
+    
+      <blockquote>
+        
+          
+            <p>未经许可, 本站内容不可转载</p>
+
+          
+        
+          
+            <p>本文永久链接是：<a href=https://gh.cuteribs.com/posts/ugreen-dh2600/>https://gh.cuteribs.com/posts/ugreen-dh2600/</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget qrcode  ">
+  
+
+  <div class='content article-entry'>
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-09-18T10:26:00+00:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2022年9月18日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/NAS/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>NAS</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/UGREEN-%E7%BB%BF%E8%81%94/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>UGREEN/绿联</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/posts/synology-ds220p/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>能回血的群晖 - 盘古 DS220+ 无线宝边缘计算体验</p>
+                <p class='content'>[TOC]
+
+
+大家好, 我是可爱的排骨 :)
+
+一. 前言最近排骨家里的宽带升了千兆 (下行 1000Mbps 上行 30Mbps), 排骨平日网络用量并不大, 靠这千兆带宽的流量剩余价值可以...</p>
+              </a>
+            
+            
+              <a class='next' href='/posts/datacolor-spyderx/'>
+                <p class='title'>苹果屏幕还不如一加? 排骨教你用红蜘蛛检测手机平板屏幕素质<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>
+
+大家好, 我是可爱的排骨 😉
+
+前言大家在选购显示器时, 除了分辨率刷新率外, 有没有把色域&#x2F;色深&#x2F;色准作为参考标准呢? 现在千元以上的显示器产品介绍页面都会提示色域&...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow blur">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: '高颜值NAS还能玩, 绿联私有云DH2600实现中文域名导航页',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+  
+    
+    
+
+
+  <section class="widget toc-wrapper shadow blur desktop mobile">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80-%E5%89%8D%E8%A8%80"><span class="toc-text">一. 前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C-%E5%BC%80%E7%AE%B1"><span class="toc-text">二. 开箱</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89-%E5%8A%9F%E8%83%BD%E4%BD%93%E9%AA%8C"><span class="toc-text">三. 功能体验</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%96%87%E4%BB%B6%E5%90%8C%E6%AD%A5"><span class="toc-text">1. 文件同步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%96%87%E4%BB%B6%E5%88%86%E4%BA%AB"><span class="toc-text">2. 文件分享</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E8%BF%85%E9%9B%B7%E8%BF%9C%E7%A8%8B%E4%B8%8B%E8%BD%BD"><span class="toc-text">3. 迅雷远程下载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Docker-%E5%BA%94%E7%94%A8"><span class="toc-text">3. Docker 应用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B-%E6%80%BB%E7%BB%93"><span class="toc-text">四. 总结</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+  
+    
+    
+  
+
+  <section class="widget category shadow blur desktop">
+    
+  <header>
+    
+      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+    
+  </header>
+
+
+    <div class='content'>
+      <ul class="entry navigation">
+        
+          <li><a class="flat-box"
+            title="/categories/%E6%80%80%E6%97%A7/" href="/categories/%E6%80%80%E6%97%A7/"
+            id="categoriesE68080E697A7"
+            ><div class='name'>怀旧</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E6%99%92%E7%89%A9/" href="/categories/%E6%99%92%E7%89%A9/"
+            id="categoriesE69992E789A9"
+            ><div class='name'>晒物</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E7%A7%91%E6%99%AE/" href="/categories/%E7%A7%91%E6%99%AE/"
+            id="categoriesE7A791E699AE"
+            ><div class='name'>科普</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E7%BB%8F%E9%AA%8C/" href="/categories/%E7%BB%8F%E9%AA%8C/"
+            id="categoriesE7BB8FE9AA8C"
+            ><div class='name'>经验</div><div class='badge'>(6)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E7%BB%8F%E9%AA%8C/%E8%A3%85%E6%9C%BA/" href="/categories/%E7%BB%8F%E9%AA%8C/%E8%A3%85%E6%9C%BA/"
+            id="categoriesE7BB8FE9AA8CE8A385E69CBA"
+            ><div class='name'>装机</div><div class='badge'>(4)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E8%AF%84%E6%B5%8B/" href="/categories/%E8%AF%84%E6%B5%8B/"
+            id="categoriesE8AF84E6B58B"
+            ><div class='name'>评测</div><div class='badge'>(35)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E8%AF%84%E6%B5%8B/%E5%8D%95%E5%93%81/" href="/categories/%E8%AF%84%E6%B5%8B/%E5%8D%95%E5%93%81/"
+            id="categoriesE8AF84E6B58BE58D95E59381"
+            ><div class='name'>单品</div><div class='badge'>(35)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E8%AF%84%E6%B5%8B/%E5%8D%95%E5%93%81/%E7%BB%8F%E9%AA%8C/" href="/categories/%E8%AF%84%E6%B5%8B/%E5%8D%95%E5%93%81/%E7%BB%8F%E9%AA%8C/"
+            id="categoriesE8AF84E6B58BE58D95E59381E7BB8FE9AA8C"
+            ><div class='name'>经验</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E8%AF%84%E6%B5%8B/%E5%8D%95%E5%93%81/%E9%BB%91%E8%8B%B9%E6%9E%9C/" href="/categories/%E8%AF%84%E6%B5%8B/%E5%8D%95%E5%93%81/%E9%BB%91%E8%8B%B9%E6%9E%9C/"
+            id="categoriesE8AF84E6B58BE58D95E59381E9BB91E88BB9E69E9C"
+            ><div class='name'>黑苹果</div><div class='badge'>(2)</div></a></li>
+        
+      </ul>
+    </div>
+  </section>
+
+
+  
+
+  
+    
+    
+  
+
+  <section class="widget tagcloud shadow blur desktop mobile">
+    
+  <header>
+    
+      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
+    
+  </header>
+
+
+    <div class='content'>
+      <a href="/tags/360/" style="font-size: 17.33px; color: #828282">360</a> <a href="/tags/ASUS-%E5%8D%8E%E7%A1%95/" style="font-size: 19px; color: #777">ASUS/华硕</a> <a href="/tags/BELKIN-%E8%B4%9D%E5%B0%94%E9%87%91/" style="font-size: 14px; color: #999">BELKIN/贝尔金</a> <a href="/tags/BENQ-%E6%98%8E%E5%9F%BA/" style="font-size: 14px; color: #999">BENQ/明基</a> <a href="/tags/DAHUA-%E5%A4%A7%E5%8D%8E/" style="font-size: 14px; color: #999">DAHUA/大华</a> <a href="/tags/DURGOD-%E6%9D%9C%E4%BC%BD/" style="font-size: 15.67px; color: #8e8e8e">DURGOD/杜伽</a> <a href="/tags/Datacolor/" style="font-size: 14px; color: #999">Datacolor</a> <a href="/tags/FIRSTBLOOD/" style="font-size: 14px; color: #999">FIRSTBLOOD</a> <a href="/tags/GANSS/" style="font-size: 14px; color: #999">GANSS</a> <a href="/tags/GLOWAY-%E5%85%89%E5%A8%81/" style="font-size: 14px; color: #999">GLOWAY/光威</a> <a href="/tags/HUAWEI-%E5%8D%8E%E4%B8%BA/" style="font-size: 14px; color: #999">HUAWEI/华为</a> <a href="/tags/IGENE-%E5%87%BB%E9%9F%B3/" style="font-size: 14px; color: #999">IGENE/击音</a> <a href="/tags/KIOXIA-%E5%87%AF%E4%BE%A0/" style="font-size: 14px; color: #999">KIOXIA/凯侠</a> <a href="/tags/LEVEL8-%E5%9C%B0%E5%B9%B3%E7%BA%BF8%E5%8F%B7/" style="font-size: 14px; color: #999">LEVEL8/地平线8号</a> <a href="/tags/LINKSYS-%E9%A2%86%E5%8A%BF/" style="font-size: 14px; color: #999">LINKSYS/领势</a> <a href="/tags/LOFREE-%E6%B4%9B%E6%96%90/" style="font-size: 14px; color: #999">LOFREE/洛斐</a> <a href="/tags/MI-%E5%B0%8F%E7%B1%B3/" style="font-size: 14px; color: #999">MI/小米</a> <a href="/tags/MIJIA-%E7%B1%B3%E5%AE%B6/" style="font-size: 14px; color: #999">MIJIA/米家</a> <a href="/tags/MOVESPEED-%E7%A7%BB%E9%80%9F/" style="font-size: 14px; color: #999">MOVESPEED/移速</a> <a href="/tags/NARWAL-%E4%BA%91%E9%B2%B8/" style="font-size: 14px; color: #999">NARWAL/云鲸</a> <a href="/tags/NAS/" style="font-size: 17.33px; color: #828282">NAS</a> <a href="/tags/QNAP-%E5%A8%81%E8%81%94%E9%80%9A/" style="font-size: 15.67px; color: #8e8e8e">QNAP/威联通</a> <a href="/tags/RIODMI-%E7%9D%BF%E7%B1%B3/" style="font-size: 14px; color: #999">RIODMI/睿米</a> <a href="/tags/SYNOLOGY-%E7%BE%A4%E6%99%96/" style="font-size: 14px; color: #999">SYNOLOGY/群晖</a> <a href="/tags/UGREEN-%E7%BB%BF%E8%81%94/" style="font-size: 14px; color: #999">UGREEN/绿联</a> <a href="/tags/VIVO/" style="font-size: 14px; color: #999">VIVO</a> <a href="/tags/Wi-Fi-6/" style="font-size: 22.33px; color: #606060">Wi-Fi 6</a> <a href="/tags/Wi-Fi-6E/" style="font-size: 14px; color: #999">Wi-Fi 6E</a> <a href="/tags/%E4%B8%8B%E8%BD%BD%E6%9C%BA/" style="font-size: 14px; color: #999">下载机</a> <a href="/tags/%E5%90%B8%E5%B0%98%E5%99%A8/" style="font-size: 14px; color: #999">吸尘器</a> <a href="/tags/%E5%9B%BA%E6%80%81%E7%A1%AC%E7%9B%98/" style="font-size: 19px; color: #777">固态硬盘</a> <a href="/tags/%E5%AE%B6%E5%BA%AD%E5%BD%B1%E9%9F%B3/" style="font-size: 14px; color: #999">家庭影音</a> <a href="/tags/%E5%B9%B3%E6%9D%BF%E7%94%B5%E8%84%91/" style="font-size: 14px; color: #999">平板电脑</a> <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 14px; color: #999">微服务</a> <a href="/tags/%E6%89%8B%E6%9C%BA/" style="font-size: 14px; color: #999">手机</a> <a href="/tags/%E6%89%A9%E5%B1%95%E5%9D%9E/" style="font-size: 15.67px; color: #8e8e8e">扩展坞</a> <a href="/tags/%E6%89%AB%E5%9C%B0%E6%9C%BA/" style="font-size: 14px; color: #999">扫地机</a> <a href="/tags/%E6%89%AB%E5%9C%B0%E6%9C%BA%E5%99%A8%E4%BA%BA/" style="font-size: 14px; color: #999">扫地机器人</a> <a href="/tags/%E6%98%BE%E7%A4%BA%E5%99%A8/" style="font-size: 15.67px; color: #8e8e8e">显示器</a> <a href="/tags/%E6%9C%BA%E6%A2%B0%E9%94%AE%E7%9B%98/" style="font-size: 19px; color: #777">机械键盘</a> <a href="/tags/%E6%B8%B8%E6%88%8F/" style="font-size: 14px; color: #999">游戏</a> <a href="/tags/%E6%BC%AB%E7%94%BB/" style="font-size: 14px; color: #999">漫画</a> <a href="/tags/%E7%81%AF%E5%85%B7/" style="font-size: 14px; color: #999">灯具</a> <a href="/tags/%E7%94%B5%E8%84%91%E4%B8%BB%E6%9C%BA/" style="font-size: 15.67px; color: #8e8e8e">电脑主机</a> <a href="/tags/%E7%94%B5%E9%A5%AD%E7%85%B2/" style="font-size: 14px; color: #999">电饭煲</a> <a href="/tags/%E7%A0%81%E5%86%9C/" style="font-size: 14px; color: #999">码农</a> <a href="/tags/%E7%AE%B1%E5%8C%85/" style="font-size: 14px; color: #999">箱包</a> <a href="/tags/%E7%BB%BF%E8%81%94/" style="font-size: 15.67px; color: #8e8e8e">绿联</a> <a href="/tags/%E8%80%B3%E6%9C%BA/" style="font-size: 14px; color: #999">耳机</a> <a href="/tags/%E8%A3%85%E6%9C%BA/" style="font-size: 17.33px; color: #828282">装机</a> <a href="/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/" style="font-size: 24px; color: #555">路由器</a> <a href="/tags/%E9%85%B7%E6%AF%94%E9%AD%94%E6%96%B9/" style="font-size: 14px; color: #999">酷比魔方</a> <a href="/tags/%E9%94%AE%E7%9B%98/" style="font-size: 20.67px; color: #6c6c6c">键盘</a> <a href="/tags/%E9%9B%B6%E5%88%BB/" style="font-size: 14px; color: #999">零刻</a> <a href="/tags/%E9%9B%B7%E7%94%B53/" style="font-size: 14px; color: #999">雷电3</a> <a href="/tags/%E9%AD%94%E5%85%BD%E4%B8%96%E7%95%8C/" style="font-size: 14px; color: #999">魔兽世界</a> <a href="/tags/%E9%BB%91%E8%8B%B9%E6%9E%9C/" style="font-size: 20.67px; color: #6c6c6c">黑苹果</a> <a href="/tags/%E9%BC%A0%E6%A0%87/" style="font-size: 15.67px; color: #8e8e8e">鼠标</a>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='true'
+      volume='0.7'
+      loop='all'
+      order='random'
+      fixed='false'
+      list-max-height='340px'
+      server='netease'
+      type='playlist'
+      id='3175833810'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml"
+                class="social fas fa-rss flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="mailto:me@xaoxuu.com"
+                class="social fas fa-envelope flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://github.com/xaoxuu"
+                class="social fab fa-github flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/user/home?id=63035382"
+                class="social fas fa-headphones-alt flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        <div><p>Blog content follows the <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+</div>
+      
+    
+      
+        Use
+        <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
+        as theme
+      
+    
+      
+        <div class='copyright'>
+        <p><a target="_blank" rel="noopener" href="https://cuteribs.ga/">版权所有 © 2020 可爱的排骨</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4/dist/jquery.min.js"></script>
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      ScrollReveal().reveal('.l_main .reveal', {
+        distance: '8px',
+        duration: '800',
+        interval: '100',
+        scale: '1'
+      });
+    });
+  </script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://unpkg.com/cuteribs/cdn-assets/wallhaven-01yz8g.png", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-0w8y2r.jpg", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-13xxrv.jpg", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-73jeko.jpg", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-g8mj2e.png", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-j81565.jpg", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-mpo29y.jpg", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-p83gpj.jpg", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-p879v3.jpg", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-qd27z7.png", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-yj8qwg.jpg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('') {
+          $('').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "pvKmMOLxDFw0YR0y7pVFTo0o-MdYXbMMI",
+    appKey: "s40zxIg9wGykkJJiUMy2IHA6",
+    placeholder: "快来评论吧~",
+    pageSize:'20',
+    avatar:'mp',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'false',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.6.5/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/comment_typing.js"></script>
+
+
+
+
+
+
+<!-- 复制 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-check-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-check-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-times-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-times-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  function pjax_fancybox() {
+    $(".article-entry").find("img").not('.inline').not('a img').each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 标准 markdown 描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".article-entry").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  $(function () {
+    pjax_fancybox();
+  });
+</script>
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>

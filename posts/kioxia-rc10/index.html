@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme='https://volantis.js.org/#2.6.6'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+    <title>最正经的系统迁移攻略, 给笔记本硬盘升级铠侠SSD - 排骨博客</title>
+  
+    <meta name="keywords" content="固态硬盘,KIOXIA/凯侠,装机">
+  
+  
+    <meta name="description" content="
+
+大家好, 我是可爱的排骨 🙄
+
+前言去年排骨发了两篇 Win10 系统安装部署方面的贴子 【终极系统安装盘打造攻略 - macOS+win10+ubuntu 三合一】【最纯净的 Windows 10 安装攻略】, 分别交待了不利用任何第三方软件纯靠 Win10 自带功能来制作 Win10 安装U盘和安装 W...">
+  
+
+  <!-- feed -->
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+  <link rel="shortcut icon" type='image/x-icon' href="/favicon.ico">
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  
+
+  <!-- import link -->
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script>
+	setTimeout(function() {
+	  let script = document.createElement('script');
+	  script.src = "https://www.googletagmanager.com/gtag/js?id=UA-166002383-1";
+	  script.defer=true;
+	  document.body.appendChild(script);
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-166002383-1');
+	}, 5000);
+    </script>
+  
+  
+    <!-- ba -->
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+	  setTimeout(function() { 
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?8b8d1636c58b1fc0c3cca66c0402c41c";
+		hm.defer=true;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+	  }, 5000);
+    })();
+    </script>
+  
+</head>
+
+<body>
+  
+  <div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+<header class="l_header shadow blur">
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h'>
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+            <i class='fas fa-blog'></i>
+          
+          
+            排骨博客
+          
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="搜索..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+<script>setLoadingBarProgress(40);</script>
+
+
+
+  <div class="l_body nocover">
+    <div class='body-wrapper'>
+      
+
+<div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box reveal shadow blur article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/posts/kioxia-rc10/">
+      最正经的系统迁移攻略, 给笔记本硬盘升级铠侠SSD
+    </a>
+  </h1>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="" rel="nofollow">
+    <img src="https://cdn.jsdelivr.net/gh/cuteribs/cdn-assets/domo_kun2.jpg">
+    <p>可爱的排骨</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/%E7%BB%8F%E9%AA%8C/%E8%A3%85%E6%9C%BA/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>评测/单品/经验/装机</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2020年11月11日</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <p><img src="/posts/kioxia-rc10/26OV66MBe7IbHIc7.jpg"></p>
+<blockquote>
+<p>大家好, 我是可爱的排骨 🙄</p>
+</blockquote>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>去年排骨发了两篇 Win10 系统安装部署方面的贴子 【<strong>终极系统安装盘打造攻略 - macOS+win10+ubuntu 三合一】【最纯净的 Windows 10 安装攻略】</strong>, 分别交待了不利用任何第三方软件纯靠 Win10 自带功能来制作 Win10 安装U盘和安装 Win10 的流程以及相关的基础知识. 还差一篇 Win10 系统迁移就完成<strong>装系统专家三步曲</strong>了, 拖了一年多, 排骨终于得空来填完这个坑了.</p>
+<p>前两篇里使用过的多个命令和知识点会在本篇中再次用到, 但为了照顾大部分看了命令行就头大的又喜欢吐槽同学们, 排骨这次花了点时间制作了一个 bat 脚本文件, 无需敲任何命令就能完成整个<strong>系统备份&#x2F;分区创建&#x2F;系统恢复三大步骤</strong>的系统迁移流程. (本文部分命令截图可能与实际情况有些差异)</p>
+<p><img src="/posts/kioxia-rc10/1jRvFa3XWMIw8JOO.png"></p>
+<p>BAT 脚本下载地址: 链接: <a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1W6pA0J4OKe8bCODJepFFPg">https://pan.baidu.com/s/1W6pA0J4OKe8bCODJepFFPg</a> 提取码: t2dn</p>
+<p>在文尾排骨还额外附送了 nvme 固态硬盘高格成 4kn (原生 4k 扇区)  的方法.</p>
+<span id="more"></span>
+
+<h1 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h1><p>日常电脑使用中, 需要迁移系统的情况大多出现在旧电脑升级中. 电脑的所有硬件都可以升级更换, 不管你是换 CPU, 换主板, 换显卡, 换机箱电源键盘鼠标都不需要迁移系统, 唯有更换硬盘, 完整的将硬盘里的操作系统和文件数据需要迁移到新硬盘中才需要, 也就是说更换硬盘才需要系统迁移.</p>
+<p>正好排骨要给领导用的 MagicBook 15 升级一下硬盘, 把 256GB 的三星 PM981 换成了 500GB 的铠侠 RC10, 顺手小晒一下.</p>
+<p><img src="/posts/kioxia-rc10/dYbceWLMvfS22ouX.jpg"></p>
+<p>排骨入手的这款铠侠固态硬盘是<strong>橙色</strong>的 RC10 系列, 铠侠的固态硬盘另外还有<strong>绿色</strong>的 TC10 和<strong>蓝色</strong>的 RD10 两个系列, 采用类似西数的颜色标识大法确实对品牌款式辨识度有不小的提升.</p>
+<p><img src="/posts/kioxia-rc10/ZdfOxAkBlwTEerlt.jpg"></p>
+<p>其实排骨选择铠侠 RC10 有点小私心. PM981 不方便吃黑苹果, 找这个机会入一条东芝的 nvme 固态硬盘, 完美支持黑苹果, 能高格 4kn, 价格还实惠. 东芝存储品牌现已改名为铠侠, 排骨最近还看到有人在铠侠产品评论里说这是杂牌, 什么杂牌能保五年哇? 😂</p>
+<p><img src="/posts/kioxia-rc10/Ag7HxBpOT6J9vz0T.jpg"></p>
+<p><img src="/posts/kioxia-rc10/HMjuVMQdlSYhroHr.PNG"></p>
+<p>铠侠 RC10 采用东芝自家主控和闪存颗粒, nvme 版本为最新的 1.3c. 500GB 版的最高连续读写速度为 1700&#x2F;1600MBps, 4K 随机读写速度为 35万&#x2F;40万 IOPS, 也就是 1367&#x2F;1562MBps), 虽然不满 PCIE 3.0x4 最高速度, 但已足够满足所有的消费级应用需求了.</p>
+<p><img src="/posts/kioxia-rc10/4Elplwf27DxJlZ9S.png"></p>
+<p><img src="/posts/kioxia-rc10/75lCkObjmpgiSEW4.png"></p>
+<p>使用 AS SSD Benchmark 2.0 测试总分在 4 千左右. 虽然 RC10 的连续读写速度只有 PCIE3.0x2 的水平, 但是它的 4K 64线程读写都在 30 万以上, 是同价位硬盘中名列前茅的一个了.</p>
+<h1 id="系统备份"><a href="#系统备份" class="headerlink" title="系统备份"></a>系统备份</h1><p>在换上新硬盘之前, 排骨先把旧硬盘上 C 盘的系统备份一下. C 盘除了 Win10 系统文件外, 还包含用户档案, 偏好设置, 应用软件和文档等. 由于系统运行时很多文件被各种系统服务独占无法读取, 所以我们需要使用 Win10 安装盘启动到 PE 进行系统备份操作. 虽然用 dism++ 不进 PE 就能备份, 但 dism++ 是国产闭源软件, 不算 Win10 自带的纯净操作.</p>
+<p><strong>①</strong>首先下载排骨的系统迁移脚本, 将里面的<strong>cuteribs.bat</strong>和<strong>wimscript.ini</strong>两个文件复制到 Win10 安装 U盘的安装包根目录.<strong>wimscript.ini</strong>文件保留了一些系统备份时需要忽略的文件路径, 我们可以手动添加其它路径, 比如你那些几百 GB 的游戏目录.</p>
+<p><img src="/posts/kioxia-rc10/9USKwHeVll6E43oX.png"></p>
+<p><strong>②</strong>从 U盘启动到 Win10 安装界面 (即 PE), 按 SHIFT+F10 打开命令行窗口, 然后输入<strong>wmic logicaldisk get caption,filesystem,volumename</strong>找出上一步放置<strong>wimscripts</strong>文件夹的分区, 假如是<strong>D</strong>盘. 然后输入<strong>D:\cuteribs.bat</strong>运行脚本.</p>
+<p><img src="/posts/kioxia-rc10/DHzPxjOmHHXmnHAD.png"></p>
+<p>③ 选择<strong>1. 系统备份 ⇢ 1. 开始备份</strong>, 如上图所示, 找到你需要备份的那个 Win10 系统分区并输入盘符, 输入备份文件的保存路径, 再选择压缩率, 接着开始备份任务. 任务完成后生成一个 10G 以上的备份文件.</p>
+<p><img src="/posts/kioxia-rc10/i2uhDlw0lXhKqovZ.png"></p>
+<p><img src="/posts/kioxia-rc10/ycXOnBQYGjqcCuuI.PNG"></p>
+<p>备份完成后拨掉 U盘重启, 检查 C 盘与备份出来的 wim 文件内容. (酷狗音乐和 Office 的缓存文件夹忘了加到 wimscript.ini 文件里了 😂)</p>
+<h1 id="分区创建"><a href="#分区创建" class="headerlink" title="分区创建"></a>分区创建</h1><p>在开始这一步之前, 排骨建议大家先跳到最后**高格原生 4K (4Kn)**看一下.</p>
+<p>我们需要先给新硬盘分区, 之后才能把备份的系统恢复过去. 新的系统分区不需要与原系统分区的大小保持一致.</p>
+<p><img src="/posts/kioxia-rc10/LuZP5eqzMBiu6680.jpg"></p>
+<p><strong>①</strong>由于 MagicBook 15 只有一个 nvme 硬盘槽, 排骨用了绿联的 nvme 硬盘盒将铠侠 RC10 以移动硬盘的形式接到本本上.</p>
+<p><img src="/posts/kioxia-rc10/OLVpzuDuC35MegdX.png"></p>
+<p><strong>②</strong>以管理员身份运行<strong>cuteribs.bat</strong>, 选择<strong>2. 分区创建</strong>⇢<strong>1. 开始分区</strong>.</p>
+<p><img src="/posts/kioxia-rc10/jv1bE5oa0JUXbBG9.png"></p>
+<p><strong>③</strong>指定好 EFI (开机启动区) 和系统分区大小与盘符. Win10 只需要 100MB 的 EFI 分区就够了.</p>
+<p><strong>④</strong>分区完成后<strong>我的电脑</strong>中会多出 X&#x2F;Y 两个分区.</p>
+<h1 id="系统恢复"><a href="#系统恢复" class="headerlink" title="系统恢复"></a>系统恢复</h1><p><img src="/posts/kioxia-rc10/z3vxHFCiLvyWAkeQ.png">紧接上一步, 再次运行<strong>cuteribs.bat</strong>, 选择<strong>2. 系统恢复</strong>⇢<strong>1. 开始恢复</strong>. 填入上一步创建的分区盘符, 再输入系统备份文件的路径, 稍等一会儿旧硬盘的 Win10 系统就迁移到新硬盘上去了!</p>
+<p>现在排骨可以把本本拆开, 换上新硬盘.</p>
+<p><img src="/posts/kioxia-rc10/c8XJ13fIXsY5bu5L.jpg"></p>
+<p>一个 T5 六角梅花批头加一块塑料翘片, 轻松脱下本本外壳. 不光是荣耀 MagicBook, 戴尔 XPS 等本本也是用的这种镙丝.</p>
+<p><img src="/posts/kioxia-rc10/Ol2sASzqM3Sg1a7i.jpg"></p>
+<p>MagicBook 15 的 M.2 硬盘槽在右上角, 左下预留了 2.5 寸 SATA 硬盘位, 但是没配硬盘线. 需要另行购买.</p>
+<p><img src="/posts/kioxia-rc10/L21BzP9uoA3YdxyF.jpg"></p>
+<p>将传说中的 PM981 请下神龛, 装入排骨的绿联硬盘中, 换上铠侠 RC10 橙盘. 这里需要注意一点: 上面的 RC10 并未完全插进 M.2 槽, 开机检测不到硬盘! 需要加一把劲把它全部插进去!</p>
+<p>再次开机的时候会发现原来的系统已经无缝迁移好了, 跟原系统完全一样, 连指纹解锁什么的都恢复过来了.</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>至此, 排骨的<strong>装系统专家三步曲</strong>正式完结啦. 只使用 diskpart&#x2F;dism&#x2F;wmic 等 Win10 (PE) 内置的几个命令就完成了 Win10 的安装盘制作, Win10 的安装和迁移. 你也可以哦~🙃</p>
+<h1 id="高格原生-4K-4Kn"><a href="#高格原生-4K-4Kn" class="headerlink" title="高格原生 4K (4Kn)"></a>高格原生 4K (4Kn)</h1><p>目前的硬盘存在三种扇区格式:<strong>512n</strong>,<strong>512e</strong>,<strong>4Kn</strong>. (n 表示原生, e 表示模拟, Win7 不支持 4Kn)</p>
+<p>使用<strong>fsutil fsinto ntfsinfo c: | findstr 扇区字节数</strong>命令可以查看 C 盘所在硬盘的扇区大小. 两个 512 表示是 512n, 两个 4096 表示是 4Kn, 如果是 512&#x2F;4096 就表示是 512e.<img src="/posts/kioxia-rc10/mmJWi7vDhvYB1AW1.png"></p>
+<p>nvme 固态硬盘的物理扇区大小都是 4KB (排骨还没发现过 512B 的 nvme 硬盘), 但是为了兼容那些只认 512B 小扇区的老旧系统, 厂商将 4KB 的物理扇区模拟成 8 个 512B 的逻辑扇区, 即 512e.</p>
+<p>不论是 512n 还是 512e 都可能出现 4K 不对齐的问题, 降低固态硬盘的性能. 4Kn 是原生 4K 扇区, 完全免除了需要 4K 对齐的担忧.</p>
+<p><img src="/posts/kioxia-rc10/fWYCHGyQxhkkaVYI.png"></p>
+<p>在高格成 4Kn 的硬盘上进行分区, 可分配的最小单元 (簇) 就是 4KB (如上面左图). 也就是说不管你怎么分区, 它永远是 4K 对齐的, 你可以把 “4K对齐” 这个词从你们电脑词典里撕掉了.</p>
+<p>除了 4K 对齐的好处外, 4Kn 相比 512e 还有哪些优点呢? 目前排骨理解到的有两点:</p>
+<p><strong>① 空间利用率</strong>. 4Kn 每个扇区占用 15+4096+100&#x3D;4211(15 为地址等标记, 100 为纠错码) 字节的硬盘空间, 而 512e 扇区要占用 15+512+50&#x3D;577 (15 为地址等标记, 50 为纠错码) 字节的硬盘空间. 可以看出 4Kn 对硬盘空间的利用率要比 512e 高得多, 同样一块 500GB 硬盘, 格成 4Kn 可用空间要比 512e 多.</p>
+<p><strong>② 小文件写入效率</strong>. 由于 512e 是用 4K 物理扇区模拟出来的, 所以当你写入一份小于 4KB 的数据时, 512e 硬盘需要将所在的 4K 物理扇区内数据全部读到缓存中, 与新数据合后再写入, 一次单独的小文件<strong>写入操作</strong>, 512e 要比 4Kn 多出一次<strong>读取操作</strong>.</p>
+<p>将铠侠 RC10 高格成 4Kn 可以使用铠侠官网的 SSD Utility 软件, 流程如下:</p>
+<p><strong>①</strong>下载 SSD Utility 并安装. <a target="_blank" rel="noopener" href="https://personal.kioxia.com.cn/zh-cn/software/ssd-utility.html">https://personal.kioxia.com.cn/zh-cn/software/ssd-utility.html</a></p>
+<p><strong>②</strong>使用 SSD Utility 制作启动U盘.</p>
+<p><strong>③</strong>关机插上铠侠 RC10.</p>
+<p><strong>④</strong>使用 SSD Utility 启动U盘开机.</p>
+<p><strong>⑤</strong>选择铠侠 RC10 并用 4096 格式化.</p>
+<p><img src="/posts/kioxia-rc10/gF9mQVFkXRuSmjnT.png"></p>
+<p>铠侠的 SSD Utility 只能用在铠侠 RC10 和 RD10 硬盘上. 排骨用的是 linux 系统下的 nvme-cli  工具, 这个工具可以把铠侠&#x2F;东芝&#x2F;三星等大多数 nvme 硬盘高格成 4Kn. 排骨使用【<strong>终极系统安装盘打造攻略 - macOS+win10+ubuntu 三合一】</strong>中制作的安装盘进入安装盘中的 Ubuntu 系统, 联上网络, 添加 universe 软件下载源, 安装 smartmontools 和 nvme-cli.</p>
+<p>▶ 使用<strong>smartctl -i &#x2F;dev&#x2F;nvme0</strong>命令查看硬盘支持的格式.</p>
+<p>▶ 使用<strong>nvme format -l 1 &#x2F;dev&#x2F;nvme0</strong>将硬盘高格成 4096 格式 (参考上一步的结果)</p>
+<p>使用<strong>nvme format -l 0 &#x2F;dev&#x2F;nvme0</strong>还能把硬盘改回 512e.</p>
+
+          
+            <div class='article_footer'>
+              
+                
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class='content'>
+    
+      <blockquote>
+        
+          
+            <p>未经许可, 本站内容不可转载</p>
+
+          
+        
+          
+            <p>本文永久链接是：<a href=https://gh.cuteribs.com/posts/kioxia-rc10/>https://gh.cuteribs.com/posts/kioxia-rc10/</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget qrcode  ">
+  
+
+  <div class='content article-entry'>
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-11-10T16:00:00+00:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2020年11月11日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%9B%BA%E6%80%81%E7%A1%AC%E7%9B%98/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>固态硬盘</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/KIOXIA-%E5%87%AF%E4%BE%A0/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>KIOXIA/凯侠</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E8%A3%85%E6%9C%BA/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>装机</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/posts/gloway-yct512nvme/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>国货之光, 光威 Gloway 弈Pro NVMe 固态硬盘开箱简测</p>
+                <p class='content'>
+
+大家好, 我是可爱的排骨 😏
+
+上篇【记一次悲凉的电脑升级, 攒机经历…唉~】排骨提到使用了 512GB 容量的国产高端 NVMe 固态硬盘光威弈Pro 作为系统盘. 光威弈Pro NVM...</p>
+              </a>
+            
+            
+              <a class='next' href='/posts/benq-bl2581t/'>
+                <p class='title'>舒适阅读高效办公, 明基 BL2581T 显示器务必了解一下<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>
+
+大家好, 我是可爱的排骨 🙄
+
+前言
+不装摊牌~ 上图就是排骨的工位. 两个本本 Latitude 5400 和 MacBook Pro 15, 一台 U2415 显示器, 一个 WD19...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow blur">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: '最正经的系统迁移攻略, 给笔记本硬盘升级铠侠SSD',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+  
+    
+    
+
+
+  <section class="widget toc-wrapper shadow blur desktop mobile">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">应用场景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E5%A4%87%E4%BB%BD"><span class="toc-text">系统备份</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%86%E5%8C%BA%E5%88%9B%E5%BB%BA"><span class="toc-text">分区创建</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E6%81%A2%E5%A4%8D"><span class="toc-text">系统恢复</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%AB%98%E6%A0%BC%E5%8E%9F%E7%94%9F-4K-4Kn"><span class="toc-text">高格原生 4K (4Kn)</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+  
+    
+    
+  
+
+  <section class="widget category shadow blur desktop">
+    
+  <header>
+    
+      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+    
+  </header>
+
+
+    <div class='content'>
+      <ul class="entry navigation">
+        
+          <li><a class="flat-box"
+            title="/categories/%E6%80%80%E6%97%A7/" href="/categories/%E6%80%80%E6%97%A7/"
+            id="categoriesE68080E697A7"
+            ><div class='name'>怀旧</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E6%99%92%E7%89%A9/" href="/categories/%E6%99%92%E7%89%A9/"
+            id="categoriesE69992E789A9"
+            ><div class='name'>晒物</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E7%A7%91%E6%99%AE/" href="/categories/%E7%A7%91%E6%99%AE/"
+            id="categoriesE7A791E699AE"
+            ><div class='name'>科普</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E7%BB%8F%E9%AA%8C/" href="/categories/%E7%BB%8F%E9%AA%8C/"
+            id="categoriesE7BB8FE9AA8C"
+            ><div class='name'>经验</div><div class='badge'>(6)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E7%BB%8F%E9%AA%8C/%E8%A3%85%E6%9C%BA/" href="/categories/%E7%BB%8F%E9%AA%8C/%E8%A3%85%E6%9C%BA/"
+            id="categoriesE7BB8FE9AA8CE8A385E69CBA"
+            ><div class='name'>装机</div><div class='badge'>(4)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E8%AF%84%E6%B5%8B/" href="/categories/%E8%AF%84%E6%B5%8B/"
+            id="categoriesE8AF84E6B58B"
+            ><div class='name'>评测</div><div class='badge'>(35)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E8%AF%84%E6%B5%8B/%E5%8D%95%E5%93%81/" href="/categories/%E8%AF%84%E6%B5%8B/%E5%8D%95%E5%93%81/"
+            id="categoriesE8AF84E6B58BE58D95E59381"
+            ><div class='name'>单品</div><div class='badge'>(35)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E8%AF%84%E6%B5%8B/%E5%8D%95%E5%93%81/%E7%BB%8F%E9%AA%8C/" href="/categories/%E8%AF%84%E6%B5%8B/%E5%8D%95%E5%93%81/%E7%BB%8F%E9%AA%8C/"
+            id="categoriesE8AF84E6B58BE58D95E59381E7BB8FE9AA8C"
+            ><div class='name'>经验</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E8%AF%84%E6%B5%8B/%E5%8D%95%E5%93%81/%E9%BB%91%E8%8B%B9%E6%9E%9C/" href="/categories/%E8%AF%84%E6%B5%8B/%E5%8D%95%E5%93%81/%E9%BB%91%E8%8B%B9%E6%9E%9C/"
+            id="categoriesE8AF84E6B58BE58D95E59381E9BB91E88BB9E69E9C"
+            ><div class='name'>黑苹果</div><div class='badge'>(2)</div></a></li>
+        
+      </ul>
+    </div>
+  </section>
+
+
+  
+
+  
+    
+    
+  
+
+  <section class="widget tagcloud shadow blur desktop mobile">
+    
+  <header>
+    
+      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
+    
+  </header>
+
+
+    <div class='content'>
+      <a href="/tags/360/" style="font-size: 17.33px; color: #828282">360</a> <a href="/tags/ASUS-%E5%8D%8E%E7%A1%95/" style="font-size: 19px; color: #777">ASUS/华硕</a> <a href="/tags/BELKIN-%E8%B4%9D%E5%B0%94%E9%87%91/" style="font-size: 14px; color: #999">BELKIN/贝尔金</a> <a href="/tags/BENQ-%E6%98%8E%E5%9F%BA/" style="font-size: 14px; color: #999">BENQ/明基</a> <a href="/tags/DAHUA-%E5%A4%A7%E5%8D%8E/" style="font-size: 14px; color: #999">DAHUA/大华</a> <a href="/tags/DURGOD-%E6%9D%9C%E4%BC%BD/" style="font-size: 15.67px; color: #8e8e8e">DURGOD/杜伽</a> <a href="/tags/Datacolor/" style="font-size: 14px; color: #999">Datacolor</a> <a href="/tags/FIRSTBLOOD/" style="font-size: 14px; color: #999">FIRSTBLOOD</a> <a href="/tags/GANSS/" style="font-size: 14px; color: #999">GANSS</a> <a href="/tags/GLOWAY-%E5%85%89%E5%A8%81/" style="font-size: 14px; color: #999">GLOWAY/光威</a> <a href="/tags/HUAWEI-%E5%8D%8E%E4%B8%BA/" style="font-size: 14px; color: #999">HUAWEI/华为</a> <a href="/tags/IGENE-%E5%87%BB%E9%9F%B3/" style="font-size: 14px; color: #999">IGENE/击音</a> <a href="/tags/KIOXIA-%E5%87%AF%E4%BE%A0/" style="font-size: 14px; color: #999">KIOXIA/凯侠</a> <a href="/tags/LEVEL8-%E5%9C%B0%E5%B9%B3%E7%BA%BF8%E5%8F%B7/" style="font-size: 14px; color: #999">LEVEL8/地平线8号</a> <a href="/tags/LINKSYS-%E9%A2%86%E5%8A%BF/" style="font-size: 14px; color: #999">LINKSYS/领势</a> <a href="/tags/LOFREE-%E6%B4%9B%E6%96%90/" style="font-size: 14px; color: #999">LOFREE/洛斐</a> <a href="/tags/MI-%E5%B0%8F%E7%B1%B3/" style="font-size: 14px; color: #999">MI/小米</a> <a href="/tags/MIJIA-%E7%B1%B3%E5%AE%B6/" style="font-size: 14px; color: #999">MIJIA/米家</a> <a href="/tags/MOVESPEED-%E7%A7%BB%E9%80%9F/" style="font-size: 14px; color: #999">MOVESPEED/移速</a> <a href="/tags/NARWAL-%E4%BA%91%E9%B2%B8/" style="font-size: 14px; color: #999">NARWAL/云鲸</a> <a href="/tags/NAS/" style="font-size: 17.33px; color: #828282">NAS</a> <a href="/tags/QNAP-%E5%A8%81%E8%81%94%E9%80%9A/" style="font-size: 15.67px; color: #8e8e8e">QNAP/威联通</a> <a href="/tags/RIODMI-%E7%9D%BF%E7%B1%B3/" style="font-size: 14px; color: #999">RIODMI/睿米</a> <a href="/tags/SYNOLOGY-%E7%BE%A4%E6%99%96/" style="font-size: 14px; color: #999">SYNOLOGY/群晖</a> <a href="/tags/UGREEN-%E7%BB%BF%E8%81%94/" style="font-size: 14px; color: #999">UGREEN/绿联</a> <a href="/tags/VIVO/" style="font-size: 14px; color: #999">VIVO</a> <a href="/tags/Wi-Fi-6/" style="font-size: 22.33px; color: #606060">Wi-Fi 6</a> <a href="/tags/Wi-Fi-6E/" style="font-size: 14px; color: #999">Wi-Fi 6E</a> <a href="/tags/%E4%B8%8B%E8%BD%BD%E6%9C%BA/" style="font-size: 14px; color: #999">下载机</a> <a href="/tags/%E5%90%B8%E5%B0%98%E5%99%A8/" style="font-size: 14px; color: #999">吸尘器</a> <a href="/tags/%E5%9B%BA%E6%80%81%E7%A1%AC%E7%9B%98/" style="font-size: 19px; color: #777">固态硬盘</a> <a href="/tags/%E5%AE%B6%E5%BA%AD%E5%BD%B1%E9%9F%B3/" style="font-size: 14px; color: #999">家庭影音</a> <a href="/tags/%E5%B9%B3%E6%9D%BF%E7%94%B5%E8%84%91/" style="font-size: 14px; color: #999">平板电脑</a> <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 14px; color: #999">微服务</a> <a href="/tags/%E6%89%8B%E6%9C%BA/" style="font-size: 14px; color: #999">手机</a> <a href="/tags/%E6%89%A9%E5%B1%95%E5%9D%9E/" style="font-size: 15.67px; color: #8e8e8e">扩展坞</a> <a href="/tags/%E6%89%AB%E5%9C%B0%E6%9C%BA/" style="font-size: 14px; color: #999">扫地机</a> <a href="/tags/%E6%89%AB%E5%9C%B0%E6%9C%BA%E5%99%A8%E4%BA%BA/" style="font-size: 14px; color: #999">扫地机器人</a> <a href="/tags/%E6%98%BE%E7%A4%BA%E5%99%A8/" style="font-size: 15.67px; color: #8e8e8e">显示器</a> <a href="/tags/%E6%9C%BA%E6%A2%B0%E9%94%AE%E7%9B%98/" style="font-size: 19px; color: #777">机械键盘</a> <a href="/tags/%E6%B8%B8%E6%88%8F/" style="font-size: 14px; color: #999">游戏</a> <a href="/tags/%E6%BC%AB%E7%94%BB/" style="font-size: 14px; color: #999">漫画</a> <a href="/tags/%E7%81%AF%E5%85%B7/" style="font-size: 14px; color: #999">灯具</a> <a href="/tags/%E7%94%B5%E8%84%91%E4%B8%BB%E6%9C%BA/" style="font-size: 15.67px; color: #8e8e8e">电脑主机</a> <a href="/tags/%E7%94%B5%E9%A5%AD%E7%85%B2/" style="font-size: 14px; color: #999">电饭煲</a> <a href="/tags/%E7%A0%81%E5%86%9C/" style="font-size: 14px; color: #999">码农</a> <a href="/tags/%E7%AE%B1%E5%8C%85/" style="font-size: 14px; color: #999">箱包</a> <a href="/tags/%E7%BB%BF%E8%81%94/" style="font-size: 15.67px; color: #8e8e8e">绿联</a> <a href="/tags/%E8%80%B3%E6%9C%BA/" style="font-size: 14px; color: #999">耳机</a> <a href="/tags/%E8%A3%85%E6%9C%BA/" style="font-size: 17.33px; color: #828282">装机</a> <a href="/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/" style="font-size: 24px; color: #555">路由器</a> <a href="/tags/%E9%85%B7%E6%AF%94%E9%AD%94%E6%96%B9/" style="font-size: 14px; color: #999">酷比魔方</a> <a href="/tags/%E9%94%AE%E7%9B%98/" style="font-size: 20.67px; color: #6c6c6c">键盘</a> <a href="/tags/%E9%9B%B6%E5%88%BB/" style="font-size: 14px; color: #999">零刻</a> <a href="/tags/%E9%9B%B7%E7%94%B53/" style="font-size: 14px; color: #999">雷电3</a> <a href="/tags/%E9%AD%94%E5%85%BD%E4%B8%96%E7%95%8C/" style="font-size: 14px; color: #999">魔兽世界</a> <a href="/tags/%E9%BB%91%E8%8B%B9%E6%9E%9C/" style="font-size: 20.67px; color: #6c6c6c">黑苹果</a> <a href="/tags/%E9%BC%A0%E6%A0%87/" style="font-size: 15.67px; color: #8e8e8e">鼠标</a>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='true'
+      volume='0.7'
+      loop='all'
+      order='random'
+      fixed='false'
+      list-max-height='340px'
+      server='netease'
+      type='playlist'
+      id='3175833810'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml"
+                class="social fas fa-rss flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="mailto:me@xaoxuu.com"
+                class="social fas fa-envelope flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://github.com/xaoxuu"
+                class="social fab fa-github flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/user/home?id=63035382"
+                class="social fas fa-headphones-alt flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        <div><p>Blog content follows the <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+</div>
+      
+    
+      
+        Use
+        <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
+        as theme
+      
+    
+      
+        <div class='copyright'>
+        <p><a target="_blank" rel="noopener" href="https://cuteribs.ga/">版权所有 © 2020 可爱的排骨</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4/dist/jquery.min.js"></script>
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      ScrollReveal().reveal('.l_main .reveal', {
+        distance: '8px',
+        duration: '800',
+        interval: '100',
+        scale: '1'
+      });
+    });
+  </script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://unpkg.com/cuteribs/cdn-assets/wallhaven-01yz8g.png", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-0w8y2r.jpg", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-13xxrv.jpg", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-73jeko.jpg", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-g8mj2e.png", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-j81565.jpg", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-mpo29y.jpg", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-p83gpj.jpg", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-p879v3.jpg", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-qd27z7.png", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-yj8qwg.jpg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('') {
+          $('').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "pvKmMOLxDFw0YR0y7pVFTo0o-MdYXbMMI",
+    appKey: "s40zxIg9wGykkJJiUMy2IHA6",
+    placeholder: "快来评论吧~",
+    pageSize:'20',
+    avatar:'mp',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'false',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.6.5/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/comment_typing.js"></script>
+
+
+
+
+
+
+<!-- 复制 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-check-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-check-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-times-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-times-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  function pjax_fancybox() {
+    $(".article-entry").find("img").not('.inline').not('a img').each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 标准 markdown 描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".article-entry").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  $(function () {
+    pjax_fancybox();
+  });
+</script>
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>

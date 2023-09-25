@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme='https://volantis.js.org/#2.6.6'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+    <title>黑苹果开荒记系统篇: 超详细的纯净 MacOS 安装流程 - 排骨博客</title>
+  
+    <meta name="keywords" content="黑苹果">
+  
+  
+    <meta name="description" content="
+
+大家好, 我是可爱的排骨 😁 
+
+前言这一篇排骨来说说 Z490 主板的黑苹果系统安装流程 (基于 OpenCore). 仍然是以上一篇的硬件 Intel i7-10700K + 圣旗 Z490-PRO Gaming + 讯景 RX 480 为基础, 介绍排骨开荒吃土的全部过程~ 🤣
+流程大概有以下几步:...">
+  
+
+  <!-- feed -->
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+  <link rel="shortcut icon" type='image/x-icon' href="/favicon.ico">
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  
+
+  <!-- import link -->
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script>
+	setTimeout(function() {
+	  let script = document.createElement('script');
+	  script.src = "https://www.googletagmanager.com/gtag/js?id=UA-166002383-1";
+	  script.defer=true;
+	  document.body.appendChild(script);
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-166002383-1');
+	}, 5000);
+    </script>
+  
+  
+    <!-- ba -->
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+	  setTimeout(function() { 
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?8b8d1636c58b1fc0c3cca66c0402c41c";
+		hm.defer=true;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+	  }, 5000);
+    })();
+    </script>
+  
+</head>
+
+<body>
+  
+  <div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+<header class="l_header shadow blur">
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h'>
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+            <i class='fas fa-blog'></i>
+          
+          
+            排骨博客
+          
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="搜索..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+<script>setLoadingBarProgress(40);</script>
+
+
+
+  <div class="l_body nocover">
+    <div class='body-wrapper'>
+      
+
+<div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box reveal shadow blur article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/posts/hackintosh-opencore/">
+      黑苹果开荒记系统篇: 超详细的纯净 MacOS 安装流程
+    </a>
+  </h1>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="" rel="nofollow">
+    <img src="https://cdn.jsdelivr.net/gh/cuteribs/cdn-assets/domo_kun2.jpg">
+    <p>可爱的排骨</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/%E7%BB%8F%E9%AA%8C/%E8%A3%85%E6%9C%BA/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>经验/装机</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2020年7月10日</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <p><img src="/posts/hackintosh-opencore/3LOTOGVKWBm6mFcA.jpg"></p>
+<blockquote>
+<p>大家好, 我是可爱的排骨 😁 </p>
+</blockquote>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这一篇排骨来说说 Z490 主板的黑苹果系统安装流程 (基于 OpenCore). 仍然是以上一篇的硬件 Intel i7-10700K + 圣旗 Z490-PRO Gaming + 讯景 RX 480 为基础, 介绍排骨开荒吃土的全部过程~ 🤣</p>
+<p>流程大概有以下几步:</p>
+<ol>
+<li>制作安装盘.</li>
+<li>安装 Windows 10.</li>
+<li>下载相关文件和脚本工具.</li>
+<li>提取 DSDT (系统信息)并制作补丁 (SSDT).</li>
+<li>创建 config.plist (OC 配置) 并复制到安装盘.</li>
+<li>重新分区</li>
+<li>安装 MacOS 10.15.5.</li>
+<li>补全驱动并修正 OC 配置.</li>
+<li>安装 Windows 10. (可选)</li>
+</ol>
+<blockquote>
+<p>文本安装配置流程主要参考自 [<strong>OpenCore Desktop Guide</strong>].<br>由于平台限制要求, 本文所有需要下载的文件和程序都不能提供下载连接, 请充分自我发挥搜索本领~ 实在找不到可在评论区留言向排骨索取. 😅 </p>
+</blockquote>
+<span id="more"></span>
+
+<h1 id="制作安装盘"><a href="#制作安装盘" class="headerlink" title="制作安装盘"></a>制作安装盘</h1><p>📢 排骨的黑苹果安装盘制作需要以下材料.</p>
+<ul>
+<li><strong>32G 以上的 USB 3.0 U盘一个.</strong> 排骨计划将 <strong>MacOS 10.15.5 Catalina</strong> 安装镜像, <strong>Windows 10</strong> 安装镜像, <strong>Ubuntu 18.04</strong> 安装镜像都放到这个 U盘里.</li>
+<li><strong>一台正常工作的 Windows 10 或 MacOS 电脑</strong>. 安装盘的制作和配置都需要用这台电脑来完成.</li>
+<li><strong>良好的网络环境, 足够的耐心, 懂点电脑技术的脑子</strong>.</li>
+</ul>
+<p>📢用 Win10 电脑制作安装盘.</p>
+<ol>
+<li>下载黑果小兵或其他大佬制作的 dmg 镜像, Win10 安装镜像 (iso), Ubuntu Desktop 18.04 安装镜像 (可选).</li>
+<li>下载 balenaEtcher, 再用它把 dmg 镜像写入 U盘.</li>
+<li>下载 Win10 安装镜像 (iso), 用 dism 命令将镜像中的 install.wim 分成多个 1GB 的 swm 文件.</li>
+<li>在 U盘的剩余空间中创建一个比 Win10 安装镜像稍大的 FAT32 分区. 然后将镜像里除 install.wim 外的所有文件复制到此分区. 再把上一步生成的几个 swm 文件复制到此分区里代替 install.wim.</li>
+<li>在 U盘的剩余空间中创建一个比 Ubuntu 安装镜像稍大的 FAT32 分区. 然后将镜像里所有文件复制到此分区中 (可选).这样排骨的完美安装盘就制作完成了. 将 Win10 和 Ubuntu 也一起做到 U盘是为了安装多系统时省事, 你也可以用多个 U盘来做. 详细的步骤可参考排骨的旧贴 [<strong>终极系统安装盘打造攻略-macOS+win10+ubuntu三合一</strong>].</li>
+</ol>
+<p>📢 准备 OpenCore 需要的驱动, 补丁和工具.</p>
+<p>上面制作的安装盘很可能无法让你直接进入到 Mac 系统安装界面, 特别是对于排骨现在开荒的这款最新的酷睿十代 Z490 主板而言.</p>
+<ol>
+<li>下载 <code>github.com/acidanthera</code> 仓库里的 <code>OpenCore-0.5.9-DEBUG.zip)</code> 并下载.</li>
+<li>下载并安装 python 3.8.x.</li>
+<li>下载 <code>github.com/corpnewt</code> 仓库里的 <code>SSDTTime</code>, <code>ProperTree</code>, <code>GenSMBIOS</code>.</li>
+<li>下载 <code>mackie100projects</code> 的 <code>OpenCore Configurator</code>.</li>
+<li>将 <code>OpenCore-0.5.9-DEBUG.zip</code> 中的 <code>EFI</code> 文件夹复制到 U盘 Win10 安装分区, 放到 Ubuntu 那个分区也行. 这样可以免去挂载 U盘 EFI 分区的麻烦.</li>
+<li>删除 <code>EFI\OC\Drivers</code> 中的以下文件, 然后添加<code>HFSPlus.efi</code>().</li>
+</ol>
+<p><img src="/posts/hackintosh-opencore/7ns5nFMW7RUrSlYL.png"><br>7. 删除 <code>EFI\OC\Tools</code> 中除 <code>OpenShell.efi</code> 以外的所有文件. (用来检查<code>CFG Lock</code>状态的<code>VerifyMsrE2.efi</code>可以保留)<br>8. 下载并添加 kext 驱动并复制到<code>EFI\OC\Kexts</code>文件夹中, 排骨开荒的这块圣旗 Z490 主板还需要额外添加<code>FakePCIID.kex</code>,<code>FakePCIID_Intel_HDMI_Audio.kext</code>才能出声音.</p>
+<p><img src="/posts/hackintosh-opencore/H5jv13J8b8FPsqTm.png"><br>9. 使用 <code>ProperTree.bat</code> 修改 <code>USBInjectAll.kext</code> 文件夹下的 <code>Info.plist</code> 文件 (没错, 苹果的应用程序 <code>.app</code> 和驱动程序 <code>.kext</code> 都是文件夹). 在 <code>Root\IOKitPersonalities\ConfigurationData\Configuration</code> 节点下找到 <code>8086_a36d</code>, 将它改名为 <code>XHC</code> 并保存.</p>
+<p><img src="/posts/hackintosh-opencore/P70XrXAezKBQN1ji.png"><br>10. 从 <code>github.com/dortania/Getting-Started-With-ACPI/tree/master/extra-files/compiled</code> 下载 <code>SSDT-AWAC.aml</code>, <code>SSDT-PLUG-DRTNIA.aml</code>, <code>SSDT-EC-USBX-DESKTOP.aml</code> 三个文件放入 <code>EFI\OC\ACPI</code> 文件夹中. 排骨当然也全部手工折腾过这些 <code>SSDT</code> 的, 最后才发现用这几个现成的就够了. (此处省去三万字…)</p>
+<p>📢修改 OpenCore 的配置文件.</p>
+<ol>
+<li>将<code>OpenCore-0.5.9-DEBUG.zip</code>中的<code>Docs\Sample.plist</code>文件复制到<code>EFI\OC</code>文件夹并改名为<code>config.plist</code>.</li>
+<li>运行<code>ProperTree.bat</code>来打开<code>config.plist</code>文件.</li>
+<li>在 <code>ProperTree</code> 的 <code>File</code> 菜单里选择 <code>OC Clean Snapshot</code>, 然后选中 <code>EFI\OC</code> 文件夹. 这样上面整理好的 <code>efi</code> 和 <code>kext</code> 文件就都引用到 OpenCore 的配置文件 <code>config.plist</code> 里了.</li>
+<li>按下图设置好 <code>Booter</code> 的 <code>Quirks</code>. 如果开机 log 报错, 可以试尝着改变 <code>RebuildAppleMemoryMap</code> 和 <code>SetupVirtualMap</code> 的值.</li>
+</ol>
+<p><img src="/posts/hackintosh-opencore/TZxIHPjQrlRd83xM.png"><br>5. 按下图设置好 <code>Kernel</code> 的 <code>Quirks</code>. 其中的 <code>AppleCpuPmCfgLock</code> 和 <code>AppleXcpmCfgLock</code> 只有在主板 <code>BIOS</code> 的 <code>CFG Lock</code> 启用而又没有选项让你关闭时才需要打开 (可在开机时选择 <code>VerifyMsrE2</code> 来检查主板 <code>BIOS</code> 的 <code>CFG Lock</code> 状态). <code>DisableIoMapper</code> 打开就可以忽略 <code>VT-d</code> 了. <code>XhciPortLimit</code> 在定制好 USB 端口之后关掉.</p>
+<p><img src="/posts/hackintosh-opencore/8tuN7KteSSyno4nQ.png"><br>6. 按下图设置好 <code>Misc</code> 的 <code>Debug</code> 和 <code>Security</code> 节点. <code>Debug</code> 下面的几个设置都是用来生成调试信息和错误信息的, 这部分的改动对安装和配置黑苹果系统没有影响, 可以不动. <code>AllowNvramReset</code> 会在 <code>OpenCore</code> 启动菜单中添加 <code>Reset NVRAM</code> 选项, <code>AllowSetDefault</code> 可以让你修改 <code>OpenCore</code> 启动菜单的默认选择项 (按 Ctrl+Enter). 最后两个选项是屏蔽和降低 MacOS 的安装检查功能, 减少黑苹果的出错率.</p>
+<p><img src="/posts/hackintosh-opencore/GV9PANFybE9LDUOR.png"><br>7. 按下图设置好 <code>NVRAM</code>. <code>UIScale</code> 设置为 2 可以启用 HiDPI, 避免 OpenCore 启动时超高分屏显示器显示内容太小. <code>boot-args</code> 是 OpenCore 的启动参数, 上图参数表示显示全部启动信息, 方便进不了系统的同学拍照上线求助. <code>prev-lang:kdb</code> 初始语言设置, 默认是俄语, 改成 <code>en-US:0</code> 就是英语了.</p>
+<p><img src="/posts/hackintosh-opencore/mfAFM0axR1nEC4Op.png"><br>8. 使用前面下载的 <code>GenSMBIOS</code> 来生成黑苹果的硬件注册信息. 运行 <code>GenSMBIOS.bat</code> 再选 <code>3. Generate SMBIOS</code>.</p>
+<p><img src="/posts/hackintosh-opencore/0r8AjXEDadpKE46W.png"> 然后输入 <code>iMac19,1</code> (注意大小写和逗号) 就能生成一套 SMBIOS 信息了.</p>
+<p><img src="/posts/hackintosh-opencore/8YTsVQ9YDjxqlMld.png"> 如果你想激活 iMessage&#x2F;FaceTime 等功能, 就像去 <code>checkcoverage.apple.com</code> 检查你生成的 <code>Serial</code> 是否存在, 如果不存在就能用来激活 iMessage&#x2F;FaceTime, 类似黑群晖洗白操作. 如果是这个串号已经存在, 表示同串号的苹果电脑别人已经在使用, 会有一些安全问题. 如下图就是排骨试出来的一个美国马凯特大学里的苹果电脑串号, 联网后会自动加入托管证书, 获取包含清空你电脑在内的各种权限~ 怕不怕.</p>
+<p><img src="/posts/hackintosh-opencore/VYG5bFHA1Zhn1PhL.png"><br>9. 按下图设置好 <code>PlatformInfo</code>. 其中的 <code>SystemSerialNumber</code>, <code>MLB</code>, <code>SystemUUID</code> 使用上一步从 <code>GenSMBIOS</code> 生成的信息来填充. <code>MLB</code> 就是 <code>Board Serial</code>. 这步完成后就可以保存并关闭 <code>config.plist</code> 了.</p>
+<p><img src="/posts/hackintosh-opencore/WKNZ61MshNRywNRA.png"></p>
+<p>📢至此基于 OpenCore 的纯净安装盘已经制作完成了. 可以拨掉 U盘插到要吃黑苹果的主板上开机了. 记得把上面下载的 <code>OpenCore Configurator</code> 也复制到 U盘上!</p>
+<h1 id="安装-MacOS"><a href="#安装-MacOS" class="headerlink" title="安装 MacOS"></a>安装 MacOS</h1><ol>
+<li>按 <code>F12</code> (圣旗主板的 BIOS 基本与华硕的一致) 进入 BIOS 设置.</li>
+<li>再按 <code>F9</code> 搜索 <code>Fast Boot</code>, <code>Secure Boot</code>, <code>Intel SGX</code> 这三个选项并禁用.</li>
+<li>继续利用搜索功能找到以下选项并修改设置:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Intel VMX (这块主板没找到 VT-x): 开启</span><br><span class="line">Above 4G decoding: 开启</span><br><span class="line">Hyper-Threading: 开启</span><br><span class="line">Execute Disable Bit: 开启</span><br><span class="line">EHCI/XHCI Hand-off: 开启</span><br><span class="line">OS type: Windows 8.1/10 UEFI Mode</span><br><span class="line">DVMT Pre-Allocated(iGPU Memory): 64MB</span><br></pre></td></tr></table></figure></li>
+<li>保存设置并重启, 然后按 <code>F8</code> 选择 U盘启动, 会看到有多个 U盘分区可选. 如果上面是把 <code>EFI</code> 放在 <code>Win10</code> 或 <code>Ubuntu</code> 分区, 那就要选 3 或者 4. (1 是 EFI 分区, 2 是 MacOS 安装镜像分区, 3 是 Win10 安装镜像分区, 4 是 Ubuntu 安装镜像分区)</li>
+</ol>
+<p><img src="/posts/hackintosh-opencore/VoD1IXKFgF9TOXUh.png"><br>5. 进到 OpenCore 启动菜单时, 选择 <code>Install macOS Catalina</code>. 选择后面带 <code>external</code> 的表示是 U盘上的. 下图可能与你看到的选择数量和顺序不一样, 仅供参考.</p>
+<p><img src="/posts/hackintosh-opencore/ThTjd0Enfxb2aJbr.png"><br>6. 与各种错误作斗争~在成功进入 MacOS 安装界面之前拍照, 搜索, 重启. 包含但不限于</p>
+<blockquote>
+<p><code>apfs_module_start ...</code><br><code>SMCSuper IO ...</code><br><code>Waiting on &lt;dict ID=&quot;0&quot;&gt; ...</code><br><code>apfs_sysctl_register ...</code><br><code>Please go to https :// panic.apple.com to report this panic</code><br>7. 终于进入了安装界面. 排骨首先打开 <code>Disk Utility</code> 处理一下分区.</p>
+</blockquote>
+<p><img src="/posts/hackintosh-opencore/rHQbK7MuAbXOgj7X.png"><br>8. 从左上 <code>View</code> 下拉框中选中 <code>Show All Devices</code> 来显示整个硬盘而不只是分区.</p>
+<p><img src="/posts/hackintosh-opencore/yCdC05g68luaL3Bl.png"><br>9. 选择需要装黑苹果的硬盘, 点上方的格式化按钮 <code>Erase</code>, 格式选择 <code>Mac OS Extended (Journaled)</code>, 分区表选择 <code>GUID Partition Map</code>. 完成后再点上方的分区按钮 <code>Partition</code>.</p>
+<p><img src="/posts/hackintosh-opencore/kZTt3Sx4o6iMtEQu.png"></p>
+<p><img src="/posts/hackintosh-opencore/R2FntdyPkbsFUNEf.png"><br>10. 点两次 <code>+</code> 新增两个分区, 先只改名字不改格式. 反正是开荒体验, 排骨随便平均了三个区. 一个 MacOS, 一个 Win10, 一个 exFAT 交换区.</p>
+<p><img src="/posts/hackintosh-opencore/EQIFct03w3yrDZxQ.png"></p>
+<p><img src="/posts/hackintosh-opencore/MU0oJsHDrJznXlK6.png"><br>11. 退出 <code>Disk Utility</code>, 选择 <code>Install macOS</code>, 再选择一个分区开始安装.</p>
+<p><img src="/posts/hackintosh-opencore/zkxTd24DtAvE7rPx.png"><br>12. 苹果安装程序会自己重启两次, 第一次重启后继续选择上次那个 U盘的分区进入 <code>OpenCore</code>, 这回要选 <code>macOS Installer</code>.</p>
+<p><img src="/posts/hackintosh-opencore/iV6by2ntyGMjvs8z.png"></p>
+<p><img src="/posts/hackintosh-opencore/CHo00Jx8r2mCxUzT.png"></p>
+<blockquote>
+</blockquote>
+<ol start="13">
+<li>第二次重启还是需要用 U盘引导 <code>OpenCore</code>, 但是选择进入的是 <code>MacOS</code>. 看到下面这个时区选择界面就说明黑苹果系统已经安装好了.</li>
+</ol>
+<p><img src="/posts/hackintosh-opencore/P3TRD9brTqGMfswH.png"><br>14. 第一次正式进入黑苹果系统时, 先找到 <code>Terminal</code> 再运行 <code>sudo spctl --master-disable</code> 命令来开启第三方软件运行权限. 然后运行 U盘里的 <code>OpenCore Configurator</code>, 在其 <code>Tools</code> 菜单项下面选择 <code>Mount EFI</code>, 挂载并打开黑苹果当前硬盘上的 <code>EFI</code> 分区.</p>
+<p><img src="/posts/hackintosh-opencore/NiTP59Mhu5PpnuDv.jpg"></p>
+<ol start="15">
+<li>将放到 U盘的 <code>EFI</code> 文件夹复制到刚刚挂载的硬盘 <code>EFI</code> 分区中. 这样就可以拔掉 U盘直接从硬盘启动黑苹果系统了.</li>
+</ol>
+<p>📢黑苹果 MacOS 系统安装完成!</p>
+<h1 id="安装-Win10"><a href="#安装-Win10" class="headerlink" title="安装 Win10"></a>安装 Win10</h1><p>黑苹果用得再溜, 也总会有需要用到 Windows 的时候. 在安装过 MacOS 后, 再安装 Win10 就很简单了.</p>
+<ol>
+<li>插入前面制作的安装盘, 重启电脑. 在<code>OpenCore</code>启动菜单中选择<code>Windows (external)</code>.</li>
+</ol>
+<p><img src="/posts/hackintosh-opencore/nfBu7nfEJrNWTN2M.png"><br>2. 进入 Windows 安装界面后, 按<code>Shift+F10</code>打开命令行容器. 进入<code>diskpart</code>模式, 使用<code>list disk</code>和<code>select disk</code>命令选中硬盘, 再使用<code>list part</code>命令列出硬盘的所有分区. 其中<code>Partition 1</code>是装有<code>OpenCore</code>的<code>EFI</code>分区, 其它几个分别为<code>macOS</code>,<code>win10</code>,<code>exfat</code>三个分区.</p>
+<p><img src="/posts/hackintosh-opencore/oPPxJlbgw87woMqW.png"><br>3. 使用<code>select part</code>命令选中我们准备安装 Win10 的<code>Partition 3</code>分区, 因为它是苹果分区, Win10 不能使用, 所以要将它<code>delete</code>掉.<code>Partition 3</code>被删除后, 再使用<code>create part primary</code>命令创建一个分区给 Win10 安装使用.</p>
+<p><img src="/posts/hackintosh-opencore/9AhBSbjclsJfE08G.png"><br>4. 使用<code>format fs=ntfs quick</code>命令将刚刚创建的分区格式化, 并用<code>assign</code>分配一个盘符. 用<code>list vol</code>命令可以看出每个分区被分配的盘符. 可以看到刚刚格式化好的要装 Win10 的 NTFS 分区盘符是<code>F</code>.</p>
+<p><img src="/posts/hackintosh-opencore/r1mFexpnuFnCJTLZ.png"><br>5. 再选中<code>EFI</code>分区, 给它也分配一个盘符. 现在可以看到<code>F</code>是预装 Win10 的分区,<code>G</code>是<code>EFI</code>启动区,<code>C</code>是 Win10 安装包分区. 这几个盘符记好了. 后面要用.</p>
+<p><img src="/posts/hackintosh-opencore/EN1HMbLrrziFSHyH.png"><br>6. 切换到<code>C</code>盘, 用<code>dism /get-wiminfo /wimfile:sources\install.swm</code>命令找出准备安装的 Win10 版本. 排骨打算安装<code>Index: 5</code>位置的<code>Windows 10 Pro</code>.</p>
+<p><img src="/posts/hackintosh-opencore/LFHj88M2xiRxmlhQ.png"><br>7. 输入<code>dism /apply-image /imagefile:sources\install.swm /swmfile:sources\install*swm /index:5 /applydir:F:</code>直接将 Win10 安装包内存解压到<code>F</code>盘. (原<code>install.wim</code>由于大于 4GB, 在制作安装盘时被排骨分割成多个<code>installx.swm</code>).</p>
+<p><img src="/posts/hackintosh-opencore/1SyYBJspWVhQ8qu1.png"><br>8. 最后使用<code>bcdboot F:\windows /s G: /f UEFI</code>命令将<code>F</code>盘里的<code>Windows</code>引导写入<code>G</code>盘, 引导格式为<code>UEFI</code>.</p>
+<p><img src="/posts/hackintosh-opencore/3nwiyEjdHvnfs71G.png"><br>9. 退出 Win10 安装程序重启, 等待几分钟再看到的就是熟悉的 Win10 欢迎界面了! 之后开机时可以按<code>F8</code>选择从<code>OpenCore</code>或者<code>Windows Boot Manager</code>启动, 也可以在<code>Bios</code>中设置启动顺序.</p>
+<p><img src="/posts/hackintosh-opencore/o4Dp09dvMKZmNelP.png"></p>
+<p>📢 现在 MacOS&#x2F;Windows 单硬盘双系统搞定! 两个系统都可以正常读写第三个 exfat 分区. MacOS 可以直接读取 NTFS 分区, Win10 需要安装<code>Linux Reader</code>等软件才可以访问苹果分区.</p>
+<h1 id="补遗"><a href="#补遗" class="headerlink" title="补遗"></a>补遗</h1><p>📢<strong>定制 USB 端口</strong></p>
+<p><img src="/posts/hackintosh-opencore/WCWokoLruDDENBsT.png"></p>
+<ol>
+<li>下载<code>github.com/headkaze/Hackintool</code>并运行.</li>
+<li>切换到 USB 页面, 可以看到所有可用的 USB 端口显示为绿色, 把黑色的 USB 端口都删除. 如果只有部分绿, 可以用把 USB 键盘或鼠标的 USB 2.0 插头和一个 USB 3.x 的 U盘把主机上每个 USB 都插一遍, 插绿它!</li>
+<li>看看绿色端口总数是不是在 15 个之内, 多于 15 的话需要删除几个绿色端口. (上一篇排骨已经说明了圣旗 Z490-PRO GAMING 这块主板上哪些 USB 端口用到了, 正好与下图的绿色端口一致, 也正好是 15 个)</li>
+<li>点击右下导出按钮生成一个<code>USBPorts.kext</code>, 把它复制到<code>EFI\OC\Kexts</code>文件夹中.</li>
+</ol>
+<p><img src="/posts/hackintosh-opencore/zeL9LLhg0YBPnTO1.png"><br>5. 将<code>EFI\OC\Kexts\config.plist</code>文件中的<code>USBInjectAll.kext</code>修改成<code>USBPorts.kext</code>, 再把<code>XhciPortLimit</code>改成<code>false</code>.</p>
+<ul>
+<li>EHCI: USB 2.0 控制器 (Intel Skylake 开始取消了, 如果你在其它教程中看到它, 请忽略)</li>
+<li>XHCI: USB 3.x 控制器. (向下兼容 USB 1.1&#x2F;2.0)</li>
+<li>HSxx: HS (High Speed) 表示 XHCI 下的 USB 2.0 接口.</li>
+<li>SSxx: SS (Super Speed) 表示 XHCI 下的 USB 3.x 接口.</li>
+<li>macoS Catalina 限制每个 USB 控制器最多 15 个接口.(圣旗 Z490-PRO GAMING 只有一个 XHCI)</li>
+<li>一个 USB 2.0 接口对应一个 HSxx, 如 HS13, 禁掉 HS13 这个接口就失灵了.</li>
+</ul>
+<p>一个 USB 3.x 接口对应一个 HSxx 和一个 SSxx, 如 HS01&#x2F;SS01. 禁掉 HS01 这个接口插鼠标键盘或其它 USB 1.1&#x2F;2.0 设备不工作. 禁掉 SS01 则 USB 3.x 设备降为 2.0 模式运行. HS01&#x2F;SS01 都禁掉则此接口完全失灵.◆ 修改电脑名称 打开 <strong>&#x2F;Users&#x2F;[用户名]&#x2F;Library&#x2F;Preferences&#x2F;com.apple.SystemProfiler.plist</strong> 修改 CPU Names 节点的 string 值, 不要改 key 值.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;key&gt;CPU Names&lt;/key&gt;</span><br><span class="line">&lt;dict&gt;</span><br><span class="line">&lt;key&gt;F8JC-en-CN_CN&lt;/key&gt;</span><br><span class="line">&lt;string&gt;iMac (Shengqi Z490-PRO GAMING)&lt;/string&gt;</span><br><span class="line">&lt;/dict&gt;</span><br></pre></td></tr></table></figure>
+<p>📢<strong>使用无核显 CPU</strong></p>
+<p>如果你用的是带 F 无核显的CPU, 那么在生成 SMBIOS 时输入<code>iMacPro1,1</code>, 这样黑苹果系统会将独显作为默认显卡.</p>
+<p>📢<strong>双系统时间同步</strong></p>
+<p>MacOS 与 Windows 采用不能的系统时钟识别方式. MacOS 会将系统时钟设置成<code>UTC</code>时间, 而 Windows 会把系统时候作为本地时间,</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">REG ADD HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation /v RealTimeIsUniversal /t REG_DWORD /d 1</span><br></pre></td></tr></table></figure>
+<p>如果你可以忍受 MacOS 下使用英国时间, 就不需要改 Windows 注册表了 😆</p>
+<p>一个 USB 3.x 接口对应一个 HSxx 和一个 SSxx, 如 HS01&#x2F;SS01. 禁掉 HS01 这个接口插鼠标键盘或其它 USB 1.1&#x2F;2.0 设备不工作. 禁掉 SS01 则 USB 3.x 设备降为 2.0 模式运行. HS01&#x2F;SS01 都禁掉则此接口完全失灵.◆ 修改电脑名称 打开 <strong>&#x2F;Users&#x2F;[用户名]&#x2F;Library&#x2F;Preferences&#x2F;com.apple.SystemProfiler.plist</strong> 修改 CPU Names 节点的 string 值, 不要改 key 值.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;key&gt;CPU Names&lt;/key&gt;</span><br><span class="line">&lt;dict&gt;</span><br><span class="line">&lt;key&gt;F8JC-en-CN_CN&lt;/key&gt;</span><br><span class="line">&lt;string&gt;iMac (Shengqi Z490-PRO GAMING)&lt;/string&gt;</span><br><span class="line">&lt;/dict&gt;</span><br></pre></td></tr></table></figure>
+<p>📢<strong>使用无核显 CPU</strong></p>
+<p>如果你用的是带 F 无核显的CPU, 那么在生成 SMBIOS 时输入<code>iMacPro1,1</code>, 这样黑苹果系统会将独显作为默认显卡.</p>
+<p>📢<strong>双系统时间同步</strong></p>
+<p>MacOS 与 Windows 采用不能的系统时钟识别方式. MacOS 会将系统时钟设置成<code>UTC</code>时间, 而 Windows 会把系统时候作为本地时间,</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">REG ADD HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation /v RealTimeIsUniversal /t REG_DWORD /d 1</span><br></pre></td></tr></table></figure>
+<p>如果你可以忍受 MacOS 下使用英国时间, 就不需要改 Windows 注册表了 😆</p>
+
+          
+            <div class='article_footer'>
+              
+                
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class='content'>
+    
+      <blockquote>
+        
+          
+            <p>未经许可, 本站内容不可转载</p>
+
+          
+        
+          
+            <p>本文永久链接是：<a href=https://gh.cuteribs.com/posts/hackintosh-opencore/>https://gh.cuteribs.com/posts/hackintosh-opencore/</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget qrcode  ">
+  
+
+  <div class='content article-entry'>
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-09T16:00:00+00:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2020年7月10日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%BB%91%E8%8B%B9%E6%9E%9C/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>黑苹果</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/posts/mijia-mjgjd01yl/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>夜间生产力的辅助神器: 米家显示器挂灯</p>
+                <p class='content'>
+
+大家好, 我是可爱的排骨 😎
+
+不知道大家晚上用电脑时有没有开灯的习惯? 不开灯会不会觉得屏幕太刺眼, 感觉眼睛不舒适?
+排骨看电视或者用电脑时是一定要开灯的. 😎 灯光还不能太弱, 还...</p>
+              </a>
+            
+            
+              <a class='next' href='/posts/hackintosh-z490/'>
+                <p class='title'>黑苹果开荒记硬件篇: 新品 10700K+圣旗 Z490 配置实例<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>
+
+大家好, 我是可爱的排骨 😁
+
+前言618 刚过, 排骨一好友就扛来他新淘的主机, 找排骨给装黑苹果. 配的 CPU 主板内存套餐 (10700K + Z490 + 8G x 2), 显卡...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow blur">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: '黑苹果开荒记系统篇: 超详细的纯净 MacOS 安装流程',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+  
+    
+    
+
+
+  <section class="widget toc-wrapper shadow blur desktop mobile">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%B6%E4%BD%9C%E5%AE%89%E8%A3%85%E7%9B%98"><span class="toc-text">制作安装盘</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-MacOS"><span class="toc-text">安装 MacOS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-Win10"><span class="toc-text">安装 Win10</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A1%A5%E9%81%97"><span class="toc-text">补遗</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+  
+    
+    
+  
+
+  <section class="widget category shadow blur desktop">
+    
+  <header>
+    
+      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+    
+  </header>
+
+
+    <div class='content'>
+      <ul class="entry navigation">
+        
+          <li><a class="flat-box"
+            title="/categories/%E6%80%80%E6%97%A7/" href="/categories/%E6%80%80%E6%97%A7/"
+            id="categoriesE68080E697A7"
+            ><div class='name'>怀旧</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E6%99%92%E7%89%A9/" href="/categories/%E6%99%92%E7%89%A9/"
+            id="categoriesE69992E789A9"
+            ><div class='name'>晒物</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E7%A7%91%E6%99%AE/" href="/categories/%E7%A7%91%E6%99%AE/"
+            id="categoriesE7A791E699AE"
+            ><div class='name'>科普</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E7%BB%8F%E9%AA%8C/" href="/categories/%E7%BB%8F%E9%AA%8C/"
+            id="categoriesE7BB8FE9AA8C"
+            ><div class='name'>经验</div><div class='badge'>(6)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E7%BB%8F%E9%AA%8C/%E8%A3%85%E6%9C%BA/" href="/categories/%E7%BB%8F%E9%AA%8C/%E8%A3%85%E6%9C%BA/"
+            id="categoriesE7BB8FE9AA8CE8A385E69CBA"
+            ><div class='name'>装机</div><div class='badge'>(4)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E8%AF%84%E6%B5%8B/" href="/categories/%E8%AF%84%E6%B5%8B/"
+            id="categoriesE8AF84E6B58B"
+            ><div class='name'>评测</div><div class='badge'>(35)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E8%AF%84%E6%B5%8B/%E5%8D%95%E5%93%81/" href="/categories/%E8%AF%84%E6%B5%8B/%E5%8D%95%E5%93%81/"
+            id="categoriesE8AF84E6B58BE58D95E59381"
+            ><div class='name'>单品</div><div class='badge'>(35)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E8%AF%84%E6%B5%8B/%E5%8D%95%E5%93%81/%E7%BB%8F%E9%AA%8C/" href="/categories/%E8%AF%84%E6%B5%8B/%E5%8D%95%E5%93%81/%E7%BB%8F%E9%AA%8C/"
+            id="categoriesE8AF84E6B58BE58D95E59381E7BB8FE9AA8C"
+            ><div class='name'>经验</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E8%AF%84%E6%B5%8B/%E5%8D%95%E5%93%81/%E9%BB%91%E8%8B%B9%E6%9E%9C/" href="/categories/%E8%AF%84%E6%B5%8B/%E5%8D%95%E5%93%81/%E9%BB%91%E8%8B%B9%E6%9E%9C/"
+            id="categoriesE8AF84E6B58BE58D95E59381E9BB91E88BB9E69E9C"
+            ><div class='name'>黑苹果</div><div class='badge'>(2)</div></a></li>
+        
+      </ul>
+    </div>
+  </section>
+
+
+  
+
+  
+    
+    
+  
+
+  <section class="widget tagcloud shadow blur desktop mobile">
+    
+  <header>
+    
+      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
+    
+  </header>
+
+
+    <div class='content'>
+      <a href="/tags/360/" style="font-size: 17.33px; color: #828282">360</a> <a href="/tags/ASUS-%E5%8D%8E%E7%A1%95/" style="font-size: 19px; color: #777">ASUS/华硕</a> <a href="/tags/BELKIN-%E8%B4%9D%E5%B0%94%E9%87%91/" style="font-size: 14px; color: #999">BELKIN/贝尔金</a> <a href="/tags/BENQ-%E6%98%8E%E5%9F%BA/" style="font-size: 14px; color: #999">BENQ/明基</a> <a href="/tags/DAHUA-%E5%A4%A7%E5%8D%8E/" style="font-size: 14px; color: #999">DAHUA/大华</a> <a href="/tags/DURGOD-%E6%9D%9C%E4%BC%BD/" style="font-size: 15.67px; color: #8e8e8e">DURGOD/杜伽</a> <a href="/tags/Datacolor/" style="font-size: 14px; color: #999">Datacolor</a> <a href="/tags/FIRSTBLOOD/" style="font-size: 14px; color: #999">FIRSTBLOOD</a> <a href="/tags/GANSS/" style="font-size: 14px; color: #999">GANSS</a> <a href="/tags/GLOWAY-%E5%85%89%E5%A8%81/" style="font-size: 14px; color: #999">GLOWAY/光威</a> <a href="/tags/HUAWEI-%E5%8D%8E%E4%B8%BA/" style="font-size: 14px; color: #999">HUAWEI/华为</a> <a href="/tags/IGENE-%E5%87%BB%E9%9F%B3/" style="font-size: 14px; color: #999">IGENE/击音</a> <a href="/tags/KIOXIA-%E5%87%AF%E4%BE%A0/" style="font-size: 14px; color: #999">KIOXIA/凯侠</a> <a href="/tags/LEVEL8-%E5%9C%B0%E5%B9%B3%E7%BA%BF8%E5%8F%B7/" style="font-size: 14px; color: #999">LEVEL8/地平线8号</a> <a href="/tags/LINKSYS-%E9%A2%86%E5%8A%BF/" style="font-size: 14px; color: #999">LINKSYS/领势</a> <a href="/tags/LOFREE-%E6%B4%9B%E6%96%90/" style="font-size: 14px; color: #999">LOFREE/洛斐</a> <a href="/tags/MI-%E5%B0%8F%E7%B1%B3/" style="font-size: 14px; color: #999">MI/小米</a> <a href="/tags/MIJIA-%E7%B1%B3%E5%AE%B6/" style="font-size: 14px; color: #999">MIJIA/米家</a> <a href="/tags/MOVESPEED-%E7%A7%BB%E9%80%9F/" style="font-size: 14px; color: #999">MOVESPEED/移速</a> <a href="/tags/NARWAL-%E4%BA%91%E9%B2%B8/" style="font-size: 14px; color: #999">NARWAL/云鲸</a> <a href="/tags/NAS/" style="font-size: 17.33px; color: #828282">NAS</a> <a href="/tags/QNAP-%E5%A8%81%E8%81%94%E9%80%9A/" style="font-size: 15.67px; color: #8e8e8e">QNAP/威联通</a> <a href="/tags/RIODMI-%E7%9D%BF%E7%B1%B3/" style="font-size: 14px; color: #999">RIODMI/睿米</a> <a href="/tags/SYNOLOGY-%E7%BE%A4%E6%99%96/" style="font-size: 14px; color: #999">SYNOLOGY/群晖</a> <a href="/tags/UGREEN-%E7%BB%BF%E8%81%94/" style="font-size: 14px; color: #999">UGREEN/绿联</a> <a href="/tags/VIVO/" style="font-size: 14px; color: #999">VIVO</a> <a href="/tags/Wi-Fi-6/" style="font-size: 22.33px; color: #606060">Wi-Fi 6</a> <a href="/tags/Wi-Fi-6E/" style="font-size: 14px; color: #999">Wi-Fi 6E</a> <a href="/tags/%E4%B8%8B%E8%BD%BD%E6%9C%BA/" style="font-size: 14px; color: #999">下载机</a> <a href="/tags/%E5%90%B8%E5%B0%98%E5%99%A8/" style="font-size: 14px; color: #999">吸尘器</a> <a href="/tags/%E5%9B%BA%E6%80%81%E7%A1%AC%E7%9B%98/" style="font-size: 19px; color: #777">固态硬盘</a> <a href="/tags/%E5%AE%B6%E5%BA%AD%E5%BD%B1%E9%9F%B3/" style="font-size: 14px; color: #999">家庭影音</a> <a href="/tags/%E5%B9%B3%E6%9D%BF%E7%94%B5%E8%84%91/" style="font-size: 14px; color: #999">平板电脑</a> <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 14px; color: #999">微服务</a> <a href="/tags/%E6%89%8B%E6%9C%BA/" style="font-size: 14px; color: #999">手机</a> <a href="/tags/%E6%89%A9%E5%B1%95%E5%9D%9E/" style="font-size: 15.67px; color: #8e8e8e">扩展坞</a> <a href="/tags/%E6%89%AB%E5%9C%B0%E6%9C%BA/" style="font-size: 14px; color: #999">扫地机</a> <a href="/tags/%E6%89%AB%E5%9C%B0%E6%9C%BA%E5%99%A8%E4%BA%BA/" style="font-size: 14px; color: #999">扫地机器人</a> <a href="/tags/%E6%98%BE%E7%A4%BA%E5%99%A8/" style="font-size: 15.67px; color: #8e8e8e">显示器</a> <a href="/tags/%E6%9C%BA%E6%A2%B0%E9%94%AE%E7%9B%98/" style="font-size: 19px; color: #777">机械键盘</a> <a href="/tags/%E6%B8%B8%E6%88%8F/" style="font-size: 14px; color: #999">游戏</a> <a href="/tags/%E6%BC%AB%E7%94%BB/" style="font-size: 14px; color: #999">漫画</a> <a href="/tags/%E7%81%AF%E5%85%B7/" style="font-size: 14px; color: #999">灯具</a> <a href="/tags/%E7%94%B5%E8%84%91%E4%B8%BB%E6%9C%BA/" style="font-size: 15.67px; color: #8e8e8e">电脑主机</a> <a href="/tags/%E7%94%B5%E9%A5%AD%E7%85%B2/" style="font-size: 14px; color: #999">电饭煲</a> <a href="/tags/%E7%A0%81%E5%86%9C/" style="font-size: 14px; color: #999">码农</a> <a href="/tags/%E7%AE%B1%E5%8C%85/" style="font-size: 14px; color: #999">箱包</a> <a href="/tags/%E7%BB%BF%E8%81%94/" style="font-size: 15.67px; color: #8e8e8e">绿联</a> <a href="/tags/%E8%80%B3%E6%9C%BA/" style="font-size: 14px; color: #999">耳机</a> <a href="/tags/%E8%A3%85%E6%9C%BA/" style="font-size: 17.33px; color: #828282">装机</a> <a href="/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/" style="font-size: 24px; color: #555">路由器</a> <a href="/tags/%E9%85%B7%E6%AF%94%E9%AD%94%E6%96%B9/" style="font-size: 14px; color: #999">酷比魔方</a> <a href="/tags/%E9%94%AE%E7%9B%98/" style="font-size: 20.67px; color: #6c6c6c">键盘</a> <a href="/tags/%E9%9B%B6%E5%88%BB/" style="font-size: 14px; color: #999">零刻</a> <a href="/tags/%E9%9B%B7%E7%94%B53/" style="font-size: 14px; color: #999">雷电3</a> <a href="/tags/%E9%AD%94%E5%85%BD%E4%B8%96%E7%95%8C/" style="font-size: 14px; color: #999">魔兽世界</a> <a href="/tags/%E9%BB%91%E8%8B%B9%E6%9E%9C/" style="font-size: 20.67px; color: #6c6c6c">黑苹果</a> <a href="/tags/%E9%BC%A0%E6%A0%87/" style="font-size: 15.67px; color: #8e8e8e">鼠标</a>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='true'
+      volume='0.7'
+      loop='all'
+      order='random'
+      fixed='false'
+      list-max-height='340px'
+      server='netease'
+      type='playlist'
+      id='3175833810'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml"
+                class="social fas fa-rss flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="mailto:me@xaoxuu.com"
+                class="social fas fa-envelope flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://github.com/xaoxuu"
+                class="social fab fa-github flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/user/home?id=63035382"
+                class="social fas fa-headphones-alt flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        <div><p>Blog content follows the <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+</div>
+      
+    
+      
+        Use
+        <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
+        as theme
+      
+    
+      
+        <div class='copyright'>
+        <p><a target="_blank" rel="noopener" href="https://cuteribs.ga/">版权所有 © 2020 可爱的排骨</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4/dist/jquery.min.js"></script>
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      ScrollReveal().reveal('.l_main .reveal', {
+        distance: '8px',
+        duration: '800',
+        interval: '100',
+        scale: '1'
+      });
+    });
+  </script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://unpkg.com/cuteribs/cdn-assets/wallhaven-01yz8g.png", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-0w8y2r.jpg", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-13xxrv.jpg", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-73jeko.jpg", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-g8mj2e.png", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-j81565.jpg", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-mpo29y.jpg", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-p83gpj.jpg", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-p879v3.jpg", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-qd27z7.png", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-yj8qwg.jpg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('') {
+          $('').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "pvKmMOLxDFw0YR0y7pVFTo0o-MdYXbMMI",
+    appKey: "s40zxIg9wGykkJJiUMy2IHA6",
+    placeholder: "快来评论吧~",
+    pageSize:'20',
+    avatar:'mp',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'false',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.6.5/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/comment_typing.js"></script>
+
+
+
+
+
+
+<!-- 复制 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-check-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-check-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-times-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-times-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  function pjax_fancybox() {
+    $(".article-entry").find("img").not('.inline').not('a img').each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 标准 markdown 描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".article-entry").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  $(function () {
+    pjax_fancybox();
+  });
+</script>
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>

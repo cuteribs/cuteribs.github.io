@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme='https://volantis.js.org/#2.6.6'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+    <title>黑苹果开荒记: 华硕迷你主机 PN62 - 最后的 Hackintosh Mini - 排骨博客</title>
+  
+    <meta name="keywords" content="ASUS/华硕,电脑主机,黑苹果">
+  
+  
+
+  <!-- feed -->
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+  <link rel="shortcut icon" type='image/x-icon' href="/favicon.ico">
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  
+
+  <!-- import link -->
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script>
+	setTimeout(function() {
+	  let script = document.createElement('script');
+	  script.src = "https://www.googletagmanager.com/gtag/js?id=UA-166002383-1";
+	  script.defer=true;
+	  document.body.appendChild(script);
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-166002383-1');
+	}, 5000);
+    </script>
+  
+  
+    <!-- ba -->
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+	  setTimeout(function() { 
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?8b8d1636c58b1fc0c3cca66c0402c41c";
+		hm.defer=true;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+	  }, 5000);
+    })();
+    </script>
+  
+</head>
+
+<body>
+  
+  <div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+<header class="l_header shadow blur">
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h'>
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+            <i class='fas fa-blog'></i>
+          
+          
+            排骨博客
+          
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="搜索..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+<script>setLoadingBarProgress(40);</script>
+
+
+
+  <div class="l_body nocover">
+    <div class='body-wrapper'>
+      
+
+<div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box reveal shadow blur article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/posts/asus-pn62/">
+      黑苹果开荒记: 华硕迷你主机 PN62 - 最后的 Hackintosh Mini
+    </a>
+  </h1>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="" rel="nofollow">
+    <img src="https://cdn.jsdelivr.net/gh/cuteribs/cdn-assets/domo_kun2.jpg">
+    <p>可爱的排骨</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/%E8%AF%84%E6%B5%8B/%E5%8D%95%E5%93%81/%E9%BB%91%E8%8B%B9%E6%9E%9C/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>评测/单品/黑苹果</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2021年11月4日</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <p><img src="/posts/asus-pn62/logo.jpg" alt="logo"></p>
+<blockquote>
+<p>大家好, 我是可爱的排骨 😉</p>
+</blockquote>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>距上次黑苹果开荒 i7-10700K + 圣旗 Z490 过去了一年多, 排骨又迎来了新的挑战: <strong>开荒华硕 PN62 迷你主机</strong>. 由于黑苹果无法支持 11 代酷睿的核显, 而新的苹果电脑已经全都换血成苹果自己的 ARM 平台 M1 处理器, 恐怕以 10 代酷睿为代表的 PN62 将成为最后推荐的核显黑苹果主机了.</p>
+<p>何谓 <strong>黑苹果开荒</strong>? 一般大家看到的黑苹果装机贴都是贴一堆电脑配件和安装程序截图, 最重要的 EFI 配置都是下载别人做好现成的, 一般还不注明原作者, 纯粹只是走个流水账. 而黑苹果开荒贴完全不是一个级别了, 开荒是指在没有或者不使用他人现成 EFI 的情况下自制 EFI 配置并成功安装和完善黑苹果系统. 简单来说就是摘抄与原创的区别. 😆</p>
+<p><img src="/posts/asus-pn62/DSCF6533.jpg"></p>
+<h1 id="硬件介绍"><a href="#硬件介绍" class="headerlink" title="硬件介绍"></a>硬件介绍</h1><p>PN 系列是华硕主机中最小巧的一款, 体积只有 115x115x49 毫米 (约 0.6 升), 与 Intel 最小的 NUC 一般大小. 这次排骨要攻关的是华硕商用迷你主机系列的 PN62, 具体配置如下:</p>
+<ul>
+<li>CPU: Intel Core i7-10510U ✅</li>
+<li>主板: PN62 Intel400 系列 ✅</li>
+<li>内存: 海力士 DDR4 2666MHz 16GB (升级成 阿斯加特 DDR4 3200MHz 16GB x 2) ✅</li>
+<li>硬盘: Intel 660p 512GB (升级为 雷克沙 NM620 2TB) ✅</li>
+<li>显卡: Intel UHD Graphics 620 ✅</li>
+<li>声卡: Realtek ALC255 ✅</li>
+<li>有线网卡: Intel I219-V 1GbE ✅</li>
+<li>无线网卡: Intel AX201NGW ✅</li>
+</ul>
+<p>一般电脑主机接口方面不需要多作介绍, 但是对于黑苹果而言, 主机的各种接口也是攻关的重点:</p>
+<p><img src="/posts/asus-pn62/DSCF6539.jpg"></p>
+<ul>
+<li>前 耳麦接口: 3.5mm 音频输入&#x2F;输出 (后续批次可能会取消) ✅</li>
+<li>前 麦克风接口: 双针孔麦克风输入 ✅</li>
+<li>前 USB-C 接口: USB3 gen2 10Gbps + QC 快充 ✅</li>
+<li>前 TF 卡接口: USB2 规格读卡器 ✅</li>
+<li>前 USB-A 接口: USB3 ✅</li>
+<li>前 红外接收器: 略</li>
+</ul>
+<p><img src="/posts/asus-pn62/DSCF6542.jpg"></p>
+<ul>
+<li>后 HDMI 接口: HDMI2.0 输出 ✅</li>
+<li>后 可选接口: DP1.2 输出 ✅</li>
+<li>后 USB-C 接口: USB3 + DP1.2 输出 + PD 输入 ✅</li>
+<li>后 USB-A 接口: USB3 x 2 ✅</li>
+<li>后 网线接口: RJ45 ✅</li>
+<li>后 DC 电源接口: 19V DC5.5 ✅</li>
+</ul>
+<p><img src="/posts/asus-pn62/DSCF6550.jpg"></p>
+<p><img src="/posts/asus-pn62/DSCF6552.jpg"></p>
+<p>取下 PN62 的底板四角的长螺丝, 轻轻向左侧一拉即可打开机箱, 设计比较人性化. 底板下面有 4 个钩片, 用于固定 2.5 寸的 SATA 硬盘, 4 片均有与硬盘对应的螺丝孔. 安装时需注意硬盘的正反面与主机 SATA 插座对应.</p>
+<p><img src="/posts/asus-pn62/DSCF6556.jpg"></p>
+<p>移走底板后可以清楚的看到内存条与 M.2 硬盘的安装位置, 上方的内存插槽空闲着, M.2 硬盘下方隐藏着 2230 规格的无线网卡. 机箱内部四周的银色铁架子由 4 个螺丝固定, 更换无线网卡时可能需要拆下铁架, 拆除铁架时注意避开 SATA 线和读卡器数据线.</p>
+<p>显然单条 16GB 内存加 512GB 硬盘还配不上 i7 黑苹果, 何况后面还会有加装 Windows 11 的需求. 配一对 16GB 内存组双通道再加上 2TB NVMe 硬盘才有点那味儿.</p>
+<p><img src="/posts/asus-pn62/DSCF6503.jpg"></p>
+<p>阿斯加特 16GB 目前在京东上性价比不错, 排名也在前 10,  虽然 PN62 并不支持 3200MHz 的高频率, 不过只比 2666MHz 版本贵 10 元, 没理由不选 3200.</p>
+<p><img src="/posts/asus-pn62/DSCF6499.jpg"></p>
+<p><img src="/posts/asus-pn62/DSCF6565.jpg"></p>
+<p>雷克沙这块 NM620 固态硬盘的性价比很不错, 读写均在 3000MB&#x2F;s 水平而价格比同档其它产品要亲民.雷克沙作为老牌闪存品牌质量我也比较放心.</p>
+<p><img src="/posts/asus-pn62/DSCF6567.jpg"></p>
+<p>为了完美适配黑苹果, 排骨还用了几样配件:</p>
+<ul>
+<li>一个 USB-A&#x2F;USB-C 双头读卡器: 用来测试 USB-A&#x2F;C 两种接口状态. 也可以用双头 U 盘代替.</li>
+<li>一个 32GB U 盘: 用来当黑苹果&#x2F;Windows 多系统安装盘. 16GB 已经不太够用了, Big Sur 镜像已经有 12GB+ 了.</li>
+<li>一个有线耳麦: 用来测试前置音频接口与 AppleALC layout-id 是否匹配.</li>
+<li>一套 2.4G 射频无线键鼠: 排骨从柜子里翻出来了这个手感超垃圾的罗技 K400 Plus.</li>
+</ul>
+<p><img src="/posts/asus-pn62/IMG_8958.jpg"></p>
+<ul>
+<li>当然还需要台显示器. 排骨的桌面太小, 只够放一台显示器. 还好这台 34 寸的带鱼屏支持 PBP 一屏双显功能.</li>
+</ul>
+<h1 id="黑苹果配置"><a href="#黑苹果配置" class="headerlink" title="黑苹果配置"></a>黑苹果配置</h1><p>黑苹果开荒流程基本与排骨旧贴 【黑苹果开荒记系统篇: 超详细的 OpenCore 纯净 MacOS 安装流程】, 详细的步骤与配置说明本文就不再重复骗字数了.</p>
+<p>以前的黑苹果配置工作在 Windows 环境下非常不友好, 很多好用的工具都只能在 macOS 下运行, 如配置 OpenCore 用的 OpenCore Configurator, 修改编译 ACPI&#x2F;SSDT&#x2F;AML 用的 MaciASL, 编辑 plist 用的 PlistEdit Pro, 去年底开始一个名为 <strong>ic005k</strong> 的大佬陆续在 gayhub 上发布了 OCAT&#x2F;QtiASL&#x2F;PlistEDPlus 三个跨平台工具, 不但有 Windows GUI, 功能还非常强大, 甚至连国内访问 gayhub 太慢需要加速镜像这种问题都帮我们做好了! 排骨在此为作者点 31 个赞! 😂</p>
+<h2 id="一-修改-ACPI-x2F-SSDT-供电补丁"><a href="#一-修改-ACPI-x2F-SSDT-供电补丁" class="headerlink" title="一. 修改 ACPI&#x2F;SSDT 供电补丁"></a>一. 修改 ACPI&#x2F;SSDT 供电补丁</h2><p>为了保证黑苹果能正确的启动并稳定的运行, 首先我们需要尽修复的弥补电脑厂商的 BIOS 与苹果电脑的 BIOS 之间的差别. 定制并添加供电补丁是 OpenCore 实现这一目的的主要方法.</p>
+<p>排骨根据 Dortania 的 OC 教程一步步修改并添加了 <strong>SSDT-AWAC, SSDT-PLUG, SSDT-EC-USBX, SSDT-SBUS-MCHC, SSDT-RHUB</strong> 5 个补丁, 可以进行 macOS 安装, 但是必定会在安装到半程时死机. 排骨好<strong>几个晚上都卡在这里</strong>! 😣 网上搜, 换镜像, 换版本, 换硬盘, 换 U 盘, 改 BIOS… 后来发现别人的 10 代超低压 U 平台 EFI 配置里有个 SSDT-PMCR, 这个补丁在各种教程里都是写的 300 系列主板才需要. 尝试加入后果然能顺利的完成 macOS 安装了! 😫 掉坑几晚终于得爬出~</p>
+<p>后来从黑果小兵在 gayhub 上找了几个虚拟设备补丁加了, 虽不必要但确实能加快黑苹果启动速度, 估计是免去了启动过程中找不到某些设备, 节省了错误处理浪费的时间. 最终补丁配置如下图.</p>
+<p><img src="/posts/asus-pn62/image-20211111015402556.png"></p>
+<h2 id="二-启动器补丁选择"><a href="#二-启动器补丁选择" class="headerlink" title="二. 启动器补丁选择"></a>二. 启动器补丁选择</h2><p>Booter 这里的 Quirk 全部按 Dortania 建议的打钩就行了.</p>
+<p><img src="/posts/asus-pn62/image-20211111022926514.png"></p>
+<h2 id="三-硬件配置"><a href="#三-硬件配置" class="headerlink" title="三. 硬件配置"></a>三. 硬件配置</h2><p>DeviceProperties (DP) 必须添加的只有 2 显卡和声卡两个设备.</p>
+<p>华硕 PN62 板载的声卡芯片是 ALC255, 对应的 layout-id 选 30 比较完美, 能驱动主机内置的针孔麦克风和有线耳麦. 这个 layout-id&#x3D;30 也不是排骨猜出来的, 插着三星手机的耳麦连续改配置+重启 10 多次的成果… 🤐</p>
+<p><img src="/posts/asus-pn62/image-20211111023835172.png"></p>
+<p>PN62 装载的 10 代酷睿核显无为 UHD 620, 需要伪装成 macOS 支持的其它核显. Dortania 建议的 UHD 630 (00009B3E) 并不正确, 排骨几次测试, 最后采用了 Iris Plus 655 (0400A53E), 可以得到分到 2GB 的显存. HDMI2.0 与 HDMI 唤醒不亮屏问题也修正了. 三屏同时输出还没时间搞定.</p>
+<p><img src="/posts/asus-pn62/image-20211111023930003.png"></p>
+<p><img src="/posts/asus-pn62/mac03.jpg"></p>
+<h2 id="四-内核-x2F-驱动设置"><a href="#四-内核-x2F-驱动设置" class="headerlink" title="四. 内核&#x2F;驱动设置"></a>四. 内核&#x2F;驱动设置</h2><p>配置 kext 驱动并没有多少花头.</p>
+<ul>
+<li>Lilu&#x2F;VirtualSMC&#x2F;WhateverGreen 这三个是基础必选项.</li>
+<li>AppleALC 驱动 ALC255 声卡.</li>
+<li>IntelMausi 驱动 I219-V 网卡.</li>
+<li>Airportitlwm 驱动 AX201 网卡.</li>
+<li>IntelBluetoothFirmware&#x2F;IntelBluetoothInjector 驱动 AX201 网卡的蓝牙.</li>
+<li>NVMeFix 提高 Lexar NM620 硬盘与黑苹果系统的兼容性, 主要是功耗方面 .</li>
+<li>USBInjectAll&#x2F;USBPorts 是 USB 定制驱动, 由于 macOS 限制最多 15 个 USB 端口, 又不会自适应配置, 需要手工定制.</li>
+<li>XHCI-unsupported 不确定是否用得到.</li>
+</ul>
+<p><img src="/posts/asus-pn62/image-20211111032024608.png"></p>
+<p>Quirk 的选择排骨也基本都接受 Dortania 的建议, 其中 AppleXcpmCfgLock 能 CFG-Lock 问题, PN62 的 BIOS 中未提供禁用选项. DisableIoMapper 钩上就不需要在 BIOS 里禁掉 VT-D 的, 这个虚拟机直通硬件功能在 Windows 虚拟机中可能用到.</p>
+<p><img src="/posts/asus-pn62/image-20211111032122242.png"></p>
+<h2 id="五-NVRAM"><a href="#五-NVRAM" class="headerlink" title="五. NVRAM"></a>五. NVRAM</h2><p>这里需要注意的在 7C436110-AB2A-4BBB-A880-FE41995C9F82 配置项下 boot-args 启动参数里加入 igxonln&#x3D;1 时, 黑苹果睡眠待机黑屏时, 唤醒系统 HDMI 连接的显示器才会亮起来, 否则只能通过拔插 HDMI 线亮屏.</p>
+<p><img src="/posts/asus-pn62/image-20211111033539912.png"></p>
+<h2 id="六-平台信息"><a href="#六-平台信息" class="headerlink" title="六. 平台信息"></a>六. 平台信息</h2><p>比如适合 10 代酷睿的苹果电脑型号是 <strong>iMac20,1</strong>. 去年排骨开荒 10700K+Z490 时用的 <strong>iMac19,1</strong> 兼容性没这个好. 用上 OCAT 这个工具后, 在 Windows 上做黑苹果配置基本可以摆脱那些 python 做的脚本了.</p>
+<p><img src="/posts/asus-pn62/image-20211111034303673.png"></p>
+<p>其它 OC 配置全部按着 Dortania 教程里的建议设置就行了. 黑苹果安装前后的配置基本全部完成了, 可以放心啃苹果了! 🤩</p>
+<p><img src="/posts/asus-pn62/mac05.jpg"></p>
+<p><img src="/posts/asus-pn62/20211110004533.jpg"></p>
+<h2 id="七-USB-定制"><a href="#七-USB-定制" class="headerlink" title="七. USB 定制"></a>七. USB 定制</h2><p>华硕 PN62 共有 13 个 USB 端口 (相对 macOS 而言). </p>
+<ul>
+<li>读卡器为 USB2 端口, 编号为 HS03.</li>
+<li>蓝牙接口是内置的, 由无线网卡连接, 编辑为 HS10.</li>
+<li>前后 3 个 USB-A 接口分别占用 HS02&#x2F;HS05&#x2F;HS06 3 个 USB2 端口和 SS02&#x2F;SS05&#x2F;SS06 3 个 USB3 端口.</li>
+<li>前置 USB-C 接口支持 10Gbps 带宽, 需要占用 SS01&#x2F;SS03 两个 USB3 端口, 还占用 HS01 来兼容 USB2.</li>
+<li>后置 USB-C 占用 HS04&#x2F;SS04, 所以它相当于一个 USB3 接口, 不支持 10Gbps.</li>
+</ul>
+<p><img src="/posts/asus-pn62/mac06.jpg"></p>
+<p>完整的 USB 定制如下图, 排骨已加入备注. 务必记得网上下载的 USBInjectAll.kext 只有一些最新的民间改版才加入了 PN62 里使用的 USB 控制器 8086_02ed 支持, 并且 SS03<del>SS06 也没在其中, 需要自行添加到 USBInjectAll.kext 文件夹下的 config.plist 中. 这一点对黑苹果开荒新手能坑很长时间了</del> 😂</p>
+<p><img src="/posts/asus-pn62/mac04.jpg"></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>开荒成功, 至此华硕 Mini 主机 PN62 黑苹果调试圆满! 前后排骨一共花了约一周的时间, 前面卡在安装程序死机那几天真的好绝望啊… 没有翻车真是太好了, 相信其他玩攻关过黑苹果的同学们能深刻的体会那种😨😨😨的心情吧. </p>
+<p>华硕这台迷你主机 PN62 体积超级小巧, 配置较高扩展性也很高, 还有很多应用潜力有待挖掘, 排骨还有其它的折腾计划在筹备中~ 比如便捷式开发&#x2F;应用服务器~ 😎 感兴趣的同学的敬请期待吧. 🤞</p>
+<p>目前 Win11 to Go 与 Hackintosh to Go 已经在 PN62 上轻松实现, 改日再与大家分享啦. 排骨已将 PN62 的 EFI 上传至 gayhub, 有兴趣的同学可留下邮箱索取, 直接放连接可能被某些平台封杀. 😣</p>
+<p>最后鸣谢 @黑果小兵 提供的镜像下载与参数资料, @ic005k 编写的配置工具, @Dortania 详细简明的 OpenCore 教程.</p>
+<p><a target="_blank" rel="noopener" href="https://item.jd.com/100018095486.html">https://item.jd.com/100018095486.html</a></p>
+
+          
+            <div class='article_footer'>
+              
+                
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class='content'>
+    
+      <blockquote>
+        
+          
+            <p>未经许可, 本站内容不可转载</p>
+
+          
+        
+          
+            <p>本文永久链接是：<a href=https://gh.cuteribs.com/posts/asus-pn62/>https://gh.cuteribs.com/posts/asus-pn62/</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget qrcode  ">
+  
+
+  <div class='content article-entry'>
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-11-03T16:00:00+00:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2021年11月4日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/ASUS-%E5%8D%8E%E7%A1%95/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>ASUS/华硕</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E7%94%B5%E8%84%91%E4%B8%BB%E6%9C%BA/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>电脑主机</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%BB%91%E8%8B%B9%E6%9E%9C/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>黑苹果</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/posts/ugreen-cm525/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>系统安装玩法多: macOS/win11/ubuntu 系统三合一 To Go</p>
+                <p class='content'>[TOC]
+
+
+大家好, 我是可爱的排骨 😉
+
+前言最近排骨折腾黑苹果开荒, 结合了以前写装机三步曲的经验, 酝酿了一篇关于一个硬盘安装并共存三个系统的经验分享, 不但是单盘三系统, 而且还是...</p>
+              </a>
+            
+            
+              <a class='next' href='/posts/level8-backbag/'>
+                <p class='title'>IT 男通勤好搭档 - 地平线8号全能商务背包<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>
+
+大家好, 我是可爱的排骨 😉
+
+为了应对这两年的疫情, 公司的混合办公制已经实行快两年了, 几天去公司上班, 几天在家上班, 办公电脑要来来回回一直带着, 有时候还要背两台. 😫 排骨已...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow blur">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: '黑苹果开荒记: 华硕迷你主机 PN62 - 最后的 Hackintosh Mini',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+  
+    
+    
+
+
+  <section class="widget toc-wrapper shadow blur desktop mobile">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A1%AC%E4%BB%B6%E4%BB%8B%E7%BB%8D"><span class="toc-text">硬件介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%BB%91%E8%8B%B9%E6%9E%9C%E9%85%8D%E7%BD%AE"><span class="toc-text">黑苹果配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-%E4%BF%AE%E6%94%B9-ACPI-x2F-SSDT-%E4%BE%9B%E7%94%B5%E8%A1%A5%E4%B8%81"><span class="toc-text">一. 修改 ACPI&#x2F;SSDT 供电补丁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-%E5%90%AF%E5%8A%A8%E5%99%A8%E8%A1%A5%E4%B8%81%E9%80%89%E6%8B%A9"><span class="toc-text">二. 启动器补丁选择</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89-%E7%A1%AC%E4%BB%B6%E9%85%8D%E7%BD%AE"><span class="toc-text">三. 硬件配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B-%E5%86%85%E6%A0%B8-x2F-%E9%A9%B1%E5%8A%A8%E8%AE%BE%E7%BD%AE"><span class="toc-text">四. 内核&#x2F;驱动设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94-NVRAM"><span class="toc-text">五. NVRAM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD-%E5%B9%B3%E5%8F%B0%E4%BF%A1%E6%81%AF"><span class="toc-text">六. 平台信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83-USB-%E5%AE%9A%E5%88%B6"><span class="toc-text">七. USB 定制</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+  
+    
+    
+  
+
+  <section class="widget category shadow blur desktop">
+    
+  <header>
+    
+      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+    
+  </header>
+
+
+    <div class='content'>
+      <ul class="entry navigation">
+        
+          <li><a class="flat-box"
+            title="/categories/%E6%80%80%E6%97%A7/" href="/categories/%E6%80%80%E6%97%A7/"
+            id="categoriesE68080E697A7"
+            ><div class='name'>怀旧</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E6%99%92%E7%89%A9/" href="/categories/%E6%99%92%E7%89%A9/"
+            id="categoriesE69992E789A9"
+            ><div class='name'>晒物</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E7%A7%91%E6%99%AE/" href="/categories/%E7%A7%91%E6%99%AE/"
+            id="categoriesE7A791E699AE"
+            ><div class='name'>科普</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E7%BB%8F%E9%AA%8C/" href="/categories/%E7%BB%8F%E9%AA%8C/"
+            id="categoriesE7BB8FE9AA8C"
+            ><div class='name'>经验</div><div class='badge'>(6)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E7%BB%8F%E9%AA%8C/%E8%A3%85%E6%9C%BA/" href="/categories/%E7%BB%8F%E9%AA%8C/%E8%A3%85%E6%9C%BA/"
+            id="categoriesE7BB8FE9AA8CE8A385E69CBA"
+            ><div class='name'>装机</div><div class='badge'>(4)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E8%AF%84%E6%B5%8B/" href="/categories/%E8%AF%84%E6%B5%8B/"
+            id="categoriesE8AF84E6B58B"
+            ><div class='name'>评测</div><div class='badge'>(35)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E8%AF%84%E6%B5%8B/%E5%8D%95%E5%93%81/" href="/categories/%E8%AF%84%E6%B5%8B/%E5%8D%95%E5%93%81/"
+            id="categoriesE8AF84E6B58BE58D95E59381"
+            ><div class='name'>单品</div><div class='badge'>(35)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E8%AF%84%E6%B5%8B/%E5%8D%95%E5%93%81/%E7%BB%8F%E9%AA%8C/" href="/categories/%E8%AF%84%E6%B5%8B/%E5%8D%95%E5%93%81/%E7%BB%8F%E9%AA%8C/"
+            id="categoriesE8AF84E6B58BE58D95E59381E7BB8FE9AA8C"
+            ><div class='name'>经验</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E8%AF%84%E6%B5%8B/%E5%8D%95%E5%93%81/%E9%BB%91%E8%8B%B9%E6%9E%9C/" href="/categories/%E8%AF%84%E6%B5%8B/%E5%8D%95%E5%93%81/%E9%BB%91%E8%8B%B9%E6%9E%9C/"
+            id="categoriesE8AF84E6B58BE58D95E59381E9BB91E88BB9E69E9C"
+            ><div class='name'>黑苹果</div><div class='badge'>(2)</div></a></li>
+        
+      </ul>
+    </div>
+  </section>
+
+
+  
+
+  
+    
+    
+  
+
+  <section class="widget tagcloud shadow blur desktop mobile">
+    
+  <header>
+    
+      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
+    
+  </header>
+
+
+    <div class='content'>
+      <a href="/tags/360/" style="font-size: 17.33px; color: #828282">360</a> <a href="/tags/ASUS-%E5%8D%8E%E7%A1%95/" style="font-size: 19px; color: #777">ASUS/华硕</a> <a href="/tags/BELKIN-%E8%B4%9D%E5%B0%94%E9%87%91/" style="font-size: 14px; color: #999">BELKIN/贝尔金</a> <a href="/tags/BENQ-%E6%98%8E%E5%9F%BA/" style="font-size: 14px; color: #999">BENQ/明基</a> <a href="/tags/DAHUA-%E5%A4%A7%E5%8D%8E/" style="font-size: 14px; color: #999">DAHUA/大华</a> <a href="/tags/DURGOD-%E6%9D%9C%E4%BC%BD/" style="font-size: 15.67px; color: #8e8e8e">DURGOD/杜伽</a> <a href="/tags/Datacolor/" style="font-size: 14px; color: #999">Datacolor</a> <a href="/tags/FIRSTBLOOD/" style="font-size: 14px; color: #999">FIRSTBLOOD</a> <a href="/tags/GANSS/" style="font-size: 14px; color: #999">GANSS</a> <a href="/tags/GLOWAY-%E5%85%89%E5%A8%81/" style="font-size: 14px; color: #999">GLOWAY/光威</a> <a href="/tags/HUAWEI-%E5%8D%8E%E4%B8%BA/" style="font-size: 14px; color: #999">HUAWEI/华为</a> <a href="/tags/IGENE-%E5%87%BB%E9%9F%B3/" style="font-size: 14px; color: #999">IGENE/击音</a> <a href="/tags/KIOXIA-%E5%87%AF%E4%BE%A0/" style="font-size: 14px; color: #999">KIOXIA/凯侠</a> <a href="/tags/LEVEL8-%E5%9C%B0%E5%B9%B3%E7%BA%BF8%E5%8F%B7/" style="font-size: 14px; color: #999">LEVEL8/地平线8号</a> <a href="/tags/LINKSYS-%E9%A2%86%E5%8A%BF/" style="font-size: 14px; color: #999">LINKSYS/领势</a> <a href="/tags/LOFREE-%E6%B4%9B%E6%96%90/" style="font-size: 14px; color: #999">LOFREE/洛斐</a> <a href="/tags/MI-%E5%B0%8F%E7%B1%B3/" style="font-size: 14px; color: #999">MI/小米</a> <a href="/tags/MIJIA-%E7%B1%B3%E5%AE%B6/" style="font-size: 14px; color: #999">MIJIA/米家</a> <a href="/tags/MOVESPEED-%E7%A7%BB%E9%80%9F/" style="font-size: 14px; color: #999">MOVESPEED/移速</a> <a href="/tags/NARWAL-%E4%BA%91%E9%B2%B8/" style="font-size: 14px; color: #999">NARWAL/云鲸</a> <a href="/tags/NAS/" style="font-size: 17.33px; color: #828282">NAS</a> <a href="/tags/QNAP-%E5%A8%81%E8%81%94%E9%80%9A/" style="font-size: 15.67px; color: #8e8e8e">QNAP/威联通</a> <a href="/tags/RIODMI-%E7%9D%BF%E7%B1%B3/" style="font-size: 14px; color: #999">RIODMI/睿米</a> <a href="/tags/SYNOLOGY-%E7%BE%A4%E6%99%96/" style="font-size: 14px; color: #999">SYNOLOGY/群晖</a> <a href="/tags/UGREEN-%E7%BB%BF%E8%81%94/" style="font-size: 14px; color: #999">UGREEN/绿联</a> <a href="/tags/VIVO/" style="font-size: 14px; color: #999">VIVO</a> <a href="/tags/Wi-Fi-6/" style="font-size: 22.33px; color: #606060">Wi-Fi 6</a> <a href="/tags/Wi-Fi-6E/" style="font-size: 14px; color: #999">Wi-Fi 6E</a> <a href="/tags/%E4%B8%8B%E8%BD%BD%E6%9C%BA/" style="font-size: 14px; color: #999">下载机</a> <a href="/tags/%E5%90%B8%E5%B0%98%E5%99%A8/" style="font-size: 14px; color: #999">吸尘器</a> <a href="/tags/%E5%9B%BA%E6%80%81%E7%A1%AC%E7%9B%98/" style="font-size: 19px; color: #777">固态硬盘</a> <a href="/tags/%E5%AE%B6%E5%BA%AD%E5%BD%B1%E9%9F%B3/" style="font-size: 14px; color: #999">家庭影音</a> <a href="/tags/%E5%B9%B3%E6%9D%BF%E7%94%B5%E8%84%91/" style="font-size: 14px; color: #999">平板电脑</a> <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 14px; color: #999">微服务</a> <a href="/tags/%E6%89%8B%E6%9C%BA/" style="font-size: 14px; color: #999">手机</a> <a href="/tags/%E6%89%A9%E5%B1%95%E5%9D%9E/" style="font-size: 15.67px; color: #8e8e8e">扩展坞</a> <a href="/tags/%E6%89%AB%E5%9C%B0%E6%9C%BA/" style="font-size: 14px; color: #999">扫地机</a> <a href="/tags/%E6%89%AB%E5%9C%B0%E6%9C%BA%E5%99%A8%E4%BA%BA/" style="font-size: 14px; color: #999">扫地机器人</a> <a href="/tags/%E6%98%BE%E7%A4%BA%E5%99%A8/" style="font-size: 15.67px; color: #8e8e8e">显示器</a> <a href="/tags/%E6%9C%BA%E6%A2%B0%E9%94%AE%E7%9B%98/" style="font-size: 19px; color: #777">机械键盘</a> <a href="/tags/%E6%B8%B8%E6%88%8F/" style="font-size: 14px; color: #999">游戏</a> <a href="/tags/%E6%BC%AB%E7%94%BB/" style="font-size: 14px; color: #999">漫画</a> <a href="/tags/%E7%81%AF%E5%85%B7/" style="font-size: 14px; color: #999">灯具</a> <a href="/tags/%E7%94%B5%E8%84%91%E4%B8%BB%E6%9C%BA/" style="font-size: 15.67px; color: #8e8e8e">电脑主机</a> <a href="/tags/%E7%94%B5%E9%A5%AD%E7%85%B2/" style="font-size: 14px; color: #999">电饭煲</a> <a href="/tags/%E7%A0%81%E5%86%9C/" style="font-size: 14px; color: #999">码农</a> <a href="/tags/%E7%AE%B1%E5%8C%85/" style="font-size: 14px; color: #999">箱包</a> <a href="/tags/%E7%BB%BF%E8%81%94/" style="font-size: 15.67px; color: #8e8e8e">绿联</a> <a href="/tags/%E8%80%B3%E6%9C%BA/" style="font-size: 14px; color: #999">耳机</a> <a href="/tags/%E8%A3%85%E6%9C%BA/" style="font-size: 17.33px; color: #828282">装机</a> <a href="/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/" style="font-size: 24px; color: #555">路由器</a> <a href="/tags/%E9%85%B7%E6%AF%94%E9%AD%94%E6%96%B9/" style="font-size: 14px; color: #999">酷比魔方</a> <a href="/tags/%E9%94%AE%E7%9B%98/" style="font-size: 20.67px; color: #6c6c6c">键盘</a> <a href="/tags/%E9%9B%B6%E5%88%BB/" style="font-size: 14px; color: #999">零刻</a> <a href="/tags/%E9%9B%B7%E7%94%B53/" style="font-size: 14px; color: #999">雷电3</a> <a href="/tags/%E9%AD%94%E5%85%BD%E4%B8%96%E7%95%8C/" style="font-size: 14px; color: #999">魔兽世界</a> <a href="/tags/%E9%BB%91%E8%8B%B9%E6%9E%9C/" style="font-size: 20.67px; color: #6c6c6c">黑苹果</a> <a href="/tags/%E9%BC%A0%E6%A0%87/" style="font-size: 15.67px; color: #8e8e8e">鼠标</a>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='true'
+      volume='0.7'
+      loop='all'
+      order='random'
+      fixed='false'
+      list-max-height='340px'
+      server='netease'
+      type='playlist'
+      id='3175833810'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml"
+                class="social fas fa-rss flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="mailto:me@xaoxuu.com"
+                class="social fas fa-envelope flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://github.com/xaoxuu"
+                class="social fab fa-github flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/user/home?id=63035382"
+                class="social fas fa-headphones-alt flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        <div><p>Blog content follows the <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+</div>
+      
+    
+      
+        Use
+        <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
+        as theme
+      
+    
+      
+        <div class='copyright'>
+        <p><a target="_blank" rel="noopener" href="https://cuteribs.ga/">版权所有 © 2020 可爱的排骨</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4/dist/jquery.min.js"></script>
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      ScrollReveal().reveal('.l_main .reveal', {
+        distance: '8px',
+        duration: '800',
+        interval: '100',
+        scale: '1'
+      });
+    });
+  </script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://unpkg.com/cuteribs/cdn-assets/wallhaven-01yz8g.png", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-0w8y2r.jpg", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-13xxrv.jpg", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-73jeko.jpg", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-g8mj2e.png", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-j81565.jpg", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-mpo29y.jpg", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-p83gpj.jpg", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-p879v3.jpg", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-qd27z7.png", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-yj8qwg.jpg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('') {
+          $('').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "pvKmMOLxDFw0YR0y7pVFTo0o-MdYXbMMI",
+    appKey: "s40zxIg9wGykkJJiUMy2IHA6",
+    placeholder: "快来评论吧~",
+    pageSize:'20',
+    avatar:'mp',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'false',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.6.5/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/comment_typing.js"></script>
+
+
+
+
+
+
+<!-- 复制 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-check-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-check-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-times-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-times-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  function pjax_fancybox() {
+    $(".article-entry").find("img").not('.inline').not('a img').each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 标准 markdown 描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".article-entry").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  $(function () {
+    pjax_fancybox();
+  });
+</script>
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>

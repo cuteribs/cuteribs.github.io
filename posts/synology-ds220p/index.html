@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme='https://volantis.js.org/#2.6.6'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+    <title>能回血的群晖 - 盘古 DS220+ 无线宝边缘计算体验 - 排骨博客</title>
+  
+    <meta name="keywords" content="SYNOLOGY/群晖,NAS">
+  
+  
+    <meta name="description" content="[TOC]
+
+
+大家好, 我是可爱的排骨 :)
+
+一. 前言最近排骨家里的宽带升了千兆 (下行 1000Mbps 上行 30Mbps), 排骨平日网络用量并不大, 靠这千兆带宽的流量剩余价值可以体验一把边缘计算的乐趣了. 😄 排骨说的这个边缘计算主要是指个人用户提供自家的闲置网络带宽, 存储和计算资源给商家来换...">
+  
+
+  <!-- feed -->
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+  <link rel="shortcut icon" type='image/x-icon' href="/favicon.ico">
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  
+
+  <!-- import link -->
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script>
+	setTimeout(function() {
+	  let script = document.createElement('script');
+	  script.src = "https://www.googletagmanager.com/gtag/js?id=UA-166002383-1";
+	  script.defer=true;
+	  document.body.appendChild(script);
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-166002383-1');
+	}, 5000);
+    </script>
+  
+  
+    <!-- ba -->
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+	  setTimeout(function() { 
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?8b8d1636c58b1fc0c3cca66c0402c41c";
+		hm.defer=true;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+	  }, 5000);
+    })();
+    </script>
+  
+</head>
+
+<body>
+  
+  <div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+<header class="l_header shadow blur">
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h'>
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+            <i class='fas fa-blog'></i>
+          
+          
+            排骨博客
+          
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="搜索..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+<script>setLoadingBarProgress(40);</script>
+
+
+
+  <div class="l_body nocover">
+    <div class='body-wrapper'>
+      
+
+<div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box reveal shadow blur article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/posts/synology-ds220p/">
+      能回血的群晖 - 盘古 DS220+ 无线宝边缘计算体验
+    </a>
+  </h1>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="" rel="nofollow">
+    <img src="https://cdn.jsdelivr.net/gh/cuteribs/cdn-assets/domo_kun2.jpg">
+    <p>可爱的排骨</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/%E8%AF%84%E6%B5%8B/%E5%8D%95%E5%93%81/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>评测/单品</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2022年9月18日</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <p>[TOC]</p>
+<p><img src="/posts/synology-ds220p/logo.jpg"></p>
+<blockquote>
+<p>大家好, 我是可爱的排骨 :)</p>
+</blockquote>
+<h1 id="一-前言"><a href="#一-前言" class="headerlink" title="一. 前言"></a>一. 前言</h1><p>最近排骨家里的宽带升了千兆 (下行 1000Mbps 上行 30Mbps), 排骨平日网络用量并不大, 靠这千兆带宽的流量<strong>剩余价值</strong>可以体验一把<strong>边缘计算</strong>的乐趣了. 😄 排骨说的这个<strong>边缘计算</strong>主要是指个人用户提供自家的闲置网络带宽, 存储和计算资源给商家来换取电子余额和代币等积分形式的报酬. 京东云与群晖联合推出的小数无线宝定制版 <strong>盘古 DS220+</strong> 就是一款可以靠<strong>边缘计算</strong>来<strong>回血</strong>的 NAS 产品, 在<strong>群晖 DS220+</strong> 上搭载<strong>京东云无线宝</strong>套件, 为用户提供存储娱乐和应用等服务的同时, 还能进行<strong>边缘计算</strong>来回收成本.</p>
+<p><img src="/posts/synology-ds220p/DSCF6653.jpg"></p>
+<p><a target="_blank" rel="noopener" href="https://item.jd.com/100030253866.html">https://item.jd.com/100030253866.html</a></p>
+<span id="more"></span>
+
+
+
+<h1 id="二-开箱"><a href="#二-开箱" class="headerlink" title="二. 开箱"></a>二. 开箱</h1><p>盘古 DS220+ 的外壳几乎跟 DS218+ 没有区别, 除了正面左下角的产品型号标识外, 尺寸仍是 16.5 x 10.8 x 23.2 厘米, 重量也保持在 1.3 公斤.</p>
+<p><em>详见排骨几年前发的*<em>《天造地设的企业混合云解决方案 群晖 SkyNAS &amp; DS218+ 帮你玩转小企业云办公》</em></em></p>
+<p><img src="/posts/synology-ds220p/DSCF6645.jpg"></p>
+<p><img src="/posts/synology-ds220p/DSCF6646.jpg"></p>
+<p>硬盘仓里仍保留了一个额外的 DDR4 内存插槽, 加一条 16G 完全没问题.</p>
+<p><img src="/posts/synology-ds220p/DSCF6647.jpg"></p>
+<p>DS220+ 背面的 USB 减少到了 1 个, 但是增加了 1 个千兆网口. </p>
+<p>从一般 NAS 的使用上考虑, 后置一个 USB 带一台打印机之类的设备足以. 而 eSATA 这类设备已经很罕见了, 也没有必要再留. 多一个网口则可以充当网关路由器使用, 也符合近几年越来越多的用户对 all in one 的期望. 😆</p>
+<p><img src="/posts/synology-ds220p/DSCF6650.jpg"></p>
+<h1 id="三-无线宝使用流程-回血体验"><a href="#三-无线宝使用流程-回血体验" class="headerlink" title="三. 无线宝使用流程 (回血体验)"></a>三. 无线宝使用流程 (回血体验)</h1><h2 id="1-安装启动"><a href="#1-安装启动" class="headerlink" title="1. 安装启动"></a>1. 安装启动</h2><p>盘古 DS220+ 与普通的群晖 DS220+ 的主要区别在于前者的套件市场里内置了<strong>无线宝边缘计算</strong>套件. 也就是说无线宝回血功能只提供给定制的盘古 DS220+, 其它群晖 DS220+ 甚至 DS420+&#x2F;DS720+&#x2F;DS920+ 的用户都享受不到. 😒</p>
+<p><img src="/posts/synology-ds220p/image-20220929163102173.png"></p>
+<p>无线宝套件安装运行后, 还需要通过手机端的<strong>京东云无线宝</strong>app扫码绑定机器来控制和操作. 无线宝套件只是<strong>挂</strong>在群晖系统里读写存储空间而已.</p>
+<p><img src="/posts/synology-ds220p/20220921205956.png"></p>
+<p>盘古 DS220+ 的无线宝提供三种<strong>积分模式</strong>供用户选择:</p>
+<ul>
+<li>保守模式: 占用最多 300GB 存储空间.</li>
+<li>均衡模式: 占用最多 600GB 存储空间.</li>
+<li>激进模式: 占用最多 1.2TB 存储空间.</li>
+</ul>
+<p>除了相对固定的存储占用外, 无线宝还会占用较多的上行流量和部分下行流量. CPU 和内存占用率较少, 因此并不会影响 NAS 上其它功能的正常运行和使用.</p>
+<p><img src="/posts/synology-ds220p/20221001225454.jpg"></p>
+<h2 id="2-等待收益"><a href="#2-等待收益" class="headerlink" title="2. 等待收益"></a>2. 等待收益</h2><p>盘古 DS220+ 的无线宝每日收益大约在次日早上七点到账, 积分明细可以从手机 app 中查阅. </p>
+<p>首次启动无线宝边缘计算的前七天为过渡期, 会持续的下载数据直到最大空间占用量 (视积分模式而定). 过渡期每日只发放 10 点积分.</p>
+<p>无线宝积分商城主要提供京豆和 E 卡兑换, 还有几个主流音乐影视平台会员卡和外卖平台卡券.</p>
+<p><img src="/posts/synology-ds220p/20221001225501.jpg"></p>
+<p><img src="/posts/synology-ds220p/20221008160633.jpg"></p>
+<h2 id="3-收益兑换"><a href="#3-收益兑换" class="headerlink" title="3. 收益兑换"></a>3. 收益兑换</h2><p>积分兑换流程非常简单高效, 不需凑满 xxx, 也不需要拉人头砍一刀抽元宝.</p>
+<p><img src="/posts/synology-ds220p/20221001225505.jpg"></p>
+<p>京豆兑换秒到账, 立等可取. 在无线宝 app 兑换的京豆会立即显示在京东 app 的记录中, 并且可以马上使用, 没有 CD 或吟唱时间. 😂</p>
+<p><img src="/posts/synology-ds220p/20221001225508.jpg"></p>
+<p>排骨一共测试了 9 天左右, 3 天为一个周期分别试用了激进&#x2F;均衡&#x2F;保守 3 种积分模式:</p>
+<ul>
+<li>激进模式: 3 天收益分别为 235, 216, 250, 平均 234</li>
+<li>均衡模式: 3 天收益分别为 139, 181, 209, 平均 176.</li>
+<li>保守模式: 3 天收益分别为 149, 154, 119, 平均 141.</li>
+</ul>
+<p>另外需要注意的是不要随意停用无线宝或者删除缓存, 否则收益会骤降直至缓存被完全恢复.</p>
+<p>对比一下别人 (北京移动 200M 上行) 的收益, 感觉排骨这 30M 小水管已经很稳了, 不是么. 😆</p>
+<p><img src="/posts/synology-ds220p/20221023225505.jpg"></p>
+<h2 id="4-流量分析"><a href="#4-流量分析" class="headerlink" title="4. 流量分析"></a>4. 流量分析</h2><p>盘古 DS220+ 的无线宝边缘计算每天到底要用掉多少流量? 对家庭宽带会造成多少影响? 这是排骨一直关注的问题. </p>
+<p>借助于华硕 AX86U 路由器内置的流量分析功能, 我们可以很直观的观察出无线宝启用前后的流量变化和每天分时流量峰谷.</p>
+<p>排骨首次在盘古 DS220+ 上安装无线宝边缘计算套件并绑定手机 app 是在 09-04, 停用于 09-23, 09-30~10-01 又换个硬盘开了两天补些截图.</p>
+<p>从月流量数据来看, 9 月启用无线宝后, 下载与上传流量爆增, 下载流量翻了一倍多, 上传更是翻了十几倍! 😨 可见平时个人宽带的闲置率是非常高的, 特别是上行部分使用率不足满载的 1 成, 不利用起来回回血真是太浪费了…</p>
+<p><img src="/posts/synology-ds220p/image-20221008172758417.png"></p>
+<p>再切换到单日流量看, 无线宝在 09-04 启用后, 上下行流量立马飙升, 持续到 09-11 过渡期结束. </p>
+<ul>
+<li>09-12 ~ 14 激进模式下上行流量冲顶.</li>
+<li>09-15 ~ 17 均衡模式流量回至中位.</li>
+<li>09-18 ~ 20 保守模式流量占用降至激进模式的一半左右.</li>
+<li>09-22 之后数据不计入测试中.</li>
+</ul>
+<p>虽然上下行流量激增, 但是排骨并未感觉网络使用有明显可感知的卡顿, 路由器 CPU 和内存占用率也没有明显的增长, 几乎没有额外的负载.</p>
+<p><img src="/posts/synology-ds220p/image-20221008173207380.png"></p>
+<p>通过分时流量我们可以看出无线宝在每天各个时间段的工作情况. 以 09-13 为例, 流量高峰主要在半夜 1<del>4 点, 低谷在早上 6</del>7 点. 下午至晚间流量持续高位但并不是最高. 如果无线宝流量主要是为视频网站提供 CDN 服务的话, 半夜 1~4 点熬夜追剧已经成为了主流了?? 😨</p>
+<p><img src="/posts/synology-ds220p/image-20221007213600518.png"></p>
+<p>折分下载与上传分时流量后可以得知无线宝会在半夜 1 点开始下载更新缓存. 而上传活动是 24 小时连续进行的, 顶峰在晚 9 点左右, 低谷主要是早上 7 点, 中午 1 点左右会有个小高峰. 假设无线宝边缘计算的主要服务对象是个人视频用户的话, 这个 24 小时上传分时流量变化与上海这边的用户习惯非常贴合. </p>
+<ul>
+<li>早上 7 点要么还在睡, 要么已经准备出门上班了.</li>
+<li>中午吃了饭 1 点左右午休时间刷刷抖音啥的.</li>
+<li>晚上追剧不停, 12 点一半睡觉去了, 一半看通宵. 😄</li>
+</ul>
+<p><img src="/posts/synology-ds220p/09-13.jpg"></p>
+<p>三种积分模式的流量区别可以很清楚的在流量统计中看到.</p>
+<p>按 30Mbps 上行宽带计算, 每天极限上传流量为 316GB. 无线宝激进模式下 09-14 日</p>
+<p><img src="/posts/synology-ds220p/image-20221007214052850.png"></p>
+<p>华硕路由器流量分析功能统计值明显的小于监控值, 个人感觉统计值更接近真实. 下图所示监控值对比 30Mbps 上传宽带明显超出了上限.</p>
+<p><img src="/posts/synology-ds220p/12-20.png"></p>
+<p>以下为整个 9 天测试周期内每天的无线宝分时流量使用情况, 仅供参考. (由于统计功能是在 09-12 晚上才打开的, 所以 12 号的数据不完整)</p>
+<p><img src="/posts/synology-ds220p/12-15.png"></p>
+<p><img src="/posts/synology-ds220p/15-17.png"></p>
+<p><img src="/posts/synology-ds220p/18-20.png"></p>
+<h1 id="四-群晖私有云核心-Synology-Drive"><a href="#四-群晖私有云核心-Synology-Drive" class="headerlink" title="四. 群晖私有云核心 Synology Drive"></a>四. 群晖私有云核心 Synology Drive</h1><p>Synology Drive 是群晖系统的核心功能之一, 它为用户提供的全方位文件管理, 分享和和同步解决方案, 它将一台传统的 Network Attached Storage (NAS 网络附属存储) 升级成为 Personal Cloud Storage (PCS 私有云存储).</p>
+<p><img src="/posts/synology-ds220p/image-20221018233240715.png" alt="image-20221018233240715"></p>
+<p>从安装了群晖套件中心的 Synology Drive Server 开始, 你的 NAS 已经完全转变成 PCS, 私有云之旅行已然开启.</p>
+<p>注: Synology Drive Server 几乎支持所有群晖所有存储设备, 哪怕你买的是最入门级的 DS1XX 机型也能使用.</p>
+<p><img src="/posts/synology-ds220p/20221019012719.jpg"></p>
+<p>Synology Drive 针对不同的用户终端, 提供的各种对应的客户端 app. 使用起来与百度云阿里云盘类似, 新用户几乎零学习成本.</p>
+<ul>
+<li>网页端: 有浏览器就能用的网页版. 无需下载安装就可直接浏览, 编辑和管理文件.</li>
+<li>移动端: 支持手机和平板, 除了浏览, 编辑和管理文件之外, 同时还提供照片自动备份功能. 在安卓系统中还支持微信备份.</li>
+<li>桌面端: 支持 Windows&#x2F;Mac&#x2F;Ubuntu 主流桌面操作系统, 主要用于备份文件到群晖上, 或者与群晖双向同步文件.</li>
+<li>服务端: 运行在群晖 DSM 内, 可与多台其它群晖主机双向同步文件.</li>
+</ul>
+<p><img src="/posts/synology-ds220p/driveclient.jpg"></p>
+<p>Synology Drive 可用于多端同步, 作为多地多人共同协作办公的方案依托, 解决各种复杂的本地数据依赖与远程数据同步问题.</p>
+<p>注: 与外网的 Drive Server 同步前记得先映射好端口, 同步功能需要使用 6690&#x2F;TCP 端口.</p>
+<p><img src="/posts/synology-ds220p/image-20221019022659910.png"></p>
+<p>Synology Drive 内置了文件版本控制功能. 当文件被错删错改或者与他人的修改出现冲突时, 可以通过文件历史查询和还原功能恢复丢失的进度, 减少多人同时修改或网络延时等问题造成不可逆的后果. </p>
+<p><img src="/posts/synology-ds220p/image-20221019013944065.png"></p>
+<p><img src="/posts/synology-ds220p/image-20221019015926525.png"></p>
+<h1 id="五-总结"><a href="#五-总结" class="headerlink" title="五. 总结"></a>五. 总结</h1><p>总的看起来<strong>盘古 DS220+</strong> 对于存储需求不是很高但又想享用群晖系统的用户来着是个非常好的选择. 双盘位 NAS 既能享用群晖 DSM 7.1 所有功能, 又能持续通过无线宝回血降低购置成本. </p>
+<p>京东云无线宝相比网心云等其它边缘计算来说, 不需要用户折腾 DMZ&#x2F;NAT, 也不需要做端口映射, 普通用户就轻松实现, 几乎没有学习成本, 无线宝收益也很可观. 依托京东这个大后台, 也不用担心无线宝哪天突然跑路什么的. 排骨也试了停用无线宝, 再用 Docker 跑网心云, 开了 UPNP 后三天收益才 9毛8… 😆 DS220+ 强大的 x86 结构, 应付无线宝这点边缘计算完全没有问题, 比跑在路由器上更稳.</p>
+<p>盘古 220+ 除了独有的边缘计算功能外, 别忘了它还是台 NAS, 还能结合 Synology Drive 升级为私有云服务器, 还能加持 Synology Photos 变身智能网络相册, 或者安装 Video Station 变成影视中心哦. 网上使用经验分享文章和视频也是铺天盖地, 感兴趣的同学自行探索吧. 😎</p>
+<p>注: 除了代号盘古的两款定制版群晖外, 其它黑白群晖<strong>尚</strong>无法安装运行无线宝连续计算.</p>
+
+          
+            <div class='article_footer'>
+              
+                
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class='content'>
+    
+      <blockquote>
+        
+          
+            <p>未经许可, 本站内容不可转载</p>
+
+          
+        
+          
+            <p>本文永久链接是：<a href=https://gh.cuteribs.com/posts/synology-ds220p/>https://gh.cuteribs.com/posts/synology-ds220p/</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget qrcode  ">
+  
+
+  <div class='content article-entry'>
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-09-18T10:26:00+00:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2022年9月18日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/SYNOLOGY-%E7%BE%A4%E6%99%96/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>SYNOLOGY/群晖</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/NAS/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>NAS</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/posts/ugreen-cm498/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>推荐一款带VGA接口的绿联Type-C 9合1扩展坞，解决商务差旅中的巨大尴尬！</p>
+                <p class='content'>
+随着科技的不断进步，Type-C扩展坞作为一种高效、便捷的连接设备，在各个领域中扮演着越来越重要的角色。它为用户提供了更多连接选项和功能，从而满足了多种使用场景的需求。
+排骨最近在用一款绿联的...</p>
+              </a>
+            
+            
+              <a class='next' href='/posts/ugreen-dh2600/'>
+                <p class='title'>高颜值NAS还能玩, 绿联私有云DH2600实现中文域名导航页<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>
+
+大家好, 我是可爱的排骨 :)
+
+一. 前言好久没折腾 NAS 了. 最近绿联新推出了一款双盘位家用 NAS: 绿联私有云 DH2600, 采用 x86 架构的 64位低功率赛扬四核 N51...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow blur">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: '能回血的群晖 - 盘古 DS220+ 无线宝边缘计算体验',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+  
+    
+    
+
+
+  <section class="widget toc-wrapper shadow blur desktop mobile">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80-%E5%89%8D%E8%A8%80"><span class="toc-text">一. 前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C-%E5%BC%80%E7%AE%B1"><span class="toc-text">二. 开箱</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89-%E6%97%A0%E7%BA%BF%E5%AE%9D%E4%BD%BF%E7%94%A8%E6%B5%81%E7%A8%8B-%E5%9B%9E%E8%A1%80%E4%BD%93%E9%AA%8C"><span class="toc-text">三. 无线宝使用流程 (回血体验)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%AE%89%E8%A3%85%E5%90%AF%E5%8A%A8"><span class="toc-text">1. 安装启动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%AD%89%E5%BE%85%E6%94%B6%E7%9B%8A"><span class="toc-text">2. 等待收益</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%94%B6%E7%9B%8A%E5%85%91%E6%8D%A2"><span class="toc-text">3. 收益兑换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90"><span class="toc-text">4. 流量分析</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B-%E7%BE%A4%E6%99%96%E7%A7%81%E6%9C%89%E4%BA%91%E6%A0%B8%E5%BF%83-Synology-Drive"><span class="toc-text">四. 群晖私有云核心 Synology Drive</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94-%E6%80%BB%E7%BB%93"><span class="toc-text">五. 总结</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+  
+    
+    
+  
+
+  <section class="widget category shadow blur desktop">
+    
+  <header>
+    
+      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+    
+  </header>
+
+
+    <div class='content'>
+      <ul class="entry navigation">
+        
+          <li><a class="flat-box"
+            title="/categories/%E6%80%80%E6%97%A7/" href="/categories/%E6%80%80%E6%97%A7/"
+            id="categoriesE68080E697A7"
+            ><div class='name'>怀旧</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E6%99%92%E7%89%A9/" href="/categories/%E6%99%92%E7%89%A9/"
+            id="categoriesE69992E789A9"
+            ><div class='name'>晒物</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E7%A7%91%E6%99%AE/" href="/categories/%E7%A7%91%E6%99%AE/"
+            id="categoriesE7A791E699AE"
+            ><div class='name'>科普</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E7%BB%8F%E9%AA%8C/" href="/categories/%E7%BB%8F%E9%AA%8C/"
+            id="categoriesE7BB8FE9AA8C"
+            ><div class='name'>经验</div><div class='badge'>(6)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E7%BB%8F%E9%AA%8C/%E8%A3%85%E6%9C%BA/" href="/categories/%E7%BB%8F%E9%AA%8C/%E8%A3%85%E6%9C%BA/"
+            id="categoriesE7BB8FE9AA8CE8A385E69CBA"
+            ><div class='name'>装机</div><div class='badge'>(4)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E8%AF%84%E6%B5%8B/" href="/categories/%E8%AF%84%E6%B5%8B/"
+            id="categoriesE8AF84E6B58B"
+            ><div class='name'>评测</div><div class='badge'>(35)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E8%AF%84%E6%B5%8B/%E5%8D%95%E5%93%81/" href="/categories/%E8%AF%84%E6%B5%8B/%E5%8D%95%E5%93%81/"
+            id="categoriesE8AF84E6B58BE58D95E59381"
+            ><div class='name'>单品</div><div class='badge'>(35)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E8%AF%84%E6%B5%8B/%E5%8D%95%E5%93%81/%E7%BB%8F%E9%AA%8C/" href="/categories/%E8%AF%84%E6%B5%8B/%E5%8D%95%E5%93%81/%E7%BB%8F%E9%AA%8C/"
+            id="categoriesE8AF84E6B58BE58D95E59381E7BB8FE9AA8C"
+            ><div class='name'>经验</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E8%AF%84%E6%B5%8B/%E5%8D%95%E5%93%81/%E9%BB%91%E8%8B%B9%E6%9E%9C/" href="/categories/%E8%AF%84%E6%B5%8B/%E5%8D%95%E5%93%81/%E9%BB%91%E8%8B%B9%E6%9E%9C/"
+            id="categoriesE8AF84E6B58BE58D95E59381E9BB91E88BB9E69E9C"
+            ><div class='name'>黑苹果</div><div class='badge'>(2)</div></a></li>
+        
+      </ul>
+    </div>
+  </section>
+
+
+  
+
+  
+    
+    
+  
+
+  <section class="widget tagcloud shadow blur desktop mobile">
+    
+  <header>
+    
+      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
+    
+  </header>
+
+
+    <div class='content'>
+      <a href="/tags/360/" style="font-size: 17.33px; color: #828282">360</a> <a href="/tags/ASUS-%E5%8D%8E%E7%A1%95/" style="font-size: 19px; color: #777">ASUS/华硕</a> <a href="/tags/BELKIN-%E8%B4%9D%E5%B0%94%E9%87%91/" style="font-size: 14px; color: #999">BELKIN/贝尔金</a> <a href="/tags/BENQ-%E6%98%8E%E5%9F%BA/" style="font-size: 14px; color: #999">BENQ/明基</a> <a href="/tags/DAHUA-%E5%A4%A7%E5%8D%8E/" style="font-size: 14px; color: #999">DAHUA/大华</a> <a href="/tags/DURGOD-%E6%9D%9C%E4%BC%BD/" style="font-size: 15.67px; color: #8e8e8e">DURGOD/杜伽</a> <a href="/tags/Datacolor/" style="font-size: 14px; color: #999">Datacolor</a> <a href="/tags/FIRSTBLOOD/" style="font-size: 14px; color: #999">FIRSTBLOOD</a> <a href="/tags/GANSS/" style="font-size: 14px; color: #999">GANSS</a> <a href="/tags/GLOWAY-%E5%85%89%E5%A8%81/" style="font-size: 14px; color: #999">GLOWAY/光威</a> <a href="/tags/HUAWEI-%E5%8D%8E%E4%B8%BA/" style="font-size: 14px; color: #999">HUAWEI/华为</a> <a href="/tags/IGENE-%E5%87%BB%E9%9F%B3/" style="font-size: 14px; color: #999">IGENE/击音</a> <a href="/tags/KIOXIA-%E5%87%AF%E4%BE%A0/" style="font-size: 14px; color: #999">KIOXIA/凯侠</a> <a href="/tags/LEVEL8-%E5%9C%B0%E5%B9%B3%E7%BA%BF8%E5%8F%B7/" style="font-size: 14px; color: #999">LEVEL8/地平线8号</a> <a href="/tags/LINKSYS-%E9%A2%86%E5%8A%BF/" style="font-size: 14px; color: #999">LINKSYS/领势</a> <a href="/tags/LOFREE-%E6%B4%9B%E6%96%90/" style="font-size: 14px; color: #999">LOFREE/洛斐</a> <a href="/tags/MI-%E5%B0%8F%E7%B1%B3/" style="font-size: 14px; color: #999">MI/小米</a> <a href="/tags/MIJIA-%E7%B1%B3%E5%AE%B6/" style="font-size: 14px; color: #999">MIJIA/米家</a> <a href="/tags/MOVESPEED-%E7%A7%BB%E9%80%9F/" style="font-size: 14px; color: #999">MOVESPEED/移速</a> <a href="/tags/NARWAL-%E4%BA%91%E9%B2%B8/" style="font-size: 14px; color: #999">NARWAL/云鲸</a> <a href="/tags/NAS/" style="font-size: 17.33px; color: #828282">NAS</a> <a href="/tags/QNAP-%E5%A8%81%E8%81%94%E9%80%9A/" style="font-size: 15.67px; color: #8e8e8e">QNAP/威联通</a> <a href="/tags/RIODMI-%E7%9D%BF%E7%B1%B3/" style="font-size: 14px; color: #999">RIODMI/睿米</a> <a href="/tags/SYNOLOGY-%E7%BE%A4%E6%99%96/" style="font-size: 14px; color: #999">SYNOLOGY/群晖</a> <a href="/tags/UGREEN-%E7%BB%BF%E8%81%94/" style="font-size: 14px; color: #999">UGREEN/绿联</a> <a href="/tags/VIVO/" style="font-size: 14px; color: #999">VIVO</a> <a href="/tags/Wi-Fi-6/" style="font-size: 22.33px; color: #606060">Wi-Fi 6</a> <a href="/tags/Wi-Fi-6E/" style="font-size: 14px; color: #999">Wi-Fi 6E</a> <a href="/tags/%E4%B8%8B%E8%BD%BD%E6%9C%BA/" style="font-size: 14px; color: #999">下载机</a> <a href="/tags/%E5%90%B8%E5%B0%98%E5%99%A8/" style="font-size: 14px; color: #999">吸尘器</a> <a href="/tags/%E5%9B%BA%E6%80%81%E7%A1%AC%E7%9B%98/" style="font-size: 19px; color: #777">固态硬盘</a> <a href="/tags/%E5%AE%B6%E5%BA%AD%E5%BD%B1%E9%9F%B3/" style="font-size: 14px; color: #999">家庭影音</a> <a href="/tags/%E5%B9%B3%E6%9D%BF%E7%94%B5%E8%84%91/" style="font-size: 14px; color: #999">平板电脑</a> <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 14px; color: #999">微服务</a> <a href="/tags/%E6%89%8B%E6%9C%BA/" style="font-size: 14px; color: #999">手机</a> <a href="/tags/%E6%89%A9%E5%B1%95%E5%9D%9E/" style="font-size: 15.67px; color: #8e8e8e">扩展坞</a> <a href="/tags/%E6%89%AB%E5%9C%B0%E6%9C%BA/" style="font-size: 14px; color: #999">扫地机</a> <a href="/tags/%E6%89%AB%E5%9C%B0%E6%9C%BA%E5%99%A8%E4%BA%BA/" style="font-size: 14px; color: #999">扫地机器人</a> <a href="/tags/%E6%98%BE%E7%A4%BA%E5%99%A8/" style="font-size: 15.67px; color: #8e8e8e">显示器</a> <a href="/tags/%E6%9C%BA%E6%A2%B0%E9%94%AE%E7%9B%98/" style="font-size: 19px; color: #777">机械键盘</a> <a href="/tags/%E6%B8%B8%E6%88%8F/" style="font-size: 14px; color: #999">游戏</a> <a href="/tags/%E6%BC%AB%E7%94%BB/" style="font-size: 14px; color: #999">漫画</a> <a href="/tags/%E7%81%AF%E5%85%B7/" style="font-size: 14px; color: #999">灯具</a> <a href="/tags/%E7%94%B5%E8%84%91%E4%B8%BB%E6%9C%BA/" style="font-size: 15.67px; color: #8e8e8e">电脑主机</a> <a href="/tags/%E7%94%B5%E9%A5%AD%E7%85%B2/" style="font-size: 14px; color: #999">电饭煲</a> <a href="/tags/%E7%A0%81%E5%86%9C/" style="font-size: 14px; color: #999">码农</a> <a href="/tags/%E7%AE%B1%E5%8C%85/" style="font-size: 14px; color: #999">箱包</a> <a href="/tags/%E7%BB%BF%E8%81%94/" style="font-size: 15.67px; color: #8e8e8e">绿联</a> <a href="/tags/%E8%80%B3%E6%9C%BA/" style="font-size: 14px; color: #999">耳机</a> <a href="/tags/%E8%A3%85%E6%9C%BA/" style="font-size: 17.33px; color: #828282">装机</a> <a href="/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/" style="font-size: 24px; color: #555">路由器</a> <a href="/tags/%E9%85%B7%E6%AF%94%E9%AD%94%E6%96%B9/" style="font-size: 14px; color: #999">酷比魔方</a> <a href="/tags/%E9%94%AE%E7%9B%98/" style="font-size: 20.67px; color: #6c6c6c">键盘</a> <a href="/tags/%E9%9B%B6%E5%88%BB/" style="font-size: 14px; color: #999">零刻</a> <a href="/tags/%E9%9B%B7%E7%94%B53/" style="font-size: 14px; color: #999">雷电3</a> <a href="/tags/%E9%AD%94%E5%85%BD%E4%B8%96%E7%95%8C/" style="font-size: 14px; color: #999">魔兽世界</a> <a href="/tags/%E9%BB%91%E8%8B%B9%E6%9E%9C/" style="font-size: 20.67px; color: #6c6c6c">黑苹果</a> <a href="/tags/%E9%BC%A0%E6%A0%87/" style="font-size: 15.67px; color: #8e8e8e">鼠标</a>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='true'
+      volume='0.7'
+      loop='all'
+      order='random'
+      fixed='false'
+      list-max-height='340px'
+      server='netease'
+      type='playlist'
+      id='3175833810'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml"
+                class="social fas fa-rss flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="mailto:me@xaoxuu.com"
+                class="social fas fa-envelope flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://github.com/xaoxuu"
+                class="social fab fa-github flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/user/home?id=63035382"
+                class="social fas fa-headphones-alt flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        <div><p>Blog content follows the <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+</div>
+      
+    
+      
+        Use
+        <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
+        as theme
+      
+    
+      
+        <div class='copyright'>
+        <p><a target="_blank" rel="noopener" href="https://cuteribs.ga/">版权所有 © 2020 可爱的排骨</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4/dist/jquery.min.js"></script>
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      ScrollReveal().reveal('.l_main .reveal', {
+        distance: '8px',
+        duration: '800',
+        interval: '100',
+        scale: '1'
+      });
+    });
+  </script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://unpkg.com/cuteribs/cdn-assets/wallhaven-01yz8g.png", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-0w8y2r.jpg", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-13xxrv.jpg", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-73jeko.jpg", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-g8mj2e.png", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-j81565.jpg", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-mpo29y.jpg", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-p83gpj.jpg", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-p879v3.jpg", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-qd27z7.png", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-yj8qwg.jpg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('') {
+          $('').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "pvKmMOLxDFw0YR0y7pVFTo0o-MdYXbMMI",
+    appKey: "s40zxIg9wGykkJJiUMy2IHA6",
+    placeholder: "快来评论吧~",
+    pageSize:'20',
+    avatar:'mp',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'false',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.6.5/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/comment_typing.js"></script>
+
+
+
+
+
+
+<!-- 复制 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-check-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-check-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-times-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-times-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  function pjax_fancybox() {
+    $(".article-entry").find("img").not('.inline').not('a img').each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 标准 markdown 描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".article-entry").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  $(function () {
+    pjax_fancybox();
+  });
+</script>
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>

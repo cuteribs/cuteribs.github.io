@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme='https://volantis.js.org/#2.6.6'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+    <title>最好用的内外网测速工具, speedtest 服务器搭建指南 - 排骨博客</title>
+  
+    <meta name="keywords" content="路由器">
+  
+  
+    <meta name="description" content="
+
+大家好, 我是可爱的排骨 :)
+
+一. speedtest 简介.1. 作者简介.
+喝井不忘挖水人, speedtest 的作者不是排骨, 是下面这位.
+speedtest 是由意大利的一位90后爱打游戏爱跳舞机的逗B码农 Federico Dossena (见下图) 发布的一个开源项目 (https://g...">
+  
+
+  <!-- feed -->
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+  <link rel="shortcut icon" type='image/x-icon' href="/favicon.ico">
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  
+
+  <!-- import link -->
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script>
+	setTimeout(function() {
+	  let script = document.createElement('script');
+	  script.src = "https://www.googletagmanager.com/gtag/js?id=UA-166002383-1";
+	  script.defer=true;
+	  document.body.appendChild(script);
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-166002383-1');
+	}, 5000);
+    </script>
+  
+  
+    <!-- ba -->
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+	  setTimeout(function() { 
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?8b8d1636c58b1fc0c3cca66c0402c41c";
+		hm.defer=true;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+	  }, 5000);
+    })();
+    </script>
+  
+</head>
+
+<body>
+  
+  <div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+<header class="l_header shadow blur">
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h'>
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+            <i class='fas fa-blog'></i>
+          
+          
+            排骨博客
+          
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="搜索..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+<script>setLoadingBarProgress(40);</script>
+
+
+
+  <div class="l_body nocover">
+    <div class='body-wrapper'>
+      
+
+<div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box reveal shadow blur article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/posts/librespeed/">
+      最好用的内外网测速工具, speedtest 服务器搭建指南
+    </a>
+  </h1>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="" rel="nofollow">
+    <img src="https://cdn.jsdelivr.net/gh/cuteribs/cdn-assets/domo_kun2.jpg">
+    <p>可爱的排骨</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/%E7%BB%8F%E9%AA%8C/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>经验</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2018年5月29日</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <p><img src="/posts/librespeed/DHmZ9MQxWAtbQSyr"></p>
+<blockquote>
+<p>大家好, 我是可爱的排骨 :)</p>
+</blockquote>
+<h1 id="一-speedtest-简介"><a href="#一-speedtest-简介" class="headerlink" title="一. speedtest 简介."></a><strong>一. speedtest 简介.</strong></h1><p><strong>1. 作者简介.</strong></p>
+<p>喝井不忘挖水人, speedtest 的作者不是排骨, 是下面这位.</p>
+<p>speedtest 是由意大利的一位90后爱打游戏爱跳舞机的逗B码农 Federico Dossena (见下图) 发布的一个开源项目 (<a target="_blank" rel="noopener" href="https://github.com/adolfintel/speedtest">https://github.com/adolfintel/speedtest</a>).</p>
+<p><img src="/posts/librespeed/idezAjnNKRxhq6fX"></p>
+<span id="more"></span>
+
+<p><strong>2. 原理简介</strong></p>
+<p>speedtest 以 HTML 和 JavaScript 为主, 利用客户端的浏览器通过上传和下载垃圾数据来测试 HTTP 传输速度, 和大家常用的 speedtest.net 差不多. </p>
+<p>speedtest 使用任意操作系统上的任意 Web 服务器作为服务端, 所以理论上它支持 Windows&#x2F;MacOS&#x2F;Linux&#x2F;Unix 等系统, IIS&#x2F;Nginx&#x2F;Apache&#x2F;lighttpd 等服务器.</p>
+<p>任意浏览器作为客户端如 Chrome&#x2F;Firefox&#x2F;IE11&#x2F;Edge&#x2F;Safari&#x2F;Opera?</p>
+<p>speedtest 默认使用 PHP 作为服务端, 目前也有 node.js 版本, 也可以只用纯静态服务器.</p>
+<p>本文所说的 <strong>speedtest</strong> 与 <strong>Ookla</strong> 公司的 <strong>speedtest.net</strong> 及<strong>相关测速 app</strong> <strong>没有任何关系</strong>, <strong>没何关</strong>, <strong>没关</strong>, <strong>没</strong>.</p>
+<h1 id="二-安装到-Windows-难度-★★"><a href="#二-安装到-Windows-难度-★★" class="headerlink" title="二. 安装到 Windows. 难度 ★★"></a><strong>二. 安装到 Windows. 难度 ★★</strong></h1><p>在 Windows 上安装 speedtest 应该是绝大多数普通用户, 为了照顾没有相关经验的用户, 这里排骨写的步骤较多较细, 但是已经最大化的精简了.</p>
+<p>本文以 Windows 10 为例, Windows 7 也适用, 不过某些地方有不同, 排骨会注明.</p>
+<p><strong>1. 安装 IIS 服务器.</strong></p>
+<p>使用 <strong>Win+R</strong> 打开<strong>运行</strong>窗口, 输入 **OptionalFeatures **打开 <strong>Windows 功能</strong>.</p>
+<p><img src="/posts/librespeed/rgKyZXFPxeyFqC7k"></p>
+<p><img src="/posts/librespeed/wfGxQalkxzXTmrtJ"></p>
+<p>必须选择 <strong>IIS 管理控制台</strong>&#x2F;<strong>静态内容</strong>&#x2F;<strong>默认文档</strong>&#x2F;<strong>CGI</strong> 4个选项. 默认文档不是必需的.</p>
+<p><strong>2. 下载并安装 PHP Manager for IIS.</strong></p>
+<p>PHP Manager for IIS 是微软官方推荐的一个 IIS 插件, 可以<strong>最大化</strong>的简化 IIS 上配置 PHP 的过程. 如果不用这个插件, 在 Windows 上配置 PHP 会比 Linux 上更麻烦.</p>
+<p>下载地址: 链接: <a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1Lu_2krnjvBC5hLGUuZF-EQ">https://pan.baidu.com/s/1Lu_2krnjvBC5hLGUuZF-EQ</a> 密码: h7a1</p>
+<p><img src="/posts/librespeed/e2tPes5aMKljVq5E"></p>
+<p>Win7 系统安装** PHPManagerForIIS-1.2.0**</p>
+<p>Win10 系统安装 <strong>PHPManagerForIIS_V1.5.0</strong>, 这里排骨以 Win10 为例.</p>
+<p><img src="/posts/librespeed/HpK6aSZ4JUfC7HkO"></p>
+<p><img src="/posts/librespeed/QeIEctSdu8k3kgSw"></p>
+<p>如果出现 SmartScreen 提示, 请按上面的图继续.</p>
+<p><img src="/posts/librespeed/yfC3RrY74OfSk7Hv"></p>
+<p><img src="/posts/librespeed/aIgG2SiecDodRHtp"></p>
+<p><img src="/posts/librespeed/7WccchfThz7wugLJ"></p>
+<p>安装过程就是一路 Next.</p>
+<p><strong>3. 下载 PHP 包并解压</strong></p>
+<p>x64版下载: <a target="_blank" rel="noopener" href="https://windows.php.net/downloads/releases/php-7.2.6-nts-Win32-VC15-x64.zip">https://windows.php.net/downloads/releases/php-7.2.6-nts-Win32-VC15-x64.zip</a></p>
+<p>x86版下载: <a target="_blank" rel="noopener" href="https://windows.php.net/downloads/releases/php-7.2.6-nts-Win32-VC15-x86.zip">https://windows.php.net/downloads/releases/php-7.2.6-nts-Win32-VC15-x86.zip</a></p>
+<p>将下载好的 zip 包解压到任意路径, 如 F:\php</p>
+<p><img src="/posts/librespeed/XMXoGOl2Mg5XNAA5"></p>
+<p><strong>4. 为 IIS 配置 PHP.</strong></p>
+<p><img src="/posts/librespeed/dQrM6kQq73uMMKOc"></p>
+<p>使用 inetmgr 命令扫开 <strong>IIS 管理器</strong>.</p>
+<p><img src="/posts/librespeed/knuDkVFMnGH7djfm"></p>
+<p>打开 <strong>PHP Manager</strong>. </p>
+<p><img src="/posts/librespeed/NcMkyMu84PqFc22S"></p>
+<p>通过 “<strong>Register new PHP version</strong>“ 设置 PHP 引用路径.</p>
+<p><img src="/posts/librespeed/v0qu5WNsswQx4udA"></p>
+<p>上一次我们把 PHP 的文件解压到了 F:\php.</p>
+<p><img src="/posts/librespeed/i6RpmPebGMY7pT5M"></p>
+<p><img src="/posts/librespeed/38MF13poStQ02IMj"></p>
+<p>使用 <strong>Check phpinfo()</strong> 测试 PHP 配置是否成功.</p>
+<p><img src="/posts/librespeed/tSUXhA2zZtsGPCfn"></p>
+<p>如果看到这个紫色页面, 就说明 PHP 配置成功了.</p>
+<p><strong>5. 下载 speedtest 包并解压.</strong></p>
+<p>speedtest 包下载: <a target="_blank" rel="noopener" href="https://github.com/adolfintel/speedtest/archive/4.5.5.zip">https://github.com/adolfintel/speedtest/archive/4.5.5.zip</a></p>
+<p>解压到 C:\inetpub\wwwroot, 熟悉 IIS 配置的用户可以解压到其它地方.</p>
+<p>注意所有文件都在压缩包里的子目录中!</p>
+<p><img src="/posts/librespeed/6TWtP6RQYWVVlJnX"></p>
+<p><strong>6. 测试 speedtest.</strong></p>
+<p>用浏览器 (推荐 Chrome) 访问 <a target="_blank" rel="noopener" href="http://localhost/example-pretty.html">http://localhost/example-pretty.html</a>. 如果出现下图这样的测试结果则表达 speedtest 运行成功.</p>
+<p><img src="/posts/librespeed/0hcG0KMBcJ9i4Acy"></p>
+<p><strong>7. 防火墙开启入站 80 端口.</strong></p>
+<p>这一步是可选的. 如果内网的其它电脑或手机无法访问这台 Windows 上的 speedtest, 可能是被 Windows 防火墙挡了.</p>
+<p>将 Windows 入站端口 80 打开后, 内网的其它设备才能访问刚刚安装好的 speedtest.</p>
+<p><strong>以管理员身份运行</strong> cmd 打开命令行窗口. 使用下面的命令行给防火墙开启 80 端口.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netsh advfirewall firewall add rule name=&quot;speedtest&quot; dir=in action=allow protocol=TCP localport=80</span><br></pre></td></tr></table></figure>
+<p><img src="/posts/librespeed/2HBVWyVBKxZAHX5q"></p>
+<p>Win7命令为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netsh firewall add portopening TCP 80 &quot;speedtest&quot;</span><br></pre></td></tr></table></figure>
+<p>最后用手机或其它电脑访问 <a target="_blank" rel="noopener" href="http://192.168.1.91/example-pretty.html">http://192.168.1.91/example-pretty.html</a> 开始测速吧 (假设安装 speedtest 的电脑 IP 为 192.168.1.91).</p>
+<p><img src="/posts/librespeed/p6Hdei57Rvr1OnJ1"></p>
+<h1 id="三-安装到-Linux-难度-★★★★★"><a href="#三-安装到-Linux-难度-★★★★★" class="headerlink" title="三. 安装到 Linux. 难度 ★★★★★"></a><strong>三. 安装到 Linux. 难度 ★★★★★</strong></h1><p>一般用户家中没有 Linux 电脑, 不过排骨考虑到使用 OMV 等系统作 NAS 的用户和自购有 VPS 的用户, 顺便也写一下 Linux 上安装 speedtest的步骤. 用 Linux 系统的用户基础都不会太菜吧? </p>
+<p>下面 ubuntu 18.04 为例, 其它 Linux 版本的用户请自行调整.</p>
+<p><strong>1. 安装 nginx 和 php-fpm</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install nginx php-fpm</span><br></pre></td></tr></table></figure>
+<p><strong>2. 修改 nginx 站点配置</strong></p>
+<p><em>sudo nano &#x2F;etc&#x2F;nginx&#x2F;sites-available&#x2F;default</em></p>
+<p>以下面为修改配置文件内容, 注意 &#x2F;var&#x2F;run&#x2F;php&#x2F;php7.2-fpm.sock 的路径是不是正确.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen 80 default_server;</span><br><span class="line">        root /var/www/html;</span><br><span class="line">        index index.html;</span><br><span class="line">        server_name _;</span><br><span class="line">        location / &#123;</span><br><span class="line">                try_files $uri $uri/ =404;</span><br><span class="line">        &#125;</span><br><span class="line">        location ~ \.php$ &#123;</span><br><span class="line">                include snippets/fastcgi-php.conf;</span><br><span class="line">                fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>重启 nginx.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service nginx restart</span><br></pre></td></tr></table></figure>
+<p><strong>3. 下载 speedtest 并解压</strong></p>
+<p>speedtest 包下载: <a target="_blank" rel="noopener" href="https://github.com/adolfintel/speedtest/archive/4.5.5.zip">https://github.com/adolfintel/speedtest/archive/4.5.5.zip</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo wget https://github.com/adolfintel/speedtest/archive/4.5.5.zip</span><br></pre></td></tr></table></figure>
+<p>解压到 &#x2F;var&#x2F;www&#x2F;html.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo unzip 4.5.5.zip -d /var/www/html/</span><br><span class="line">sudo mv /var/www/html/speedtest-4.5.5/* /var/www/html/</span><br></pre></td></tr></table></figure>
+<p><strong>4. 防火墙开启入站 80 端口</strong></p>
+<p>这步也是可选的.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw allow 80</span><br></pre></td></tr></table></figure>
+<p>安装配置完成. 开始测速吧!</p>
+<h1 id="四-安装到-群晖-DSM-难度-★★"><a href="#四-安装到-群晖-DSM-难度-★★" class="headerlink" title="四. 安装到 群晖 DSM. 难度 ★★"></a><strong>四. 安装到 群晖 DSM. 难度 ★★</strong></h1><p>在群晖系统上安装 speedtest 是个非常好的选择, 也是最简单的方案. 与 Linux 上安装 speedtest 类似, 群晖的管理系统本身就是基于 Linux 和 nginx 的.</p>
+<p><strong>1. 下载 speedtest 并上传到群晖.</strong></p>
+<p>speedtest 包下载: <a target="_blank" rel="noopener" href="https://github.com/adolfintel/speedtest/archive/4.5.5.zip">https://github.com/adolfintel/speedtest/archive/4.5.5.zip</a></p>
+<p>将 speedtest 包中的文件上传到群晖共享文件夹的某个目录, 如下图</p>
+<p><img src="/posts/librespeed/i9kUdK2YRULdj01R"></p>
+<p><strong>2. 安装 Web Station 和 PHP 7.0.</strong></p>
+<p>从群晖套件中心可以找到, PHP 7.0 可能在安装 Photo Station 时一并安装好了.</p>
+<p><img src="/posts/librespeed/F50s5P57MUHW7mqr"></p>
+<p><strong>3. 设置 PHP 和 虚拟主机.</strong></p>
+<p>打开 <strong>Web Station</strong> 套件, 选择 <strong>PHP 设置</strong>, 编辑<strong>默认PHP配件文件</strong>. 勾选 <strong>openssl</strong>.</p>
+<p><img src="/posts/librespeed/RzwtLrItG7YUrz29"></p>
+<p><img src="/posts/librespeed/Ao2lAHTwdLDUy5DL"></p>
+<p>选择 <strong>虚拟主机</strong>, 点击 <strong>新增</strong>, 然后按下图配置虚拟主机. 其中 <strong>端口</strong> 和 <strong>文档根目录</strong> 按实际情况设置.</p>
+<p><img src="/posts/librespeed/q4ediEcBYJf7Y2Hv"></p>
+<p>安装配置完成. 开始测速吧!</p>
+<h1 id="五-使用-Docker-镜像部署-难度-★★★"><a href="#五-使用-Docker-镜像部署-难度-★★★" class="headerlink" title="五. 使用 Docker 镜像部署. 难度 ★★★"></a><strong>五. 使用 Docker 镜像部署. 难度 ★★★</strong></h1><p>用 Docker 部署 speedtest 是最简易快速的方法, 但是对用户来说起点也是最高的.</p>
+<p>排骨专门给 speedtest 制作了 Docker 镜像 (6MB), 比原作者的镜像 (158MB) 小很多很多很多.</p>
+<p><strong>1. 下载 speedtest 镜像.</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull cuteribs/speedtest</span><br></pre></td></tr></table></figure>
+<p><strong>2. 创建 speedtest 容器.</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --name speedtest -p 80:80 cuteribs/speedtest</span><br></pre></td></tr></table></figure>
+<p>安装配置完成. 开始测速吧! 2行命令就搞定了, 是不是简单得要死而绝大多数人又不会? </p>
+<h1 id="六-总结"><a href="#六-总结" class="headerlink" title="六. 总结"></a><strong>六. 总结</strong></h1><p>按上面任一方法搭建好 speedtest 服务器后, 就可以愉快的测速了.</p>
+<p><strong>不论是测内网还是外网</strong></p>
+<p><strong>不论是测 路由器, AP, 网卡还是VPS</strong></p>
+<p><strong>不论是测 有线 NAT, 2.4G&#x2F;5G WiFi 还是 SS等软件转发</strong></p>
+<p>只要打开浏览器, 输入 speedtest 地址就行了.</p>
+<p><strong>speedtest 测速的优点:</strong></p>
+<ol>
+<li><strong>测试简单暴力</strong>. 浏览器就能测, 无需别装 app.</li>
+<li><strong>界面简洁明了</strong>. 直观且无广告不收费.</li>
+<li><strong>上行下行兼顾</strong>. 不用双向测试, 不像 iperf3 只能单向.</li>
+</ol>
+<p><strong>speedtest 测速的缺点:</strong></p>
+<ol>
+<li><strong>用户技能要求</strong>. 需要自己安装测速服务器, 希望本贴能解决这个问题.</li>
+<li><strong>测速协议片面</strong>. 基于 HTTP 协议测速, 有些片面. 不过95%的用户有90%的网络使用都是 HTTP. (纯瞎说的 哈~)</li>
+<li><strong>性能瓶颈要求</strong>. 因为基于 Web 服务器和 JavaScript, 所以服务器和客户端性能不能太差. 测试 2.5&#x2F;5&#x2F;10 千兆可能力不从心.</li>
+</ol>
+
+          
+            <div class='article_footer'>
+              
+                
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class='content'>
+    
+      <blockquote>
+        
+          
+            <p>未经许可, 本站内容不可转载</p>
+
+          
+        
+          
+            <p>本文永久链接是：<a href=https://gh.cuteribs.com/posts/librespeed/>https://gh.cuteribs.com/posts/librespeed/</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget qrcode  ">
+  
+
+  <div class='content article-entry'>
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2018-05-29T15:05:00+00:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2018年5月29日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>路由器</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/posts/one-cloud/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>也许算不上NAS, 但玩客云真真切切算得上私有云</p>
+                <p class='content'>
+
+大家好, 我是可爱的排骨 :)
+
+一. 前言玩客云是迅雷公司7102年推出的下载机产品, 应该算是下载宝和赚钱宝的集合体. 从玩客云的主页和广告来看, 玩客云是以下片功能为主, 还带HDMI...</p>
+              </a>
+            
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow blur">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: '最好用的内外网测速工具, speedtest 服务器搭建指南',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+  
+    
+    
+
+
+  <section class="widget toc-wrapper shadow blur desktop mobile">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80-speedtest-%E7%AE%80%E4%BB%8B"><span class="toc-text">一. speedtest 简介.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C-%E5%AE%89%E8%A3%85%E5%88%B0-Windows-%E9%9A%BE%E5%BA%A6-%E2%98%85%E2%98%85"><span class="toc-text">二. 安装到 Windows. 难度 ★★</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89-%E5%AE%89%E8%A3%85%E5%88%B0-Linux-%E9%9A%BE%E5%BA%A6-%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85"><span class="toc-text">三. 安装到 Linux. 难度 ★★★★★</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B-%E5%AE%89%E8%A3%85%E5%88%B0-%E7%BE%A4%E6%99%96-DSM-%E9%9A%BE%E5%BA%A6-%E2%98%85%E2%98%85"><span class="toc-text">四. 安装到 群晖 DSM. 难度 ★★</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94-%E4%BD%BF%E7%94%A8-Docker-%E9%95%9C%E5%83%8F%E9%83%A8%E7%BD%B2-%E9%9A%BE%E5%BA%A6-%E2%98%85%E2%98%85%E2%98%85"><span class="toc-text">五. 使用 Docker 镜像部署. 难度 ★★★</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%AD-%E6%80%BB%E7%BB%93"><span class="toc-text">六. 总结</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+  
+    
+    
+  
+
+  <section class="widget category shadow blur desktop">
+    
+  <header>
+    
+      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+    
+  </header>
+
+
+    <div class='content'>
+      <ul class="entry navigation">
+        
+          <li><a class="flat-box"
+            title="/categories/%E6%80%80%E6%97%A7/" href="/categories/%E6%80%80%E6%97%A7/"
+            id="categoriesE68080E697A7"
+            ><div class='name'>怀旧</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E6%99%92%E7%89%A9/" href="/categories/%E6%99%92%E7%89%A9/"
+            id="categoriesE69992E789A9"
+            ><div class='name'>晒物</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E7%A7%91%E6%99%AE/" href="/categories/%E7%A7%91%E6%99%AE/"
+            id="categoriesE7A791E699AE"
+            ><div class='name'>科普</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E7%BB%8F%E9%AA%8C/" href="/categories/%E7%BB%8F%E9%AA%8C/"
+            id="categoriesE7BB8FE9AA8C"
+            ><div class='name'>经验</div><div class='badge'>(6)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E7%BB%8F%E9%AA%8C/%E8%A3%85%E6%9C%BA/" href="/categories/%E7%BB%8F%E9%AA%8C/%E8%A3%85%E6%9C%BA/"
+            id="categoriesE7BB8FE9AA8CE8A385E69CBA"
+            ><div class='name'>装机</div><div class='badge'>(4)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E8%AF%84%E6%B5%8B/" href="/categories/%E8%AF%84%E6%B5%8B/"
+            id="categoriesE8AF84E6B58B"
+            ><div class='name'>评测</div><div class='badge'>(35)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E8%AF%84%E6%B5%8B/%E5%8D%95%E5%93%81/" href="/categories/%E8%AF%84%E6%B5%8B/%E5%8D%95%E5%93%81/"
+            id="categoriesE8AF84E6B58BE58D95E59381"
+            ><div class='name'>单品</div><div class='badge'>(35)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E8%AF%84%E6%B5%8B/%E5%8D%95%E5%93%81/%E7%BB%8F%E9%AA%8C/" href="/categories/%E8%AF%84%E6%B5%8B/%E5%8D%95%E5%93%81/%E7%BB%8F%E9%AA%8C/"
+            id="categoriesE8AF84E6B58BE58D95E59381E7BB8FE9AA8C"
+            ><div class='name'>经验</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E8%AF%84%E6%B5%8B/%E5%8D%95%E5%93%81/%E9%BB%91%E8%8B%B9%E6%9E%9C/" href="/categories/%E8%AF%84%E6%B5%8B/%E5%8D%95%E5%93%81/%E9%BB%91%E8%8B%B9%E6%9E%9C/"
+            id="categoriesE8AF84E6B58BE58D95E59381E9BB91E88BB9E69E9C"
+            ><div class='name'>黑苹果</div><div class='badge'>(2)</div></a></li>
+        
+      </ul>
+    </div>
+  </section>
+
+
+  
+
+  
+    
+    
+  
+
+  <section class="widget tagcloud shadow blur desktop mobile">
+    
+  <header>
+    
+      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
+    
+  </header>
+
+
+    <div class='content'>
+      <a href="/tags/360/" style="font-size: 17.33px; color: #828282">360</a> <a href="/tags/ASUS-%E5%8D%8E%E7%A1%95/" style="font-size: 19px; color: #777">ASUS/华硕</a> <a href="/tags/BELKIN-%E8%B4%9D%E5%B0%94%E9%87%91/" style="font-size: 14px; color: #999">BELKIN/贝尔金</a> <a href="/tags/BENQ-%E6%98%8E%E5%9F%BA/" style="font-size: 14px; color: #999">BENQ/明基</a> <a href="/tags/DAHUA-%E5%A4%A7%E5%8D%8E/" style="font-size: 14px; color: #999">DAHUA/大华</a> <a href="/tags/DURGOD-%E6%9D%9C%E4%BC%BD/" style="font-size: 15.67px; color: #8e8e8e">DURGOD/杜伽</a> <a href="/tags/Datacolor/" style="font-size: 14px; color: #999">Datacolor</a> <a href="/tags/FIRSTBLOOD/" style="font-size: 14px; color: #999">FIRSTBLOOD</a> <a href="/tags/GANSS/" style="font-size: 14px; color: #999">GANSS</a> <a href="/tags/GLOWAY-%E5%85%89%E5%A8%81/" style="font-size: 14px; color: #999">GLOWAY/光威</a> <a href="/tags/HUAWEI-%E5%8D%8E%E4%B8%BA/" style="font-size: 14px; color: #999">HUAWEI/华为</a> <a href="/tags/IGENE-%E5%87%BB%E9%9F%B3/" style="font-size: 14px; color: #999">IGENE/击音</a> <a href="/tags/KIOXIA-%E5%87%AF%E4%BE%A0/" style="font-size: 14px; color: #999">KIOXIA/凯侠</a> <a href="/tags/LEVEL8-%E5%9C%B0%E5%B9%B3%E7%BA%BF8%E5%8F%B7/" style="font-size: 14px; color: #999">LEVEL8/地平线8号</a> <a href="/tags/LINKSYS-%E9%A2%86%E5%8A%BF/" style="font-size: 14px; color: #999">LINKSYS/领势</a> <a href="/tags/LOFREE-%E6%B4%9B%E6%96%90/" style="font-size: 14px; color: #999">LOFREE/洛斐</a> <a href="/tags/MI-%E5%B0%8F%E7%B1%B3/" style="font-size: 14px; color: #999">MI/小米</a> <a href="/tags/MIJIA-%E7%B1%B3%E5%AE%B6/" style="font-size: 14px; color: #999">MIJIA/米家</a> <a href="/tags/MOVESPEED-%E7%A7%BB%E9%80%9F/" style="font-size: 14px; color: #999">MOVESPEED/移速</a> <a href="/tags/NARWAL-%E4%BA%91%E9%B2%B8/" style="font-size: 14px; color: #999">NARWAL/云鲸</a> <a href="/tags/NAS/" style="font-size: 17.33px; color: #828282">NAS</a> <a href="/tags/QNAP-%E5%A8%81%E8%81%94%E9%80%9A/" style="font-size: 15.67px; color: #8e8e8e">QNAP/威联通</a> <a href="/tags/RIODMI-%E7%9D%BF%E7%B1%B3/" style="font-size: 14px; color: #999">RIODMI/睿米</a> <a href="/tags/SYNOLOGY-%E7%BE%A4%E6%99%96/" style="font-size: 14px; color: #999">SYNOLOGY/群晖</a> <a href="/tags/UGREEN-%E7%BB%BF%E8%81%94/" style="font-size: 14px; color: #999">UGREEN/绿联</a> <a href="/tags/VIVO/" style="font-size: 14px; color: #999">VIVO</a> <a href="/tags/Wi-Fi-6/" style="font-size: 22.33px; color: #606060">Wi-Fi 6</a> <a href="/tags/Wi-Fi-6E/" style="font-size: 14px; color: #999">Wi-Fi 6E</a> <a href="/tags/%E4%B8%8B%E8%BD%BD%E6%9C%BA/" style="font-size: 14px; color: #999">下载机</a> <a href="/tags/%E5%90%B8%E5%B0%98%E5%99%A8/" style="font-size: 14px; color: #999">吸尘器</a> <a href="/tags/%E5%9B%BA%E6%80%81%E7%A1%AC%E7%9B%98/" style="font-size: 19px; color: #777">固态硬盘</a> <a href="/tags/%E5%AE%B6%E5%BA%AD%E5%BD%B1%E9%9F%B3/" style="font-size: 14px; color: #999">家庭影音</a> <a href="/tags/%E5%B9%B3%E6%9D%BF%E7%94%B5%E8%84%91/" style="font-size: 14px; color: #999">平板电脑</a> <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 14px; color: #999">微服务</a> <a href="/tags/%E6%89%8B%E6%9C%BA/" style="font-size: 14px; color: #999">手机</a> <a href="/tags/%E6%89%A9%E5%B1%95%E5%9D%9E/" style="font-size: 15.67px; color: #8e8e8e">扩展坞</a> <a href="/tags/%E6%89%AB%E5%9C%B0%E6%9C%BA/" style="font-size: 14px; color: #999">扫地机</a> <a href="/tags/%E6%89%AB%E5%9C%B0%E6%9C%BA%E5%99%A8%E4%BA%BA/" style="font-size: 14px; color: #999">扫地机器人</a> <a href="/tags/%E6%98%BE%E7%A4%BA%E5%99%A8/" style="font-size: 15.67px; color: #8e8e8e">显示器</a> <a href="/tags/%E6%9C%BA%E6%A2%B0%E9%94%AE%E7%9B%98/" style="font-size: 19px; color: #777">机械键盘</a> <a href="/tags/%E6%B8%B8%E6%88%8F/" style="font-size: 14px; color: #999">游戏</a> <a href="/tags/%E6%BC%AB%E7%94%BB/" style="font-size: 14px; color: #999">漫画</a> <a href="/tags/%E7%81%AF%E5%85%B7/" style="font-size: 14px; color: #999">灯具</a> <a href="/tags/%E7%94%B5%E8%84%91%E4%B8%BB%E6%9C%BA/" style="font-size: 15.67px; color: #8e8e8e">电脑主机</a> <a href="/tags/%E7%94%B5%E9%A5%AD%E7%85%B2/" style="font-size: 14px; color: #999">电饭煲</a> <a href="/tags/%E7%A0%81%E5%86%9C/" style="font-size: 14px; color: #999">码农</a> <a href="/tags/%E7%AE%B1%E5%8C%85/" style="font-size: 14px; color: #999">箱包</a> <a href="/tags/%E7%BB%BF%E8%81%94/" style="font-size: 15.67px; color: #8e8e8e">绿联</a> <a href="/tags/%E8%80%B3%E6%9C%BA/" style="font-size: 14px; color: #999">耳机</a> <a href="/tags/%E8%A3%85%E6%9C%BA/" style="font-size: 17.33px; color: #828282">装机</a> <a href="/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/" style="font-size: 24px; color: #555">路由器</a> <a href="/tags/%E9%85%B7%E6%AF%94%E9%AD%94%E6%96%B9/" style="font-size: 14px; color: #999">酷比魔方</a> <a href="/tags/%E9%94%AE%E7%9B%98/" style="font-size: 20.67px; color: #6c6c6c">键盘</a> <a href="/tags/%E9%9B%B6%E5%88%BB/" style="font-size: 14px; color: #999">零刻</a> <a href="/tags/%E9%9B%B7%E7%94%B53/" style="font-size: 14px; color: #999">雷电3</a> <a href="/tags/%E9%AD%94%E5%85%BD%E4%B8%96%E7%95%8C/" style="font-size: 14px; color: #999">魔兽世界</a> <a href="/tags/%E9%BB%91%E8%8B%B9%E6%9E%9C/" style="font-size: 20.67px; color: #6c6c6c">黑苹果</a> <a href="/tags/%E9%BC%A0%E6%A0%87/" style="font-size: 15.67px; color: #8e8e8e">鼠标</a>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='true'
+      volume='0.7'
+      loop='all'
+      order='random'
+      fixed='false'
+      list-max-height='340px'
+      server='netease'
+      type='playlist'
+      id='3175833810'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml"
+                class="social fas fa-rss flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="mailto:me@xaoxuu.com"
+                class="social fas fa-envelope flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://github.com/xaoxuu"
+                class="social fab fa-github flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/user/home?id=63035382"
+                class="social fas fa-headphones-alt flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        <div><p>Blog content follows the <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+</div>
+      
+    
+      
+        Use
+        <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
+        as theme
+      
+    
+      
+        <div class='copyright'>
+        <p><a target="_blank" rel="noopener" href="https://cuteribs.ga/">版权所有 © 2020 可爱的排骨</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4/dist/jquery.min.js"></script>
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      ScrollReveal().reveal('.l_main .reveal', {
+        distance: '8px',
+        duration: '800',
+        interval: '100',
+        scale: '1'
+      });
+    });
+  </script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://unpkg.com/cuteribs/cdn-assets/wallhaven-01yz8g.png", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-0w8y2r.jpg", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-13xxrv.jpg", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-73jeko.jpg", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-g8mj2e.png", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-j81565.jpg", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-mpo29y.jpg", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-p83gpj.jpg", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-p879v3.jpg", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-qd27z7.png", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-yj8qwg.jpg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('') {
+          $('').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "pvKmMOLxDFw0YR0y7pVFTo0o-MdYXbMMI",
+    appKey: "s40zxIg9wGykkJJiUMy2IHA6",
+    placeholder: "快来评论吧~",
+    pageSize:'20',
+    avatar:'mp',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'false',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.6.5/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/comment_typing.js"></script>
+
+
+
+
+
+
+<!-- 复制 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-check-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-check-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-times-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-times-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  function pjax_fancybox() {
+    $(".article-entry").find("img").not('.inline').not('a img').each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 标准 markdown 描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".article-entry").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  $(function () {
+    pjax_fancybox();
+  });
+</script>
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>

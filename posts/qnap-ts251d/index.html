@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme='https://volantis.js.org/#2.6.6'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+    <title>家用NAS入门级新秀 威联通 TS-251D 初体验 - 排骨博客</title>
+  
+    <meta name="keywords" content="QNAP/威联通,NAS">
+  
+  
+    <meta name="description" content="
+
+大家好, 我是可爱的排骨 :)
+
+一. 前言作为一名 NAS 爱好者和伪极客, 排骨一直希望能体验威联通的 NAS. 托好友的福, 排骨终于有幸入手威联通去年年底推出了最新款的 x86 双盘家用 NAS TS-251D. 
+TS-251D 是 QNAP x51 系列的最新成员. 虽然只有一个 Intel 千兆...">
+  
+
+  <!-- feed -->
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+  <link rel="shortcut icon" type='image/x-icon' href="/favicon.ico">
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  
+
+  <!-- import link -->
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script>
+	setTimeout(function() {
+	  let script = document.createElement('script');
+	  script.src = "https://www.googletagmanager.com/gtag/js?id=UA-166002383-1";
+	  script.defer=true;
+	  document.body.appendChild(script);
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-166002383-1');
+	}, 5000);
+    </script>
+  
+  
+    <!-- ba -->
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+	  setTimeout(function() { 
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?8b8d1636c58b1fc0c3cca66c0402c41c";
+		hm.defer=true;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+	  }, 5000);
+    })();
+    </script>
+  
+</head>
+
+<body>
+  
+  <div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+<header class="l_header shadow blur">
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h'>
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+            <i class='fas fa-blog'></i>
+          
+          
+            排骨博客
+          
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="搜索..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+<script>setLoadingBarProgress(40);</script>
+
+
+
+  <div class="l_body nocover">
+    <div class='body-wrapper'>
+      
+
+<div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box reveal shadow blur article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/posts/qnap-ts251d/">
+      家用NAS入门级新秀 威联通 TS-251D 初体验
+    </a>
+  </h1>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="" rel="nofollow">
+    <img src="https://cdn.jsdelivr.net/gh/cuteribs/cdn-assets/domo_kun2.jpg">
+    <p>可爱的排骨</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/%E8%AF%84%E6%B5%8B/%E5%8D%95%E5%93%81/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>评测/单品</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2020年3月18日</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <p><img src="/posts/qnap-ts251d/u7XYNz9inEA53FlO.jpg"></p>
+<blockquote>
+<p>大家好, 我是可爱的排骨 :)</p>
+</blockquote>
+<h1 id="一-前言"><a href="#一-前言" class="headerlink" title="一. 前言"></a>一. 前言</h1><p>作为一名 NAS 爱好者和伪极客, 排骨一直希望能体验威联通的 NAS. 托好友的福, 排骨终于有幸入手威联通去年年底推出了最新款的 x86 双盘家用 NAS TS-251D. </p>
+<p>TS-251D 是 QNAP x51 系列的最新成员. 虽然只有一个 Intel 千兆网上, 但是增加了一个 PCIE 2.0x4 的插槽, 理论上可以提供 16Gbps 的带宽, 扩展成四口千兆&#x2F;万兆网卡&#x2F;双SATA3 RAID卡完全不成问题.</p>
+<p>TS-251D 采用了 Intel 市面上最新的第五代 (对标 J1800&#x2F;N3050&#x2F;N3060&#x2F;J3355) 低功耗赛扬 J4005 双核 CPU, 2.0~2.7 GHz 的时钟频率. 支持双通道最高 2x8GB DDR4 内存. , 相比上代 J3355 (TS-251B) 不但提升了 0.2GHz 最高频率, 还增加了 2MB 缓存, 砍掉了 DDR3 内存支持. 最重要的是核显升级到 UHD 600, 支持 4K 60Hz 视频输出. 威联通前年还推出了一款同样第五代低功耗赛扬 J4105 的 “<strong>DVD</strong>“ HS-453DX (X 代表万兆), 有钱的大佬可以关注一下.</p>
+<span id="more"></span>
+
+
+<h1 id="二-开箱"><a href="#二-开箱" class="headerlink" title="二. 开箱"></a>二. 开箱</h1><p><img src="/posts/qnap-ts251d/HMxzY0YtRSY3nbGs.jpg"></p>
+<p>TS-251D的产品包装箱尺寸为 31x28x20 厘米, 跟产品净尺寸比有点偏大了, 送礼更有面子么? 哈哈.</p>
+<p><img src="/posts/qnap-ts251d/Aq6gSSOVURkb6sZQ.jpg"></p>
+<p>TS-251D 的产品注册了内存为2GB, 产品型号为 TS-251D, 采用 Intel 赛扬 J4005 CPU, 支持 HDMI 4K 影音输出, 包含一个 PCIE 接口可扩展为 2.5G&#x2F;5G  以太网卡或 M.2 SSD 硬盘接口.</p>
+<p><img src="/posts/qnap-ts251d/60YNWSzY9nIgsCOh.jpg"></p>
+<p>箱内包含 TS-251D 主机一台, 配件一套.</p>
+<p><img src="/posts/qnap-ts251d/NlUzeP3XMCgUxGIi.jpg"></p>
+<p>TS-251D 配件包含超五类网线一根, 电源一个, 交流电源线一根, 硬盘螺丝若干, 简易说明书&#x2F;保修卡.</p>
+<p><img src="/posts/qnap-ts251d/lUCeLRHIsrc7Q2iV.jpg"></p>
+<p>TS-251D 原配电源是台达生产, 输出为 12V5.417A, 功率约为 65W. 带 J4005加一对3.5机械硬盘加上 PCIE 扩展卡足足够了. 安静又稳定.</p>
+<p><img src="/posts/qnap-ts251d/GHo6xbgpk9EwOSZT.jpg"></p>
+<p>TS-251D 主机以白色为主, 面板为青色 (蓝? 绿?), 这个识别度较高的配色应该新的设计, 预计后续的 TS-451D&#x2F;TS-651D 等也是同样的配色.</p>
+<p>主机尺寸为 168×105×226 毫米, 约重 1.5 公斤 (无盘)</p>
+<p><img src="/posts/qnap-ts251d/Ub5kQqrd2ugOXzmx.jpg"></p>
+<p>TS-251D 背面有一个 7x7 厘米的风扇, 4个USB口, 1个RJ45网口, 1个HDMI输出口以及1个半高PCIE挡板. 风扇下方的散热孔位置看似像个风扇位.</p>
+<p><img src="/posts/qnap-ts251d/uzZyPdla60sj7wB7.jpg"></p>
+<p>主机侧面有个云码 (Cloud Key), 可用于远程安装 QTS 系统, 适合家中只有手机没有电脑的情况下初始化 TS-251D.</p>
+<p><img src="/posts/qnap-ts251d/fnzO78L6Lfsw5rd9.jpg"></p>
+<p>另一侧有一块进风口和硬盘挡板卡扣, 向上锁定 (用点力其实也能打开…)</p>
+<p><img src="/posts/qnap-ts251d/pEpITYWOpkECdktz.jpg"></p>
+<p>TS-251D 正面白色面板是硬盘槽的挡板, 向左滑开就能看到双盘位插槽. 青色面板上方是开机键, 向下是一竖排指示灯, 最下面是一个USB3接口和复制键 (此键功能可在QTS系统中定制), 可以一键将插入前置 USB 的 U盘&#x2F;移动硬盘&#x2F;相机内的指定文件夹内容导入到 NAS 中, 对摄影爱好者来说极为友好.</p>
+<p><img src="/posts/qnap-ts251d/XtEPYTQBzngIwgxy.jpg"></p>
+<p>TS-251D 背面最上面是半高PCIE挡板, 可更换成 PCIE2.0 x2&#x2F;x4 的扩展卡.</p>
+<p>70x70 散热风扇旁边贴着白色贴纸, 挡住了3个音频孔, 估计是量产前最后才砍掉的音频接口. 贴纸下方是一个 HDMI 接口, 支持 4K60Hz 视频输出!</p>
+<p>再下来是1个USB3.0和3个USB2.0接口, 还有1个千兆网口, 最下面是12V 直流电源输入接口.</p>
+<p><img src="/posts/qnap-ts251d/aQ4GVxrRNYkGCtqx.jpg"></p>
+<p>底面有4个黑色垫脚, 一些进风口, 产品标贴, MAC地址与产品序列号贴纸. </p>
+<p><img src="/posts/qnap-ts251d/VzIHOay6rCwv37su.jpg"></p>
+<p>还有一处拆机开锁指示.</p>
+<h1 id="三-拆解"><a href="#三-拆解" class="headerlink" title="三. 拆解"></a>三. 拆解</h1><p>TS-251D 外观了解了一圈, 再来窥探一下它的内部结构吧.</p>
+<p><img src="/posts/qnap-ts251d/LxFXrVEIIhEJqTdc.gif"></p>
+<p>TS-251D 主机下面的硬盘挡板可以小力向左滑开, 注意先拉开左侧的卡扣.</p>
+<p><img src="/posts/qnap-ts251d/hrJLtosdkLcS0CFm.jpg"></p>
+<p>滑开挡板后可见两个黑色的硬盘抽屉, 按下上方的卡扣就可拉出抽屉.</p>
+<p><img src="/posts/qnap-ts251d/X7wpqP8ocPctQKzI.gif"></p>
+<p>硬盘抽屉背面有固定 2.5寸&#x2F;3.5寸硬盘的螺丝孔. </p>
+<p><img src="/posts/qnap-ts251d/im7EhPZTEFked4ys.jpg"></p>
+<p>硬盘抽屉两侧的卡扣设计可以免螺丝固定 3.5寸硬盘.</p>
+<p><img src="/posts/qnap-ts251d/lfSs6bh58LEwDcnA.jpg"></p>
+<p>将 TS-251D 左侧的外壳向后推开, 再向后拉开就可以分离开主机的外壳. </p>
+<p><img src="/posts/qnap-ts251d/xdHyfaGmbb8puXTl.jpg"></p>
+<p>分离外壳后才能看到 TS-251D 金属内骨架和主板.</p>
+<p><img src="/posts/qnap-ts251d/GC83SwnXsUk0ewD9.jpg"><img src="/posts/qnap-ts251d/uDmS9IBNiQMrslQi.jpg"></p>
+<p>TS-251D 主板左上空闲的 PCIE2.0x4 插槽左边有个白色 4pin 的 COM 口闲置着, 还有个调试用的UART焊点. 右边一个重置键也空着.</p>
+<p><img src="/posts/qnap-ts251d/9SypMdX0wtE8yLua.jpg"></p>
+<p>主板右上有个蜂鸣器, 开关机时都会滴滴响. 有点吵. 旁边有个9pin LPC硬件检测接口空焊着.</p>
+<p><img src="/posts/qnap-ts251d/L3UkiTm81LENTRXV.jpg"></p>
+<p>主板右下有2个DDR4 笔记本内存槽. 排骨买了条 8G 内存, 加在一起共 10G. 换成两条 8G 应该不成问题.</p>
+<p><img src="/posts/qnap-ts251d/BWYbtC4an0sdtpZX.jpg"></p>
+<p>取下16个螺丝就能完成拆解 TS-251D 主机. 塑料外壳3块, 铁架1个, 70厘米风扇1个, 主板1块, SATA 板卡1块, 威刚 2G DDR4 2400MHz 内存一条.</p>
+<p><img src="/posts/qnap-ts251d/HSdAs9r8cs07jOBd.jpg"></p>
+<p>TS-251D 完整的主板是这个样子, 中间黑色散热片盖着 Intel 最新的低频双核赛扬 J4005, 只需被动散热. 作为 NAS 定制主板, 与华擎等品牌的 DIY NAS 主板最大的区别是 PCIE 2.0 接口是 x4 而不是 x1. </p>
+<h1 id="四-初始化"><a href="#四-初始化" class="headerlink" title="四. 初始化"></a>四. 初始化</h1><p>TS-251D 第一次启动时需要安装 QTS 固件才能进入 NAS系统. 进入 QTS 后的第一件事就是配置存储空间, 然后是配置网络, 最后才是安装软件. </p>
+<p><strong>1.系统初始化</strong></p>
+<p>一台全新的 NAS 主机需要初始化系统才能开始使用, 也就是先要安装固件, 配置管理员密码之类的操作.</p>
+<p><img src="/posts/qnap-ts251d/6QimgWcSTtgpUfwN.png"></p>
+<p>安装固件的方式有三种. (<strong>安装之前先插入硬盘!</strong>)</p>
+<ol>
+<li><strong>云安装 (外网安装)</strong>: 通过手机扫码给 TS-251D 安装固件, 适用于没有电脑的家庭选择.</li>
+<li><strong>Qfinder Pro 安装 (内网安装)</strong>: 在家中电脑上使用 Qfinder Pro 工具给的 TS-251D 安装固件.</li>
+<li><strong>HDMI 安装 (无网安装)</strong>: 因为 TS-251D 本身也是一台 linux 电脑, 接上显示器&#x2F;电视和键盘也可以安装固件. (出厂固件预存在主板内置的闪存中了?)</li>
+</ol>
+<p>排骨选择了最常用的 #2 方式.</p>
+<p><img src="/posts/qnap-ts251d/7X6kKydIVJs0vQpJ.png"></p>
+<p>启动 Qfinder Pro (排骨并没找到 Qfinder 这个软件, 为什么加个 Pro 呢?) 后, TS-251D 会被自动发现并以默认机器名 (NAS 后面接网卡MAC地址后6位) 显示在 Qfinder Pro 中.</p>
+<p><img src="/posts/qnap-ts251d/NbnzxZzEuRIAviSc.png"></p>
+<p>Qfinder Pro 会扫描出内网中所有的威联通设备, 如果有未经初始化 (没安装固件) 的设备, 就会弹出系统初始化的提示. 确实后 Qfinder Pro 会启动浏览器窗口连上 TS-251D 的 IP 地址进入安装向导. 当然熟练用户也可以直接从路由器或交换机界面找到 TS-251D 的 IP 直接打开安装页面, 免去了下载安装 Qfinder Pro 的过程.</p>
+<p><img src="/posts/qnap-ts251d/WxJH4sI8xE8TCmtG.gif"></p>
+<p>通过安装向导设置好 NAS 名称, 管理员密码, 系统时间, 网卡 IP, 文件服务协议, 再等待固件安装到硬盘中就完成了 NAS 固件的安装了.</p>
+<p><strong>2.存储空间初始化</strong></p>
+<p>一台 NAS 光装好了固件 (系统) 是不够的, 还需要给它配置好存储空间才能使用. QTS 的基础存储单位是<strong>共享文件夹</strong>, 所有的数据文件都必须保存到共享文件夹中.</p>
+<p><img src="/posts/qnap-ts251d/0CrXk9qfcywhTJRx.png"></p>
+<p>使用 QTS NAS 系统需要了解一些基本概念:</p>
+<ul>
+<li>磁盘&#x2F;磁盘组: 硬盘或硬盘不同形式的组合 (<strong>Basic&#x2F;JBOD&#x2F;RAID0&#x2F;1&#x2F;5&#x2F;6&#x2F;10</strong>)</li>
+<li>存储池 (Storage Pool): <strong>存储池</strong>可将许多物理磁盘合并成一个大型存储空间。各磁盘通过 RAID 技术连接到一起，构成一个 RAID 组。存储池可以包含多个 RAID 组。</li>
+<li>卷 (Volume): <strong>卷</strong>可以简单理解成<strong>分区</strong>, 卷可以建立在磁盘组或存储池之上. <strong>注意: QTS 系统中”磁盘区”和”卷”都是 Volume 的中文翻译.</strong></li>
+<li>共享文件夹 (Shared Folder): 在<strong>卷</strong>上创建了<strong>共享文件夹</strong>后才可以存入数据文件. 文件不能直接保存到<strong>卷</strong>上.</li>
+</ul>
+<p><img src="/posts/qnap-ts251d/xQJWIATwqAYjGDXw.jpg"></p>
+<p>首次进入 QTS 时, 可以在 QTS 桌面上找到<strong>存储与快照总管</strong>, 它就是 QTS 系统的磁盘存储管理工具.</p>
+<p><img src="/posts/qnap-ts251d/6sBbcQMUaVszxd3u.png"></p>
+<p>打开<strong>存储与快照总管</strong>后首先看到的是 NAS 主机中插入的硬盘数量, 但是没有存储池和卷等信息.</p>
+<p><img src="/posts/qnap-ts251d/AVLpY73z86Idylfg.png"></p>
+<p>切换到磁盘&#x2F;VJBOD页面可以查看硬盘状态, 还能测一测速.</p>
+<p><img src="/posts/qnap-ts251d/an4rFkZBbRseaCjL.png"></p>
+<p>创建存储池的<strong>入口</strong>在<strong>存储&#x2F;快照</strong>页面右上的<strong>创建</strong>下拉菜单下面.</p>
+<p><img src="/posts/qnap-ts251d/vKpdJj59wFEkWN3O.gif">     </p>
+<p>双盘 NAS 排骨推荐在 RAID1 模式上建立存储池以保证数据的高可用性. </p>
+<p>当然对于轻存储重服务的同学来说, 双 Basic 是个很好的选择, A 盘存放频繁读写的数据 (下载文件夹&#x2F;APP存放空间夹&#x2F;Docker存放空间等), B 盘存放长期保存的档案文件 (珍藏的影视&#x2F;音乐&#x2F;动作片等) 以及 A 盘部分重要数据的备份.</p>
+<p>最佳组合是使用 PCIE 转接卡加个 SSD, 用 SSD 当 A 盘, RAID1 当 B 盘.</p>
+<p><img src="/posts/qnap-ts251d/mFTKga2R8EgX9iGq.gif"></p>
+<p>QTS 提供了三种<strong>卷</strong>类型: </p>
+<ol>
+<li>静态卷: 类似我们日常使用 Windows 系统中的硬盘分区. 性能最佳, 但是全独占所选的硬盘或RAID, 无法调整卷的空间大小.</li>
+<li>厚卷: 基于存储池的逻辑分区, 需要预分配空间大小, 支持快照功能.</li>
+<li>精简卷: 跟厚卷一样, 但不需要预分配大小.</li>
+</ol>
+<p><img src="/posts/qnap-ts251d/HIo1784py2UJkWh0.png"></p>
+<p>这里有个 inode (索引节点) 的概念, 类似于 Windows 格式化磁盘时的分配单元大小. 最小的 4K inode 可以支持 16TB 存储空间, 刚够 TS-251D 插两块 8TB 硬盘了.</p>
+<p><img src="/posts/qnap-ts251d/yVg2Cf7U78gnQQBZ.jpg"></p>
+<p>创建好<strong>卷</strong>以后, 就可以从桌面打开 <strong>File Station 文件总管</strong>来创建或管理<strong>共享文件夹</strong>了.</p>
+<p><img src="/posts/qnap-ts251d/3OtBhiOkT0olYGln.png"></p>
+<p><strong>创建共享文件夹</strong>的菜单位置藏得有点深哦.</p>
+<p>QTS 的很多 App 在安装后也会创建 App 对应的共享文件夹, 所以看到有新的共享文件夹出现不要意外, 不是来黑客了…</p>
+<h1 id="五-主要功能介绍"><a href="#五-主要功能介绍" class="headerlink" title="五. 主要功能介绍"></a>五. 主要功能介绍</h1><p>TS-251D 作为一台商品级家用 NAS 新品,  不仅配备了最新的赛扬 J4005, 软件功能上也是一应俱全. 依靠成熟的 QTS 系统, TS-251D 在灵活的存储设备基础上同时具备了非常全面的影音娱乐功能和专业性服务.</p>
+<p><strong>1.多协议文件共享</strong></p>
+<p><img src="/posts/qnap-ts251d/oC9PEnD8uW8eezO2.jpg"></p>
+<p>QTS 不但提交了常见的三种内网文件共享协议 (SMB&#x2F;NFS&#x2F;AFP), 外网文件共享的 FTP&#x2F;WEBDAV, 甚至可以让用户用浏览器或 Qfile 客户端通过 HTTP 协议访问和分享文件.</p>
+<p>排骨建议内网使用 SMB, 外网使用 WEBDAV (HTTPS), 移动设备使用 Qfile. 没有公网 IP 的话可以使用威联通的中转服务 (myqnapcloud.cn). </p>
+<p>除了共享 NAS 内的文件外, QTS 还可以通过 <strong>HybridMount</strong> (App Center 中安装) 外挂其它的文件共享服务和云存储服务, 成为用户的<strong>数据中心</strong>!</p>
+<p><img src="/posts/qnap-ts251d/f4CBh969qqQvRp92.png"></p>
+<p><strong>HybridMount</strong> 支持外挂 SMB&#x2F;FTP&#x2F;WebDAV 三种文件共享服务, 排骨建议威联通加入 NFS 支持.</p>
+<p><img src="/posts/qnap-ts251d/HAZHg0HNZ0k16jp3.png"></p>
+<p>排骨将下载神器<strong>玩客云</strong>和坚果云网盘分别通过 SMB&#x2F;WebDAV 挂载到 QTS 中.</p>
+<p><img src="/posts/qnap-ts251d/I4ZkEn3sL3AaLo2W.png"></p>
+<p><strong>HybridMount</strong> 还支持外挂国内外众多云服务提供商的云存储 (网盘) 服务, 阿里云&#x2F;华为云&#x2F;七牛云这些国内云服务商都在其中. 是的, <strong>没有百度云, 没有, 没</strong>.</p>
+<p><img src="/posts/qnap-ts251d/7ruePCII2C8AYDpk.png"></p>
+<p>排骨外挂了免费的 OneDrive 和平时作为图床用的微软 Azure 云存储.</p>
+<p><img src="/posts/qnap-ts251d/ISdPrNpVWVwRC2R0.png"></p>
+<p>挂载完成后, 就可以在<strong>File Station 文件总管</strong>中看到外挂的共享文件夹和云盘内容了.</p>
+<p><img src="/posts/qnap-ts251d/I4fz0v1q4doRtWiJ.png"></p>
+<p>移动端同样可以使用 Qfile 应用集中访问外挂的共享文件夹和云盘.</p>
+<p><strong>2.下载机</strong></p>
+<p><img src="/posts/qnap-ts251d/ww7vfAXBF5sa01aT.png"></p>
+<p>在 QTS 可以使用<strong>全能下载帮手 (Download Station)</strong> 来下载 HTTP&#x2F;FTP 连接的文件, 还支持 QQ下载&#x2F;迅雷下载&#x2F;东方快车下载连接, 也可以磁力连接和上传种子来添加 BT 下载任务.</p>
+<p><img src="/posts/qnap-ts251d/IR1ZROGnci8r8B3u.png"></p>
+<p><strong>全能下载帮手</strong>不支持电驴下载连接, 可以安装 App 中心的 aMule 来弥补这个缺憾.</p>
+<p>当然同学们还可以利用 QTS 的虚拟机工作站 (Virtualization Station) 和容器服务 (Container Station) 来运行其它的强力下载工具.</p>
+<p>不过排骨手握苍井云…不对, 是玩客云, 对下载工具再无追求了…</p>
+<p><strong>3.网络相册</strong></p>
+<p>威联通的 QuMagie 智能相网系统能够完美替代近年来陆续公网云相册, 为用户提供照片图片的存储&#x2F;分类&#x2F;分析等服务, 更重要的是能保证用户照片的私密性，避免X照门的发生…<br><img src="/posts/qnap-ts251d/Ebj3K1ixl6EHwtpr.png"></p>
+<p>首先将”您的珍藏”上传到一个共享文件夹中 (如 &#x2F;Photos), 然后设置成 QuMagie 的源, 这样 <strong>Multimedia Console</strong> 会开始索引 Photos 文件夹中的图片并生成缩略图, 同时 <strong>QuMagie Core</strong> 也开始对图片进行人脸&#x2F;物品&#x2F;场景分析归类.</p>
+<p><img src="/posts/qnap-ts251d/SNyuPtcK1kQqzA6M.png"></p>
+<p>排骨专门从某大佬的 NAS 上拉下来一些照片测试了一下人脸识别. 脸是抠出来不少, 人名是肉不出来的… 需要用户自己一个个”<strong>识别</strong>“加名字.</p>
+<p><img src="/posts/qnap-ts251d/utJYiOA6mbIZzm49.png"></p>
+<p>QuMagie 的物品&#x2F;场景识别比较好玩, 能分析出很多好玩的分类. 哈哈.</p>
+<p><strong>4.视频串流</strong></p>
+<p>家用 NAS 最主要用途应该就是片源收藏了吧. 排骨之前有个同事家里有一柜子的硬盘, 分别贴上番号归类, 还要自己长期维护一个 Excel 表格记录每个硬盘存了哪些片子以及片源相关信息. QTS 的 <strong>Video Station</strong> 就可以让你的珍惜片源智能配图配介绍, 可分类可搜索, 随点随播.</p>
+<p><img src="/posts/qnap-ts251d/zD02DwGhHTEmdqxO.jpg"></p>
+<p><img src="/posts/qnap-ts251d/s0xf7PswWQ4E7MZ6.jpg"></p>
+<p>设置好电影和电视节目的视频源文件夹并安装 <strong>TMDB</strong> 插件, <strong>Video Station</strong> 就可以自动从通过视频文件名去 TMDB 网站查询和下载包含<strong>封面&#x2F;简介&#x2F;演职人员</strong>等影视信息, 然后直接在 Video Station 界面中显示出来.</p>
+<p><img src="/posts/qnap-ts251d/oyi2jq5m26AN4ACD.jpg"></p>
+<p>对于没有封面海报的单个视频, Video Station 还会从视频中随时截取一帧画面作为视频封面.</p>
+<p>Video Station 还可以接合 Media Streaming add-on 直接通过 HDMI 播放到电视机上. 这样 TS-251D 就可以直接播放 4K60HZ 的视频了. </p>
+<p><strong>5.虚拟机和容器</strong></p>
+<p>TS-251D 作为一款 x86 架构的存储服务器, 当然也具备了强大的虚拟机与容器功能, 为用户提供了无限的扩展性与可能性. 这是那些 ARM 架构的 NAS 机望沉莫及的.</p>
+<p><img src="/posts/qnap-ts251d/ndCcf4Y61EUuZWY1.png"></p>
+<p>Virtualization Station 可以在 QTS 上虚拟其它操作系统的运行环境, 可以装个 Windows 来跑迅雷&#x2F;百度云等下载工具, 也可以安装 OpenWRT&#x2F;爱快等软路由系统. Virtualization Station 的优点是可以完整的模拟不同系统, 而缺点是占用较多的系统资源 (CPU&#x2F;内存&#x2F;硬盘).</p>
+<p>Container Station 同样作为虚拟环境, 与 Virtualization Station 互补长短而不是功能重复. Container Station 以 Docker 为基础提供给用户基于 linux 4.1x 内核的虚拟环境, 以沙盒方式运行各种 linux 服务, 用于搭建网站&#x2F;下载机&#x2F;相册&#x2F;影音服务器等几乎所有 QTS 第一方提供的所有商业和娱乐功能! Container Station 虽然只能虚拟 linux 系统镜像, 但是资源占用非常小, 最小镜像不到 10MB, 内存占用几十 MB 起步, 运行性能与宿主几乎一至!</p>
+<h1 id="六-总结"><a href="#六-总结" class="headerlink" title="六. 总结"></a>六. 总结</h1><p>TS-251D 是一款构建在 X86 架构之上, 性能强劲的 NAS. 它不但功耗超低非常省电, 噪音也很小. 而 TS-251D 对虚拟机与容器的支持更加能发挥其在家用环境中 All-in-One 的存在感. 预留的 PCIE 槽位可以为 NAS 提供多千兆&#x2F;万兆&#x2F;无线等扩展特性. 而 2000 出头的售价更是在性价比方面横扫 NAS 市场. (蜗牛什么的不算!)</p>
+<p>TS-251D 的主要缺点应该在软件方面, QTS 系统部分设置和说明对于新用户不是很清晰, 会需要一定时间的熟悉过程. 希望威联通持续的改进系统, 为新用户呈现更好的使用体验 :)</p>
+<p><img src="/posts/qnap-ts251d/RCFIg6XkvLY4bp9V.jpg"></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://union-click.jd.com/jdc?e=&p=AyIGZRteEAsWB1cfXxMyFQNRGVoWARcCVxtrUV1KWQorAlBHU0VeBUVNR0ZbSkdETlcNVQtHRVNSUVNLXANBRA1XB14DS10cQQVYD21XHgBRH1kUARECUBlbJWBteg5mPEB6d24VeFNnCkRiPmVZRmIeC2UeWhQDEgVdGFoVMhIGVBpZFwEUDlYraxUBIkY7GFsQCxQFZRlaFAIWAVwYXRAyEgNcE1kUBxADUR5ZFDIVB1wrD1ZaQFANRA8lMhUDURlaFgEXAlcbaxYyIjdVK1glQHxUBk5bQVIVAwEaW0IHGwVdSwxAAhtVVx1aQARFBVcfXCUAEwZREg==">购买连接: 威联通（QNAP）TS-251D 两盘位家用NAS 网络存储器</a></p>
+</blockquote>
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbMjM2MDQ0OThdfQ==
+-->
+          
+            <div class='article_footer'>
+              
+                
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class='content'>
+    
+      <blockquote>
+        
+          
+            <p>未经许可, 本站内容不可转载</p>
+
+          
+        
+          
+            <p>本文永久链接是：<a href=https://gh.cuteribs.com/posts/qnap-ts251d/>https://gh.cuteribs.com/posts/qnap-ts251d/</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget qrcode  ">
+  
+
+  <div class='content article-entry'>
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-03-18T10:26:00+00:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2020年3月18日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/QNAP-%E5%A8%81%E8%81%94%E9%80%9A/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>QNAP/威联通</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/NAS/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>NAS</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/posts/belkin-f4u097/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>MacBook Pro 最佳伴侣：贝尔金雷电3扩展基座 PRO</p>
+                <p class='content'>
+
+大家好, 我是可爱的排骨 :)
+
+排骨最近买了台低保 4K 显示器, 给发黄的 DELL 找了个伴, 单显对排骨来说真的不够用了. 排骨有个旧的垃圾桶造型 USB-C 扩展坞, 只有一个 H...</p>
+              </a>
+            
+            
+              <a class='next' href='/posts/durgod-k310/'>
+                <p class='title'>晒个键盘 杜伽 K310 深空灰白光限定版机械键盘<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>
+
+大家好, 我是可爱的排骨 :)
+
+前言今年过年响应国家号召, 在家使劲宅~ 无聊了晒个键盘吧. 杜伽 K310 深空灰白光限定版. 排骨手上这个是樱桃红轴版的.
+
+杜伽 K310 深空灰白光...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow blur">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: '家用NAS入门级新秀 威联通 TS-251D 初体验',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+  
+    
+    
+
+
+  <section class="widget toc-wrapper shadow blur desktop mobile">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80-%E5%89%8D%E8%A8%80"><span class="toc-text">一. 前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C-%E5%BC%80%E7%AE%B1"><span class="toc-text">二. 开箱</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89-%E6%8B%86%E8%A7%A3"><span class="toc-text">三. 拆解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B-%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-text">四. 初始化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94-%E4%B8%BB%E8%A6%81%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D"><span class="toc-text">五. 主要功能介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%AD-%E6%80%BB%E7%BB%93"><span class="toc-text">六. 总结</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+  
+    
+    
+  
+
+  <section class="widget category shadow blur desktop">
+    
+  <header>
+    
+      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+    
+  </header>
+
+
+    <div class='content'>
+      <ul class="entry navigation">
+        
+          <li><a class="flat-box"
+            title="/categories/%E6%80%80%E6%97%A7/" href="/categories/%E6%80%80%E6%97%A7/"
+            id="categoriesE68080E697A7"
+            ><div class='name'>怀旧</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E6%99%92%E7%89%A9/" href="/categories/%E6%99%92%E7%89%A9/"
+            id="categoriesE69992E789A9"
+            ><div class='name'>晒物</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E7%A7%91%E6%99%AE/" href="/categories/%E7%A7%91%E6%99%AE/"
+            id="categoriesE7A791E699AE"
+            ><div class='name'>科普</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E7%BB%8F%E9%AA%8C/" href="/categories/%E7%BB%8F%E9%AA%8C/"
+            id="categoriesE7BB8FE9AA8C"
+            ><div class='name'>经验</div><div class='badge'>(6)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E7%BB%8F%E9%AA%8C/%E8%A3%85%E6%9C%BA/" href="/categories/%E7%BB%8F%E9%AA%8C/%E8%A3%85%E6%9C%BA/"
+            id="categoriesE7BB8FE9AA8CE8A385E69CBA"
+            ><div class='name'>装机</div><div class='badge'>(4)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E8%AF%84%E6%B5%8B/" href="/categories/%E8%AF%84%E6%B5%8B/"
+            id="categoriesE8AF84E6B58B"
+            ><div class='name'>评测</div><div class='badge'>(35)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E8%AF%84%E6%B5%8B/%E5%8D%95%E5%93%81/" href="/categories/%E8%AF%84%E6%B5%8B/%E5%8D%95%E5%93%81/"
+            id="categoriesE8AF84E6B58BE58D95E59381"
+            ><div class='name'>单品</div><div class='badge'>(35)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E8%AF%84%E6%B5%8B/%E5%8D%95%E5%93%81/%E7%BB%8F%E9%AA%8C/" href="/categories/%E8%AF%84%E6%B5%8B/%E5%8D%95%E5%93%81/%E7%BB%8F%E9%AA%8C/"
+            id="categoriesE8AF84E6B58BE58D95E59381E7BB8FE9AA8C"
+            ><div class='name'>经验</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E8%AF%84%E6%B5%8B/%E5%8D%95%E5%93%81/%E9%BB%91%E8%8B%B9%E6%9E%9C/" href="/categories/%E8%AF%84%E6%B5%8B/%E5%8D%95%E5%93%81/%E9%BB%91%E8%8B%B9%E6%9E%9C/"
+            id="categoriesE8AF84E6B58BE58D95E59381E9BB91E88BB9E69E9C"
+            ><div class='name'>黑苹果</div><div class='badge'>(2)</div></a></li>
+        
+      </ul>
+    </div>
+  </section>
+
+
+  
+
+  
+    
+    
+  
+
+  <section class="widget tagcloud shadow blur desktop mobile">
+    
+  <header>
+    
+      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
+    
+  </header>
+
+
+    <div class='content'>
+      <a href="/tags/360/" style="font-size: 17.33px; color: #828282">360</a> <a href="/tags/ASUS-%E5%8D%8E%E7%A1%95/" style="font-size: 19px; color: #777">ASUS/华硕</a> <a href="/tags/BELKIN-%E8%B4%9D%E5%B0%94%E9%87%91/" style="font-size: 14px; color: #999">BELKIN/贝尔金</a> <a href="/tags/BENQ-%E6%98%8E%E5%9F%BA/" style="font-size: 14px; color: #999">BENQ/明基</a> <a href="/tags/DAHUA-%E5%A4%A7%E5%8D%8E/" style="font-size: 14px; color: #999">DAHUA/大华</a> <a href="/tags/DURGOD-%E6%9D%9C%E4%BC%BD/" style="font-size: 15.67px; color: #8e8e8e">DURGOD/杜伽</a> <a href="/tags/Datacolor/" style="font-size: 14px; color: #999">Datacolor</a> <a href="/tags/FIRSTBLOOD/" style="font-size: 14px; color: #999">FIRSTBLOOD</a> <a href="/tags/GANSS/" style="font-size: 14px; color: #999">GANSS</a> <a href="/tags/GLOWAY-%E5%85%89%E5%A8%81/" style="font-size: 14px; color: #999">GLOWAY/光威</a> <a href="/tags/HUAWEI-%E5%8D%8E%E4%B8%BA/" style="font-size: 14px; color: #999">HUAWEI/华为</a> <a href="/tags/IGENE-%E5%87%BB%E9%9F%B3/" style="font-size: 14px; color: #999">IGENE/击音</a> <a href="/tags/KIOXIA-%E5%87%AF%E4%BE%A0/" style="font-size: 14px; color: #999">KIOXIA/凯侠</a> <a href="/tags/LEVEL8-%E5%9C%B0%E5%B9%B3%E7%BA%BF8%E5%8F%B7/" style="font-size: 14px; color: #999">LEVEL8/地平线8号</a> <a href="/tags/LINKSYS-%E9%A2%86%E5%8A%BF/" style="font-size: 14px; color: #999">LINKSYS/领势</a> <a href="/tags/LOFREE-%E6%B4%9B%E6%96%90/" style="font-size: 14px; color: #999">LOFREE/洛斐</a> <a href="/tags/MI-%E5%B0%8F%E7%B1%B3/" style="font-size: 14px; color: #999">MI/小米</a> <a href="/tags/MIJIA-%E7%B1%B3%E5%AE%B6/" style="font-size: 14px; color: #999">MIJIA/米家</a> <a href="/tags/MOVESPEED-%E7%A7%BB%E9%80%9F/" style="font-size: 14px; color: #999">MOVESPEED/移速</a> <a href="/tags/NARWAL-%E4%BA%91%E9%B2%B8/" style="font-size: 14px; color: #999">NARWAL/云鲸</a> <a href="/tags/NAS/" style="font-size: 17.33px; color: #828282">NAS</a> <a href="/tags/QNAP-%E5%A8%81%E8%81%94%E9%80%9A/" style="font-size: 15.67px; color: #8e8e8e">QNAP/威联通</a> <a href="/tags/RIODMI-%E7%9D%BF%E7%B1%B3/" style="font-size: 14px; color: #999">RIODMI/睿米</a> <a href="/tags/SYNOLOGY-%E7%BE%A4%E6%99%96/" style="font-size: 14px; color: #999">SYNOLOGY/群晖</a> <a href="/tags/UGREEN-%E7%BB%BF%E8%81%94/" style="font-size: 14px; color: #999">UGREEN/绿联</a> <a href="/tags/VIVO/" style="font-size: 14px; color: #999">VIVO</a> <a href="/tags/Wi-Fi-6/" style="font-size: 22.33px; color: #606060">Wi-Fi 6</a> <a href="/tags/Wi-Fi-6E/" style="font-size: 14px; color: #999">Wi-Fi 6E</a> <a href="/tags/%E4%B8%8B%E8%BD%BD%E6%9C%BA/" style="font-size: 14px; color: #999">下载机</a> <a href="/tags/%E5%90%B8%E5%B0%98%E5%99%A8/" style="font-size: 14px; color: #999">吸尘器</a> <a href="/tags/%E5%9B%BA%E6%80%81%E7%A1%AC%E7%9B%98/" style="font-size: 19px; color: #777">固态硬盘</a> <a href="/tags/%E5%AE%B6%E5%BA%AD%E5%BD%B1%E9%9F%B3/" style="font-size: 14px; color: #999">家庭影音</a> <a href="/tags/%E5%B9%B3%E6%9D%BF%E7%94%B5%E8%84%91/" style="font-size: 14px; color: #999">平板电脑</a> <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 14px; color: #999">微服务</a> <a href="/tags/%E6%89%8B%E6%9C%BA/" style="font-size: 14px; color: #999">手机</a> <a href="/tags/%E6%89%A9%E5%B1%95%E5%9D%9E/" style="font-size: 15.67px; color: #8e8e8e">扩展坞</a> <a href="/tags/%E6%89%AB%E5%9C%B0%E6%9C%BA/" style="font-size: 14px; color: #999">扫地机</a> <a href="/tags/%E6%89%AB%E5%9C%B0%E6%9C%BA%E5%99%A8%E4%BA%BA/" style="font-size: 14px; color: #999">扫地机器人</a> <a href="/tags/%E6%98%BE%E7%A4%BA%E5%99%A8/" style="font-size: 15.67px; color: #8e8e8e">显示器</a> <a href="/tags/%E6%9C%BA%E6%A2%B0%E9%94%AE%E7%9B%98/" style="font-size: 19px; color: #777">机械键盘</a> <a href="/tags/%E6%B8%B8%E6%88%8F/" style="font-size: 14px; color: #999">游戏</a> <a href="/tags/%E6%BC%AB%E7%94%BB/" style="font-size: 14px; color: #999">漫画</a> <a href="/tags/%E7%81%AF%E5%85%B7/" style="font-size: 14px; color: #999">灯具</a> <a href="/tags/%E7%94%B5%E8%84%91%E4%B8%BB%E6%9C%BA/" style="font-size: 15.67px; color: #8e8e8e">电脑主机</a> <a href="/tags/%E7%94%B5%E9%A5%AD%E7%85%B2/" style="font-size: 14px; color: #999">电饭煲</a> <a href="/tags/%E7%A0%81%E5%86%9C/" style="font-size: 14px; color: #999">码农</a> <a href="/tags/%E7%AE%B1%E5%8C%85/" style="font-size: 14px; color: #999">箱包</a> <a href="/tags/%E7%BB%BF%E8%81%94/" style="font-size: 15.67px; color: #8e8e8e">绿联</a> <a href="/tags/%E8%80%B3%E6%9C%BA/" style="font-size: 14px; color: #999">耳机</a> <a href="/tags/%E8%A3%85%E6%9C%BA/" style="font-size: 17.33px; color: #828282">装机</a> <a href="/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/" style="font-size: 24px; color: #555">路由器</a> <a href="/tags/%E9%85%B7%E6%AF%94%E9%AD%94%E6%96%B9/" style="font-size: 14px; color: #999">酷比魔方</a> <a href="/tags/%E9%94%AE%E7%9B%98/" style="font-size: 20.67px; color: #6c6c6c">键盘</a> <a href="/tags/%E9%9B%B6%E5%88%BB/" style="font-size: 14px; color: #999">零刻</a> <a href="/tags/%E9%9B%B7%E7%94%B53/" style="font-size: 14px; color: #999">雷电3</a> <a href="/tags/%E9%AD%94%E5%85%BD%E4%B8%96%E7%95%8C/" style="font-size: 14px; color: #999">魔兽世界</a> <a href="/tags/%E9%BB%91%E8%8B%B9%E6%9E%9C/" style="font-size: 20.67px; color: #6c6c6c">黑苹果</a> <a href="/tags/%E9%BC%A0%E6%A0%87/" style="font-size: 15.67px; color: #8e8e8e">鼠标</a>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='true'
+      volume='0.7'
+      loop='all'
+      order='random'
+      fixed='false'
+      list-max-height='340px'
+      server='netease'
+      type='playlist'
+      id='3175833810'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml"
+                class="social fas fa-rss flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="mailto:me@xaoxuu.com"
+                class="social fas fa-envelope flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://github.com/xaoxuu"
+                class="social fab fa-github flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/user/home?id=63035382"
+                class="social fas fa-headphones-alt flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        <div><p>Blog content follows the <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+</div>
+      
+    
+      
+        Use
+        <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
+        as theme
+      
+    
+      
+        <div class='copyright'>
+        <p><a target="_blank" rel="noopener" href="https://cuteribs.ga/">版权所有 © 2020 可爱的排骨</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4/dist/jquery.min.js"></script>
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      ScrollReveal().reveal('.l_main .reveal', {
+        distance: '8px',
+        duration: '800',
+        interval: '100',
+        scale: '1'
+      });
+    });
+  </script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://unpkg.com/cuteribs/cdn-assets/wallhaven-01yz8g.png", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-0w8y2r.jpg", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-13xxrv.jpg", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-73jeko.jpg", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-g8mj2e.png", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-j81565.jpg", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-mpo29y.jpg", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-p83gpj.jpg", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-p879v3.jpg", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-qd27z7.png", "https://unpkg.com/cuteribs/cdn-assets/wallhaven-yj8qwg.jpg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('') {
+          $('').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "pvKmMOLxDFw0YR0y7pVFTo0o-MdYXbMMI",
+    appKey: "s40zxIg9wGykkJJiUMy2IHA6",
+    placeholder: "快来评论吧~",
+    pageSize:'20',
+    avatar:'mp',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'false',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.6.5/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/comment_typing.js"></script>
+
+
+
+
+
+
+<!-- 复制 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-check-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-check-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-times-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-times-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  function pjax_fancybox() {
+    $(".article-entry").find("img").not('.inline').not('a img').each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 标准 markdown 描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".article-entry").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  $(function () {
+    pjax_fancybox();
+  });
+</script>
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>
